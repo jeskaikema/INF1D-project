@@ -1,5 +1,6 @@
 <?php
     include_once "../config/config.php";
+    include_once "../helper/NameRole.php";
     if (isset($_POST['submit'])) 
     {
         $email = isset($_POST['email']) ? $_POST['email'] : NULL;
@@ -8,8 +9,7 @@
             echo "vul alle vakken in";
             return 1;
         }
-        $name = explode('@', $email);
-        $fName = explode('.', $name[0]);
+        $name = getName($email);
         $query = "SELECT `email` FROM users WHERE `email` = ?";
         if ($statement = mysqli_prepare($conn, $query)) 
         {
@@ -25,9 +25,10 @@
             }
             include "../helper/session.php";
             $_SESSION['LoggedIn'] = true;
-            $_SESSION['name'] = ucfirst($fName[0]);
+            $_SESSION['name'] = ucfirst($name);
             $_SESSION['email'] = $email;
             echo "Welkom, " . $_SESSION['name'] . ".";
+            echo "<br><a href='logout.php'>Log uit</a>";
         }
         else
         {
