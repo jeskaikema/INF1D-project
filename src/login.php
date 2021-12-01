@@ -24,6 +24,7 @@
         include "../helper/session.php";
         $_SESSION['LoggedIn'] = true;
         $_SESSION['name'] = ucfirst($fName[0]);
+        $_SESSION['email'] = $email;
         echo "Welkom, " . $_SESSION['name'] . ".";
     }
     else 
