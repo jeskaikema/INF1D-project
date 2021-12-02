@@ -15,8 +15,10 @@
             if (mysqli_stmt_execute($statement))
             {
                 mysqli_stmt_bind_result($statement, $role);
-                mysqli_stmt_fetch($statement);
-                return $role;
+                if (mysqli_stmt_fetch($statement)) 
+                {
+                    return $role;    
+                }
             }
             else 
             {
