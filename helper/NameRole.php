@@ -6,15 +6,27 @@
         return $name[0];
     }
 
-    function isStudent($email) 
+    function getRole($email) 
     {
-        $split = explode('@', $email);
-        $role = explode('.', $split[1]);
-        if ($role[0] == "student") {
-            return True;
+        include "../config/config.php";
+        $query = "SELECT `Role` FROM `users` WHERE `email` = ?";
+        if ($statement = mysqli_prepare($conn, $query)) {
+            mysqli_stmt_bind_param($statement, 's', $email);
+            if (mysqli_stmt_execute($statement))
+            {
+                mysqli_stmt_bind_result($statement, $role);
+                while(mysqli_stmt_fetch($statement))
+                {
+                    echo $role;
+                } 
+            }
+            else 
+            {
+                DIE("EXECUTE ERROR");
+            }
         }
-        else 
+        else
         {
-            return False;
+            DIE(mysqli_error($conn));
         }
     }
