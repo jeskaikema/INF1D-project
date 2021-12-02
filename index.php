@@ -1,27 +1,16 @@
-<!doctype html>
-<html class="no-js" lang="">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
-
-  <meta name="theme-color" content="#fafafa">
+	<meta charset="UTF-8">
+	<title>TicketGuru</title>
 </head>
-
 <body>
-
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
-  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
-
+	<form action="src/login.php" method="POST">
+		<label for="email">Email:</label><br>
+		<input type="email" name="email" id="email" placeholder="emailadres"><br>
+		<label for="password">Wachtwoord:</label><br>
+		<input type="password" name="password" id="password" placeholder="wachtwoord"><br>
+		<input type="submit" name="submit" value="inloggen">
+	</form>	
 </body>
-
 </html>
