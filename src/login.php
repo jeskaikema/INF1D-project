@@ -28,6 +28,8 @@
             $_SESSION['name'] = ucfirst($name);
             $_SESSION['email'] = $email;
             echo "Welkom, " . $_SESSION['name'] . ".";
+            echo "<br>";
+            echo getRole($email);
             echo "<br><a href='logout.php'>Log uit</a>";
         }
         else
