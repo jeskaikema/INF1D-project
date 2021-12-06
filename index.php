@@ -3,14 +3,15 @@
 <head>
 	<meta charset="UTF-8">
 	<title>TicketGuru</title>
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<form action="src/login.php" method="POST">
-		<label for="email">Email:</label><br>
-		<input type="email" name="email" id="email" placeholder="emailadres"><br>
-		<label for="password">Wachtwoord:</label><br>
-		<input type="password" name="password" id="password" placeholder="wachtwoord"><br>
-		<input type="submit" name="submit" value="inloggen">
-	</form>	
+	<div class="login-wrapper">
+		<form action="src/login.php" method="POST">
+			<label for="email">Email:</label><br>
+			<input type="email" name="email" id="email" placeholder="emailadres"><br>
+			<input type="submit" name="submit" value="inloggen">
+		</form>
+	</div>	
 </body>
 </html>
