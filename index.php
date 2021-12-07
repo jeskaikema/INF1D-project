@@ -6,12 +6,16 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<div class="login-wrapper">
-		<form action="src/login.php" method="POST">
-			<label for="email">Email:</label><br>
-			<input type="email" name="email" id="email" placeholder="emailadres"><br>
-			<input type="submit" name="submit" value="inloggen">
-		</form>
+	<div id="login-wrapper">
+		<div class="login-container">
+			<div class="img-container">
+				<img src="img/nhlstenden-logo-login.png" alt="nhlstenden logo">
+			</div>
+			<form action="src/login.php" method="POST">
+				<input type="email" name="email" id="email" placeholder="emailadres"><br>
+				<input type="submit" name="submit" value="inloggen">
+			</form>
+		</div>
 	</div>	
 </body>
 </html>
