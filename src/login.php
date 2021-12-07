@@ -32,7 +32,6 @@
             $_SESSION['LoggedIn'] = true;
             $_SESSION['name'] = ucfirst($name);
             $_SESSION['email'] = $email;
-            header("location: ../test.php");
         }
         else
         {
