@@ -2,7 +2,7 @@
 function getStatus($ID)
 {
     include "../config/config.php";
-    $query = "SELECT `Status` FROM `Ticket` WHERE `ID` = ?";
+    $query = "SELECT `Status` FROM `ticket` WHERE `ID` = ?";
     if ($statement = mysqli_prepare($conn, $query)) {
         mysqli_stmt_bind_param($statement, 's', $ID);
         if (mysqli_stmt_execute($statement)) {

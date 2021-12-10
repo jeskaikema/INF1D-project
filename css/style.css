@@ -51,7 +51,6 @@
   margin-right: 0;
 }
 
-
 /*ticketoverzicht*/
 .box {
   width: 100%;
@@ -92,7 +91,7 @@
 .tickettype {
   height: 33px;
   width: 100%;
-  color: white;
+  color: black;
   display: flex;
   justify-content: center;
   align-items: center;

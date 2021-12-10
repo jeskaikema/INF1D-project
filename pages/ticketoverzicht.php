@@ -31,11 +31,11 @@ include_once "../helper/nameRole.php";
         <div class="ticket Priority<?= getPriority($ID) ?>">
             <div class="tickettype">
                 <?php
-                if (getType($ID) === 1) {
+                if (getTypeOfTicket($ID) === 1) {
                     echo "Reservering";
-                } elseif (getType($ID) === 2) {
+                } elseif (getTypeOfTicket($ID) === 2) {
                     echo "Bestelling";
-                } elseif (getType($ID) === 3) {
+                } elseif (getTypeOfTicket($ID) === 3) {
                     echo "Melding";
                 }
                 ?>
@@ -62,7 +62,7 @@ include_once "../helper/nameRole.php";
                         }
                         ?>
                         <br>
-                        <?= getStatus($ID) ?> ?>
+                        <?php echo getStatus($ID) ?> ?>
                     </p>
                 </div>
             </div>

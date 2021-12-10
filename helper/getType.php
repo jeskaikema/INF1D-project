@@ -1,7 +1,7 @@
 <?php
-function getType($ID)
+function getTypeOfTicket($ID)
 {
-    include_once "../config/config.php";
+    include "../config/config.php";
     $query = "SELECT `Room_ID`, `Order_ID` FROM `ticket` WHERE `ID` = ?";
     if ($statement = mysqli_prepare($conn, $query)) {
         mysqli_stmt_bind_param($statement, 'i', $ID);
