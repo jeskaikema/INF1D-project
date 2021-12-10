@@ -10,7 +10,8 @@
     {
         include "../config/config.php";
         $query = "SELECT `Role` FROM `users` WHERE `email` = ?";
-        if ($statement = mysqli_prepare($conn, $query)) {
+        if ($statement = mysqli_prepare($conn, $query))
+        {
             mysqli_stmt_bind_param($statement, 's', $email);
             if (mysqli_stmt_execute($statement))
             {

@@ -50,3 +50,70 @@
   margin-left: auto;
   margin-right: 0;
 }
+
+
+/*ticketoverzicht*/
+.box {
+  width: 100%;
+  height: 340px;
+  display: flex;
+  flex-wrap: nowrap;
+  padding-left: 108px;
+  padding-top: 267px;
+}
+
+.container {
+  padding: 5px;
+  width: 220px;
+}
+
+.ticket {
+  border: solid 2px;
+  border-radius: 10%;
+  width: 219px;
+  height: 219px;
+}
+
+.Priority1 {
+  border-color: #e62328;
+  background-color: #e62328;
+}
+
+.Priority2 {
+  border-color: #009baa;
+  background-color: #009baa;
+}
+
+.Priority3 {
+  border-color: #005aaa;
+  background-color: #005aaa;
+}
+
+.tickettype {
+  height: 33px;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.TicketUpper {
+  height: 33px;
+  background-color: white;
+  margin-bottom: 2px;
+}
+
+.TicketBottom {
+  height: 112px;
+  background-color: white;
+}
+
+.StatusPriority {
+  height: 33px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
