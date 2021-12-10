@@ -3,15 +3,14 @@
     include_once "../helper/NameRole.php";
     if (isset($_POST['submit'])) 
     {
-        $email = isset($_POST['email']) ? $_POST['email'] : NULL;
+        $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+        if (!$email) {
+            echo "Vul een email adres in";
+            return 1;
+        }
         if (empty($email)) 
         {
             echo "vul alle vakken in";
-            return 1;
-        }
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) 
-        {
-            echo "Vul een email adres in";
             return 1;
         }
         $name = getName($email);
