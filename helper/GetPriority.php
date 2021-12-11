@@ -1,7 +1,6 @@
 <?php
-function getPriority($ID)
+function getPriority($conn, $ID)
 {
-    include "../config/config.php";
     $query = "SELECT `Priority` FROM `ticket` WHERE `ID` = ?";
     if ($statement = mysqli_prepare($conn, $query)) {
         mysqli_stmt_bind_param($statement, 's', $ID);

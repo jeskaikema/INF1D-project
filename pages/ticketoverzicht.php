@@ -17,6 +17,7 @@ include_once "../helper/getPriority.php";
 include_once "../helper/getType.php";
 include_once "../helper/getStatus.php";
 include_once "../helper/nameRole.php";
+include_once "../config/config.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,14 +29,14 @@ include_once "../helper/nameRole.php";
 <body>
 <div class="box">
     <div class="container">
-        <div class="ticket Priority<?= getPriority($ID) ?>">
+        <div class="ticket Priority<?= getPriority($conn, $ID) ?>">
             <div class="tickettype">
                 <?php
-                if (getTypeOfTicket($ID) === 1) {
+                if (getTypeOfTicket($conn, $ID) === 1) {
                     echo "Reservering";
-                } elseif (getTypeOfTicket($ID) === 2) {
+                } elseif (getTypeOfTicket($conn, $ID) === 2) {
                     echo "Bestelling";
-                } elseif (getTypeOfTicket($ID) === 3) {
+                } elseif (getTypeOfTicket($conn, $ID) === 3) {
                     echo "Melding";
                 }
                 ?>
@@ -53,16 +54,16 @@ include_once "../helper/nameRole.php";
                 <div>
                     <p>
                         <?php
-                        if (getPriority($ID) === 1) {
+                        if (getPriority($conn, $ID) === 1) {
                             echo "Hoog";
-                        } elseif (getPriority($ID) === 2) {
+                        } elseif (getPriority($conn, $ID) === 2) {
                             echo "Midden";
-                        } elseif (getPriority($ID) === 3) {
+                        } elseif (getPriority($conn, $ID) === 3) {
                             echo "Laag";
                         }
                         ?>
                         <br>
-                        <?php echo getStatus($ID) ?> ?>
+                        <?php echo getStatus($conn, $ID) ?> ?>
                     </p>
                 </div>
             </div>

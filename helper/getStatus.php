@@ -1,7 +1,7 @@
 <?php
-function getStatus($ID)
+function getStatus($conn, $ID)
 {
-    include "../config/config.php";
+    //include "../config/config.php";
     $query = "SELECT `Status` FROM `ticket` WHERE `ID` = ?";
     if ($statement = mysqli_prepare($conn, $query)) {
         mysqli_stmt_bind_param($statement, 's', $ID);
