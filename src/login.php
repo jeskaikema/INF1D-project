@@ -1,6 +1,6 @@
 <?php
     include_once "../config/config.php";
-    include_once "../helper/NameRole.php";
+    include_once "../helper/userInfo.php";
     if (isset($_POST['submit'])) 
     {
         $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
@@ -14,7 +14,7 @@
             return 1;
         }
         $name = getName($email);
-        $query = "SELECT `Email` FROM users WHERE `Email` = ?";
+        $query = "SELECT `Email` FROM user WHERE `Email` = ?";
         if ($statement = mysqli_prepare($conn, $query)) 
         {
             mysqli_stmt_bind_param($statement, 's', $email);
@@ -31,6 +31,7 @@
             $_SESSION['LoggedIn'] = true;
             $_SESSION['name'] = ucfirst($name);
             $_SESSION['email'] = $email;
+            $_SESSION['role'] = getUserInfo($conn, $email, "Role");
         }
         else
         {

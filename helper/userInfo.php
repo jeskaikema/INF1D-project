@@ -6,10 +6,9 @@
         return $name[0];
     }
 
-    function getRole($email) 
+    function getUserInfo($conn, $email, $role) 
     {
-        include "../config/config.php";
-        $query = "SELECT `Role` FROM `users` WHERE `Email` = ?";
+        $query = "SELECT " . $role . " FROM `user` WHERE `Email` = ?";
         if ($statement = mysqli_prepare($conn, $query)) 
         {
             mysqli_stmt_bind_param($statement, 's', $email);
