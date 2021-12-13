@@ -44,7 +44,7 @@
 
 .S-Item:hover{
     background-color: #ffffff;
-    background-opacity: 13%;
+    opacity: 13%;
 }
 
 h4{
