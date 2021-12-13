@@ -2,7 +2,7 @@
     $dbConn = "localhost";
     $dbUser = "root";
     $dbPassword = "";
-    $dbName = "";
+    $dbName = "bottomdesk";
     $conn = mysqli_connect($dbConn, $dbUser, $dbPassword, $dbName);
     if(!$conn)
     {
