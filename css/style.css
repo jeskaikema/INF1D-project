@@ -9,13 +9,11 @@
   width: 100vw;
   height: 100vh;
   background-image: url("../img/login-background.png");
-  /* text-align: center; */
 }
 
 #login-wrapper .login-container {
   background-color: white;
   width: 17%;
-  /* height: 10%; */
   padding: 1rem 2rem;
   margin: auto;
 }
@@ -36,7 +34,6 @@
   margin: 5px 0 20px;
   display: inline-block;
   border: 1px solid #009696;
-  /* border-radius: 5px; */
   box-sizing: border-box;
 }
 
