@@ -14,7 +14,7 @@
             return 1;
         }
         $name = getName($email);
-        $query = "SELECT `Email` FROM users WHERE `Email` = ?";
+        $query = "SELECT `Email` FROM user WHERE `Email` = ?";
         if ($statement = mysqli_prepare($conn, $query)) 
         {
             mysqli_stmt_bind_param($statement, 's', $email);
