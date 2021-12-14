@@ -41,6 +41,10 @@
     border-color: #28A1A3;
     border-radius: 5px;
 }
+.bgr:hover{
+    background-color: white;
+    opacity: 13%;
+}
 
 .S-Item:hover{
     background-color: #ffffff;

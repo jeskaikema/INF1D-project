@@ -15,24 +15,29 @@
             <img src="img/logo-nhl-stenden-2018 wit2.png" alt= witLogo width="102.6px" height="102.6px" style="margin-left:25px;margin-top:auto">
             <div class="S-1">
                 <div class="S-Item">
+                    <div class="bgr"></div>
                     <img src="img/dashboard.png" alt=Dashboard width="20px" height="21px">
-                    <h4>Dashboard</h4>
+                    <h8>Dashboard</h8>
                 </div>
                 <div class="S-Item">
+                    <div class="bgr"></div>
                     <img src="img/mijn tickets.png" alt=Mijn tickets width="19px" height="18px"> 
-                    <h4>Mijn Tickets</h4>
+                    <h8>Mijn Tickets</h8>
                 </div>
                 <div class="S-Item">
+                    <div class="bgr"></div>
                     <img src="img/maak melding.png" alt=Maak melding width="19px" height="18px">
-                    <h4>Maak melding</h4>
+                    <h8>Maak melding</h8>
                 </div>
                 <div class="S-Item">
+                    <div class="bgr"></div>
                     <img src="img/reserveren.png" alt=Reserveren width="19px" height="18px">
-                    <h4>Reserveren</h4>
+                    <h8>Reserveren</h8>
                 </div>
                 <div class="S-Item">
+                    <div class="bgr"></div>
                     <img src="img/privacy.png" alt=Privacy width="12px" height="18px">
-                    <h4>Data privacy</h4>
+                    <h8>Data privacy</h8>
                 </div>
                 <div class="S-Item">
 
