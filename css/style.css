@@ -64,7 +64,7 @@ body {
 .userForm {
   width: 80%;
   margin: 0 auto;
-  flex-flow: column wrap;
+  flex-direction: column;
 }
 
 .userForm input[type="submit"] {

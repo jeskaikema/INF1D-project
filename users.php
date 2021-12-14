@@ -1,4 +1,7 @@
-<?php include_once "helper/session.php"; ?>
+<?php 
+    include_once "helper/session.php";
+    include_once "helper/getErrorMessages.php"; 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,49 +19,55 @@
         <div class="label-input flex">
             <label for="email">Email: </label>
             <div>
-                <div class="error">
-                    <?php echo (isset($_GET['error']) && $_GET['error'] == "emptyField") ? "Vul alle velden in" : NULL; ?>
-                    <?php echo (isset($_GET['error']) && $_GET['error'] == "invalidEmail") ? "Vul een geldig emailadres in" : NULL; ?>
-                    <?php echo (isset($_GET['error']) && $_GET['error'] == "matchError") ? "Naam en emailadres horen niet bij elkaar" : NULL; ?>
-                </div>
+                <?php if ((isset($_GET['error']) && ($_GET['error'] == "emptyField" || $_GET['error'] == "invalidEmail" || $_GET['error'] == "matchError"))): ?>
+                    <div class="error">
+                        <?php echo getErrorMessages($_GET['error']); ?>
+                    </div>
+                <?php endif; ?>
                 <input type="text" name="email" id="email">
             </div>
         </div>
         <div class="label-input flex">
             <label for="fName">Voornaam: </label>
             <div>
-                <div class="error">
-                    <?php echo (isset($_GET['error']) && $_GET['error'] == "emptyField") ? "Vul alle velden in" : NULL; ?>
-                    <?php echo (isset($_GET['error']) && $_GET['error'] == "matchError") ? "Naam en emailadres horen niet bij elkaar" : NULL; ?>
-                </div>
+                <?php if ((isset($_GET['error']) && ($_GET['error'] == "emptyField" || $_GET['error'] == "matchError"))): ?>
+                    <div class="error">
+                        <?php echo getErrorMessages($_GET['error']); ?>
+                    </div>
+                <?php endif; ?>
                 <input type="text" name="fName" id="fName">
             </div>
         </div>
         <div class="label-input flex">
             <label for="lName">Achternaam: </label>
             <div>
-                <div class="error">
-                    <?php echo (isset($_GET['error']) && $_GET['error'] == "emptyField") ? "Vul alle velden in" : NULL; ?>
-                    <?php echo (isset($_GET['error']) && $_GET['error'] == "matchError") ? "Naam en emailadres horen niet bij elkaar" : NULL; ?>
-                </div>
+                <?php if ((isset($_GET['error']) && ($_GET['error'] == "emptyField" || $_GET['error'] == "matchError"))): ?>
+                    <div class="error">
+                        <?php echo getErrorMessages($_GET['error']); ?>
+                    </div>
+                <?php endif; ?>
                 <input type="text" name="lName" id="lName">
             </div>
         </div>
         <div class="label-input flex">
             <label for="department">Afdeling: </label>
             <div>
-                <div class="error">
-                    <?php echo (isset($_GET['error']) && $_GET['error'] == "emptyField") ? "Vul alle velden in" : NULL; ?>
-                </div>
+                <?php if ((isset($_GET['error']) && ($_GET['error'] == "emptyField"))): ?>
+                    <div class="error">
+                        <?php echo getErrorMessages($_GET['error']); ?>
+                    </div>
+                <?php endif; ?>
                 <input type="text" name="department" id="department">
             </div>
         </div>
         <div class="label-input flex">
             <label for="location">Locatie: </label>
             <div>
-                <div class="error">
-                    <?php echo (isset($_GET['error']) && $_GET['error'] == "emptyField") ? "Vul alle velden in" : NULL; ?>
-                </div>
+                <?php if ((isset($_GET['error']) && ($_GET['error'] == "emptyField"))): ?>
+                    <div class="error">
+                        <?php echo getErrorMessages($_GET['error']); ?>
+                    </div>
+                <?php endif; ?>
                 <select name="location" id="location">
                     <option value="emmen" <?php echo ($_SESSION['location'] ==  'emmen') ? "selected" : ""; ?>>Emmen</option>
                     <option value="leeuwarden" <?php echo ($_SESSION['location'] ==  'leeuwarden') ? "selected" : ""; ?>>Leeuwarden</option>
@@ -69,9 +78,11 @@
         <div class="label-input flex">
             <label for="role">Rol: </label>
             <div>
-                <div class="error">
-                    <?php echo (isset($_GET['error']) && $_GET['error'] == "emptyField") ? "Vul alle velden in" : NULL; ?>
-                </div>
+                <?php if ((isset($_GET['error']) && ($_GET['error'] == "emptyField"))): ?>
+                    <div class="error">
+                        <?php echo getErrorMessages($_GET['error']); ?>
+                    </div>
+                <?php endif; ?>
                 <input type="text" name="role" id="role">
             </div>
         </div>
