@@ -5,50 +5,63 @@
 	<title>TicketGuru</title>
 	<link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-<div class=page>
-    <div class="Header">
-    
-    </div>
+    <body>
+    <div class=page>
+        <div class="Header">
+        
+        </div>
 
-    <div class="Sidebar">      
+        <div class="Sidebar">      
             <img src="img/logo-nhl-stenden-2018 wit2.png" alt= witLogo width="102.6px" height="102.6px" style="margin-left:25px;margin-top:auto">
             <div class="S-1">
                 <div class="S-Item">
-                    <div class="bgr"></div>
-                    <img src="img/dashboard.png" alt=Dashboard width="20px" height="21px">
-                    <h8>Dashboard</h8>
+                    <img src="img/dashboard.png" alt=Dashboard width="20px" height="21px" style="margin:auto; margin-left: 8px; margin-right: 4px;">
+                    <h4>Dashboard</h4>
                 </div>
                 <div class="S-Item">
-                    <div class="bgr"></div>
-                    <img src="img/mijn tickets.png" alt=Mijn tickets width="19px" height="18px"> 
-                    <h8>Mijn Tickets</h8>
+                    <img src="img/mijn tickets.png" alt=Mijn tickets width="19px" height="18px" style="margin:auto; margin-left: 8px; margin-right: 4px;"> 
+                    <h4>Mijn Tickets</h4>
                 </div>
                 <div class="S-Item">
-                    <div class="bgr"></div>
-                    <img src="img/maak melding.png" alt=Maak melding width="19px" height="18px">
-                    <h8>Maak melding</h8>
+                    <img src="img/maak melding.png" alt=Maak melding width="19px" height="18px" style="margin:auto; margin-left: 8px; margin-right: 4px;">
+                    <h4>Maak melding</h4>
                 </div>
                 <div class="S-Item">
-                    <div class="bgr"></div>
-                    <img src="img/reserveren.png" alt=Reserveren width="19px" height="18px">
-                    <h8>Reserveren</h8>
+                    <img src="img/reserveren.png" alt=Reserveren width="19px" height="18px" style="margin:auto; margin-left: 8px; margin-right: 4px;">
+                    <h4>Reserveren</h4>
                 </div>
                 <div class="S-Item">
-                    <div class="bgr"></div>
-                    <img src="img/privacy.png" alt=Privacy width="12px" height="18px">
-                    <h8>Data privacy</h8>
+                    <img src="img/privacy.png" alt=Privacy width="12px" height="18px" style="margin:auto; margin-left: 12px; margin-right: 8px;">
+                    <h4>Data privacy</h4>
                 </div>
                 <div class="S-Item">
-
+                    <img src="img/bestelling.png" alt=bestelling width="19px" height="18px" style="margin:auto; margin-left: 8px; margin-right: 5px;">
+                    <h4>Bestellingen</h4>   
                 </div>
-            <div class="S-2">
             </div>
-    </div>
-</div>
-    
-    <div class="main">
+            
 
+            <div class="S-2">
+
+                <div class="S-Item">
+                    <h4>Over ons</h4>
+                </div>
+                <div class="S-Item">
+                    <h4>Need help?</h4>
+                </div>
+            </div>
+
+            <div class="S-3">
+                <div class="S-Item">
+                    <h5>Uitloggen</h5>
+                </div>   
+            </div>
+            
+        </div>
+        
+        <div class="main">
+
+        </div>
     </div>
 
     </body>
