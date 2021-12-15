@@ -7,9 +7,9 @@
             exit();
         }
 
-        if ($_FILES['file']['size'] < 60000)
+        if ($_FILES['file']['size'] < 6300000)
         {
-            $fileTypes = ['image/jpg', 'image/jpeg', 'image/png'];
+            $fileTypes = ['image/jpeg', 'image/png', "image/svg+xml", 'application/pdf', 'text/plain'];
             $target = "../img/ticketimg/" . basename($_FILES['file']['name']);
             $uploadedFileType = finfo_file(finfo_open(FILEINFO_MIME_TYPE), $_FILES["file"]["tmp_name"]);
 
