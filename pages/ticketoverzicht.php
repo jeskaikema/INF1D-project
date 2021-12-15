@@ -16,7 +16,7 @@ include_once "../helper/loggedin.php";
 include_once "../helper/getPriority.php";
 include_once "../helper/getType.php";
 include_once "../helper/getStatus.php";
-include_once "../helper/nameRole.php";
+include_once "../helper/userInfo.php";
 include_once "../config/config.php";
 ?>
 <!DOCTYPE html>
@@ -29,7 +29,7 @@ include_once "../config/config.php";
 <body>
 <div class="box">
     <div class="container">
-        <div class="ticket Priority<?= getPriority($conn, $ID) ?>">
+        <div class="ticket Priority<?php echo getPriority($conn, $ID) ?>">
             <div class="tickettype">
                 <?php
                 if (getTypeOfTicket($conn, $ID) === 1) {
@@ -42,30 +42,47 @@ include_once "../config/config.php";
                 ?>
             </div>
             <div class="TicketUpper">test</div>
-            <div class="TicketBottom">test</div>
+            <div class="TicketBottom">
+                <?php
+                if (getTypeOfTicket($conn, $ID) === 1) {
+                    echo "Vestiging: ".getVestiging($conn, $ID)
+                        ."<br>Datum: ".getDate($conn, $ID)
+                        ."<br>Tijd: ".getBeginTijd($conn, $ID)." - ".getEindTijd($conn, $ID)
+                        ."<br>Kamernummer: ".getRoom($conn, $ID);
+                } elseif (getTypeOfTicket($conn, $ID) === 2) {
+                    echo "Vestiging: ".getVestiging($conn, $ID)
+                        ."<br>Prijs: ".getPrijs($conn, $ID)
+                        ."<br>Korte omschrijving: ".getKorteOmschrijving($conn, $ID);
+                } elseif (getTypeOfTicket($conn, $ID) === 3) {
+                    echo "Korte omschrijving: ".getKorteOmschrijving($conn, $ID);
+                }
+                ?>
+            </div>
             <div class="StatusPriority">
-                <div>
-                    <p>
-                        Prioriteit:
-                        <br>
-                        Status:
-                    </p>
-                </div>
-                <div>
-                    <p>
-                        <?php
-                        if (getPriority($conn, $ID) === 1) {
-                            echo "Hoog";
-                        } elseif (getPriority($conn, $ID) === 2) {
-                            echo "Midden";
-                        } elseif (getPriority($conn, $ID) === 3) {
-                            echo "Laag";
-                        }
-                        ?>
-                        <br>
-                        <?php echo getStatus($conn, $ID) ?> ?>
-                    </p>
-                </div>
+                <span>
+                    <div>
+                        <p>
+                            Prioriteit:
+                            <br>
+                            Status:
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            <?php
+                            if (getPriority($conn, $ID) === 1) {
+                                echo "Hoog";
+                            } elseif (getPriority($conn, $ID) === 2) {
+                                echo "Midden";
+                            } elseif (getPriority($conn, $ID) === 3) {
+                                echo "Laag";
+                            }
+                            ?>
+                            <br>
+                            <?php echo getStatus($conn, $ID) ?> ?>
+                        </p>
+                    </div>
+                </span>
             </div>
         </div>
     </div>
