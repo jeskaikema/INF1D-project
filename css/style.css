@@ -2,6 +2,11 @@
   padding: 0;
   margin: 0;
   font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #e8e8e8;
 }
 
 #login-wrapper {
@@ -9,13 +14,11 @@
   width: 100vw;
   height: 100vh;
   background-image: url("../img/login-background.png");
-  /* text-align: center; */
 }
 
 #login-wrapper .login-container {
   background-color: white;
   width: 17%;
-  /* height: 10%; */
   padding: 1rem 2rem;
   margin: auto;
 }
@@ -30,13 +33,12 @@
   width: 100%;
 }
 
-#login-wrapper form input[type="email"] {
+#login-wrapper form input[type="text"] {
   width: 100%;
   padding: 5px 10px;
   margin: 5px 0 20px;
   display: inline-block;
   border: 1px solid #009696;
-  /* border-radius: 5px; */
   box-sizing: border-box;
 }
 
@@ -115,4 +117,57 @@
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
+}
+
+.users-title {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.userForm {
+  width: 80%;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+.userForm input[type="submit"] {
+  width: 100%;
+  background-color: #005aaa;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.label-input {
+  margin: 1rem 0;
+  justify-content: space-between;
+}
+
+.label-input div {
+  width: 45%;
+}
+
+.label-input input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  padding: 8px 20px;
+}
+
+.label-input select {
+  border-radius: 4px;
+  width: 100%;
+  padding: 8px 20px;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+.error {
+  color: red;
 }

@@ -1,18 +1,18 @@
 <?php
     include_once "../config/config.php";
-    include_once "../helper/NameRole.php";
+    include_once "../helper/userInfo.php";
     if (isset($_POST['submit'])) 
     {
-        $email = isset($_POST['email']) ? $_POST['email'] : NULL;
-        if (empty($email)) 
+        if (empty($_POST['email'])) 
         {
-            echo "vul alle vakken in";
-            return 1;
+            header("location: ../index.php?error=emptyError");
+            exit();
         }
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) 
+        $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+        if (!$email) 
         {
-            echo "Vul een email adres in";
-            return 1;
+            header("location: ../index.php?error=invalidEmail");
+            exit();
         }
         $name = getName($email);
         $query = "SELECT `Email` FROM user WHERE `Email` = ?";
@@ -26,12 +26,15 @@
             mysqli_stmt_store_result($statement);
             if (mysqli_stmt_num_rows($statement) == 0) 
             {
-                DIE("USER DOES NOT EXIST");
+                header("location: ../index.php?error=nonexistantUser");
+                exit();
             }
             include "../helper/session.php";
             $_SESSION['LoggedIn'] = true;
             $_SESSION['name'] = ucfirst($name);
             $_SESSION['email'] = $email;
+            $_SESSION['role'] = getUserInfo($conn, $email, "Role");
+            $_SESSION['location'] = lcfirst(getUserInfo($conn, $email, "Location"));
             header("location: ../pages/ticketoverzicht.php");
         }
         else
