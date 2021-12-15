@@ -1,6 +1,5 @@
 <?php
-    include_once "config/config.php";
-    include_once "src/order.php";
+    include_once "helper/session.php";
 ?>
 
 <!DOCTYPE html>
@@ -16,8 +15,17 @@
     <form action="src/order.php" method="POST">
         <label for="email2">email: </label>
         <input type="text" name="email" id="email2">
-        <label for="email2">email: </label>
-        <input type="text" name="email" id="email2">
+        <label for="phonenumber">phonenumber: </label>
+        <input type="text" name="phonenumber" id="phonenumber">
+        <label for="description">description: </label>
+        <textarea name="description" id="description" cols="30" rows="10"></textarea>
+        <label for="priority">prioriteit: </label>
+        <input type="text" name="priority" id="priority">
+        <label for="location">locatie: </label>
+        <input type="text" name="location" id="location">
+        <label for="price">prijs: </label>
+        <input type="text" name="price" id="price">
+        <input type="submit" name="submit" value="submit">
     </form>
 </body>
 </html>

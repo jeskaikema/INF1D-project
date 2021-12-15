@@ -1,4 +1,5 @@
 <?php
+    include_once "../config/config.php";
     //bron: https://stackoverflow.com/questions/4565195/mysql-how-to-insert-into-multiple-tables-with-foreign-keys
     function placeOrder($conn, $price, $email, $phoneNumber, $description, $priority, $location)
     {
@@ -30,4 +31,16 @@
                 DIE("EXECUTE ERROR");
             }
         }
+    }
+
+    if (isset($_POST['submit']))
+    {
+        $email = (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) ? $_POST['email'] : "invalid";
+        $phoneNumber = $_POST['phonenumber'];
+        $description = $_POST['description'];
+        $priority = $_POST['priority'];
+        $location = $_POST['location'];
+        $price = $_POST['price'];
+
+        placeOrder($conn, $price, $email, $phoneNumber, $description, $priority, $location);
     }
