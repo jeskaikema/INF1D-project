@@ -25,7 +25,7 @@
             //bron: https://stackoverflow.com/questions/20159655/how-to-get-gmt-date-in-yyyy-mm-dd-hhmmss-in-php
             $date = date('Y-m-d H:i:s \G\M\T', time());
 
-            mysqli_stmt_bind_param($statement2, 'siississ', $email, $order_id, $phoneNumber, $description, $priority, $location, $date);
+            mysqli_stmt_bind_param($statement2, 'siississ', $email, $order_id, $phoneNumber, $description, $file, $priority, $location, $date);
 
             if (!mysqli_stmt_execute($statement2))
             {
@@ -39,15 +39,15 @@
         $email = (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) ? $_POST['email'] : "invalid";
         $phoneNumber = $_POST['phonenumber'];
         $description = $_POST['description'];
-        $file = $_FILE['name'];
-        if (validateFile() == 1) 
+        $file = $_FILES['file'];
+        if (validateFile($file) == 1) 
         {
-            $target = "../img/ticketimg/" . $_FILES['file']['name'];
-            move_uploaded_file($_FILES["file"]["tmp_name"], $target);
+            $target = "../img/ticketimg/" . $file['name'];
+            move_uploaded_file($file["tmp_name"], $target);
         }
         $priority = $_POST['priority'];
         $location = $_POST['location'];
         $price = $_POST['price'];
 
-        placeOrder($conn, $price, $email, $phoneNumber, $description, $_FILES['file']['name'],  $priority, $location);
+        placeOrder($conn, $price, $email, $phoneNumber, $description, $file['name'],  $priority, $location);
     }
