@@ -1,7 +1,8 @@
 <?php
     include_once "../config/config.php";
+    include_once "../helper/validateFile.php";
     //bron: https://stackoverflow.com/questions/4565195/mysql-how-to-insert-into-multiple-tables-with-foreign-keys
-    function placeOrder($conn, $price, $email, $phoneNumber, $description, $priority, $location)
+    function placeOrder($conn, $price, $email, $phoneNumber, $description, $file, $priority, $location)
     {
         $query = "INSERT INTO `order` (Price) VALUES (?)";
 
@@ -17,14 +18,14 @@
 
         $order_id = mysqli_insert_id($conn);
 
-        $query2 = "INSERT INTO `ticket` (User_Email, Order_ID, Phone_Number, `Description`, Priority, `Location`, Ticket_Date) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $query2 = "INSERT INTO `ticket` (User_Email, Order_ID, Phone_Number, `Description`, `File`, Priority, `Location`, Ticket_Date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         if ($statement2 = mysqli_prepare($conn, $query2))
         {
             //bron: https://stackoverflow.com/questions/20159655/how-to-get-gmt-date-in-yyyy-mm-dd-hhmmss-in-php
             $date = date('Y-m-d H:i:s \G\M\T', time());
 
-            mysqli_stmt_bind_param($statement2, 'siisiss', $email, $order_id, $phoneNumber, $description, $priority, $location, $date);
+            mysqli_stmt_bind_param($statement2, 'siississ', $email, $order_id, $phoneNumber, $description, $priority, $location, $date);
 
             if (!mysqli_stmt_execute($statement2))
             {
@@ -38,9 +39,15 @@
         $email = (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) ? $_POST['email'] : "invalid";
         $phoneNumber = $_POST['phonenumber'];
         $description = $_POST['description'];
+        $file = $_FILE['name'];
+        if (validateFile() == 1) 
+        {
+            $target = "../img/ticketimg/" . $_FILES['file']['name'];
+            move_uploaded_file($_FILES["file"]["tmp_name"], $target);
+        }
         $priority = $_POST['priority'];
         $location = $_POST['location'];
         $price = $_POST['price'];
 
-        placeOrder($conn, $price, $email, $phoneNumber, $description, $priority, $location);
+        placeOrder($conn, $price, $email, $phoneNumber, $description, $_FILES['file']['name'],  $priority, $location);
     }
