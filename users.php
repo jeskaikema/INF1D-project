@@ -15,7 +15,7 @@
     <div class="users-title">
         <h1>Nieuwe Gebruiker</h1>
     </div>
-    <form action="src/insertUser.php" method="post" class="userForm flex">
+    <form action="src/insertUser.php" method="post" class="form flex">
         <div class="label-input flex">
             <label for="email">Email: </label>
             <div>

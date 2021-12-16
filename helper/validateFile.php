@@ -1,9 +1,9 @@
 <?php
-    function validateFile($file)
+    function validateFile($file, $page)
     {
         if($file['error'] > 0)
         {
-            header("location: ../orderForm.php?error=uploadError");
+            header("location: ../" . $page . "?error=uploadError");
             exit();
         }
 
@@ -16,20 +16,20 @@
             {
                 if (file_exists("../img/ticketimg/" . $file['name']))
                 {
-                    header("location: ../orderForm.php?error=fileExists");
+                    header("location: ../" . $page . "?error=fileExists");
                     exit();
                 }
             }
             else
             {
-                header("location: ../orderForm.php?error=typeError");
+                header("location: ../" . $page . "?error=typeError");
                 exit();
             }
             return 1;
         }
         else
         {
-            header("location: ../orderForm.php?error=sizeError");
+            header("location: ../" . $page . "?error=sizeError");
             exit();
         }
     }

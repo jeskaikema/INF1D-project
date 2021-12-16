@@ -13,4 +13,8 @@
         {
             return "De opgegeven naam en het opgegeven emailadres horen niet bij elkaar";
         }
+        if ($error = "invalidPhoneNumber")
+        {
+            return "Ongeldig telefoonnummer";
+        }
     }

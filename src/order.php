@@ -1,6 +1,7 @@
 <?php
     include_once "../config/config.php";
     include_once "../helper/validateFile.php";
+    include_once "../helper/checkPhoneNumber.php";
     //bron: https://stackoverflow.com/questions/4565195/mysql-how-to-insert-into-multiple-tables-with-foreign-keys
     function placeOrder($conn, $price, $email, $phoneNumber, $description, $file, $priority, $location)
     {
@@ -40,14 +41,24 @@
         $phoneNumber = $_POST['phonenumber'];
         $description = $_POST['description'];
         $file = $_FILES['file'];
-        if (validateFile($file) == 1) 
+
+        if (validateFile($file, "orderForm.php") == 1) 
         {
-            $target = "../img/ticketimg/" . $file['name'];
+            $target = "../img/ticketassets/" . $file['name'];
             move_uploaded_file($file["tmp_name"], $target);
         }
+
         $priority = $_POST['priority'];
         $location = $_POST['location'];
         $price = $_POST['price'];
+
+        if (!checkPhoneNumber($phoneNumber))
+        {
+            header("location: ../orderForm.php?error=invalidPhoneNumber");
+            exit();
+        }
+
+
 
         placeOrder($conn, $price, $email, $phoneNumber, $description, $file['name'],  $priority, $location);
     }
