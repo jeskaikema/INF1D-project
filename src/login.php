@@ -35,7 +35,7 @@
             $_SESSION['email'] = $email;
             $_SESSION['role'] = getUserInfo($conn, $email, "Role");
             $_SESSION['location'] = lcfirst(getUserInfo($conn, $email, "Location"));
-            header("location: ../users.php");
+            header("location: ../pages/ticketoverzicht.php");
         }
         else
         {
