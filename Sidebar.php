@@ -31,7 +31,7 @@
             <div class= "top">
                 <div class= "groep">
                     <div class= "groepskleur">
-                        <div class="gkleur <?php echo $color; ?>"></div> 
+                        <div class="gkleur <?php echo $color; ?>"><div class= "dot"></div></div> 
                     </div>
                     <div class="groepsnaam">
                         <?php echo $groep; ?>                    
