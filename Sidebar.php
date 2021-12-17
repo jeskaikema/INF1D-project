@@ -27,17 +27,19 @@
 
     ?>
     <div class="page">
-        <div class= "header">
+        <header>
             <div class= "top">
                 <div class= "groep">
                     <div class= "groepskleur">
-                        <div class="gkleur <?php echo $color; ?>"> <div class= "dot"></div> </div> 
+                        <div class="gkleur <?php echo $color; ?>"></div> 
                     </div>
-                    <div class="groepsnaam"> <?php echo $groep; ?> </div>
+                    <div class="groepsnaam">
+                        <?php echo $groep; ?>                    
+                    </div>
                 </div>
                 <img src="img/mannelijk-silhouet-avatar-profielfoto.png" alt=avatar width="85px" height="85px" style="margin-top: 6px;">  
             </div>
-        </div>
+        </header>
 
         <div class="Sidebar">      
             <img src="img/logo-nhl-stenden-2018 wit2.png" alt= witLogo width="133px" height="128px" style="margin-left:25px;margin-top:15px">
