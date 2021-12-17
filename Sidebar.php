@@ -6,9 +6,36 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
     <body>
-    <div class=page>
-        <div class="Header">
-        
+    <?php $groep = "Manager";
+
+    $color=getColor($groep);
+
+    function getColor($groupcolor){
+    
+        // Is goup Student
+        if($groupcolor=== "Student") return "green";
+    
+        // Is group Docent
+        if($groupcolor=== "Docent") return "blue";
+    
+        // Is goup Manager
+        if($groupcolor=== "Manager") return "red";
+    
+        // Return default (black) for all other numbers
+        return "black";
+    }
+    ?>
+    <div class="page">
+        <div class= "header">
+            <div class= "top">
+                <div class= "groep">
+                    <div class= "groepskleur">
+                        <div class= "g-kleur" style='backgroundcolor:<?php=$color?>'></div>
+                    </div>
+                    <div class="groepsnaam"><?php echo $groep; ?></div>
+                </div>
+                <img src="img/mannelijk-silhouet-avatar-profielfoto.png" alt=Dashboard>  
+            </div>
         </div>
 
         <div class="Sidebar">      

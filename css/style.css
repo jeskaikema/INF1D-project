@@ -8,6 +8,12 @@
   margin: auto auto;
 }
 
+.groepskleur {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
 .Sidebar {
   position: fixed;
   margin: 6px;
