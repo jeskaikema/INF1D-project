@@ -8,10 +8,37 @@
   margin: auto auto;
 }
 
-.groepskleur {
-  height: 50px;
-  width: 50px;
+.top {
+ display: flex;
+ flex-direction: column;
+}
+
+.gkleur {
+  height: 20px;
+  width: 20px;
   border-radius: 50%;
+  background-color: blue;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.dot{
+  background-color: #AEAEAE;
+  border: #646262;
+  border-width: 1px;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
 }
 
 .Sidebar {
