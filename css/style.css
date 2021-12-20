@@ -120,6 +120,7 @@ body {
 }
 
 .users-title {
+  margin-top: 1rem;
   text-align: center;
 }
 
@@ -178,10 +179,32 @@ body {
 
 .error {
   color: red;
-
 }
 
 textarea {
   resize: none;
 }
 
+.faq-page {
+  width: 80%;
+  margin: 1rem auto 0;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.faq:last-child {
+  border: none;
+}
+
+.faq {
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+.question {
+  margin: 2rem 0;
+}
+
+.answer {
+  margin: 2rem 0;
+}
