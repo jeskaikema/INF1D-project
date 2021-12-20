@@ -40,6 +40,7 @@
         $email = (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) ? $_POST['email'] : "invalid";
         $phoneNumber = $_POST['phonenumber'];
         $description = $_POST['description'];
+        $priority = 3;
         $file = $_FILES['file'];
 
         if (validateFile($file, "orderForm.php") == 1) 
@@ -47,8 +48,6 @@
             $target = "../img/ticketassets/" . $file['name'];
             move_uploaded_file($file["tmp_name"], $target);
         }
-
-        $priority = $_POST['priority'];
         $location = $_POST['location'];
         $price = $_POST['price'];
 
