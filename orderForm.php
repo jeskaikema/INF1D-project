@@ -20,12 +20,12 @@
         <div class="label-input flex">
             <label for="email">Email: </label>
             <div>
-                <?php if ((isset($_GET['error']) && ($_GET['error'] == "emptyField" || $_GET['error'] == "invalidEmail" || $_GET['error'] == "matchError"))): ?>
-                    <div class="error">
-                        <?php echo getErrorMessages($_GET['error']); ?>
-                    </div>
-                <?php endif; ?>
-                <input type="text" name="email" id="email">
+                <?php //if ((isset($_GET['error']) && ($_GET['error'] == "emptyField" || $_GET['error'] == "invalidEmail" || $_GET['error'] == "matchError"))): ?>
+                    <!-- <div class="error"> -->
+                        <?php //echo getErrorMessages($_GET['error']); ?>
+                    <!-- </div> -->
+                <?php //endif; ?>
+                <input type="text" name="email" id="email" value=<?php echo $_SESSION['email']; ?> readonly>
             </div>
         </div>
         <div class="label-input flex">

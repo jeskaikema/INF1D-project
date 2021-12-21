@@ -14,7 +14,7 @@
 
             if (in_array($uploadedFileType, $fileTypes))
             {
-                if (file_exists("../img/ticketimg/" . $file['name']))
+                if (file_exists("../img/ticketassets/" . $file['name']))
                 {
                     header("location: ../" . $page . "?error=fileExists");
                     exit();

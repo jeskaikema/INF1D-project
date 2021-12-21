@@ -19,14 +19,16 @@
 
         $order_id = mysqli_insert_id($conn);
 
-        $query2 = "INSERT INTO `ticket` (User_Email, Order_ID, Phone_Number, `Description`, `File`, Priority, `Location`, Ticket_Date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $query2 = "INSERT INTO `ticket` (User_Email, Order_ID, Phone_Number, `Description`, `File`, `Status`, Priority, `Location`, Ticket_Date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         if ($statement2 = mysqli_prepare($conn, $query2))
         {
             //bron: https://stackoverflow.com/questions/20159655/how-to-get-gmt-date-in-yyyy-mm-dd-hhmmss-in-php
+            $status = "nieuw";
+            
             $date = date('Y-m-d H:i:s \G\M\T', time());
 
-            mysqli_stmt_bind_param($statement2, 'siississ', $email, $order_id, $phoneNumber, $description, $file, $priority, $location, $date);
+            mysqli_stmt_bind_param($statement2, 'siisssiss', $email, $order_id, $phoneNumber, $description, $file, $status, $priority, $location, $date);
 
             if (!mysqli_stmt_execute($statement2))
             {
@@ -42,6 +44,12 @@
         $description = $_POST['description'];
         $priority = 3;
         $file = $_FILES['file'];
+
+        // if ($email != $_SESSION['email'])
+        // {
+        //     header("location: ../orderForm.php?error=diffEmail");
+        //     exit();
+        // }
 
         if (validateFile($file, "orderForm.php") == 1) 
         {
@@ -59,5 +67,5 @@
 
 
 
-        placeOrder($conn, $price, $email, $phoneNumber, $description, $file['name'],  $priority, $location);
+        placeOrder($conn, $price, $email, $phoneNumber, $description, $file['name'], $priority, $location);
     }
