@@ -1,5 +1,5 @@
 <?php
-include_once("helper/session.php");
+include_once("../helper/session.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
