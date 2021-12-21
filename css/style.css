@@ -53,6 +53,15 @@ body {
   margin-right: 0;
 }
 
+#container {
+  display: flex;
+}
+
+#sub-container {
+  width: 88.5vw;
+  margin-left: 11.5vw;
+}
+
 /*ticketoverzicht*/
 .box {
   width: 100%;
@@ -262,7 +271,7 @@ textarea {
   margin: 0px;
   flex-direction: column;
   height: 300px;
-  width: 23.25vh;
+  width: 100%;
 }
 
 .S-2 {
@@ -271,7 +280,7 @@ textarea {
   flex-wrap: nowrap;
   flex-direction: column;
   height: 50px;
-  width: 23.25vh;
+  width: 100%;
   text-align-last: center;
 }
 
@@ -281,7 +290,7 @@ textarea {
   flex-wrap: nowrap;
   flex-direction: column;
   height: 50px;
-  width: 23.25vh;
+  width: 100%;
   text-align-last: center;
 }
 
@@ -329,7 +338,7 @@ textarea {
 header {
   height: 118px;
   width: 88vw;
-  margin: 10px 10px 10px 11.5vw;
+  margin: 10px 10px 10px 0;
   background-color: gray;
 }
 
