@@ -71,7 +71,7 @@ include_once "helper/getErrorMessages.php";
         </div>
     </div>
     <div class="label-input flex">
-        <label for="location">Begintijd: </label>
+        <label for="Begintijd">Begintijd: </label>
         <div>
             <?php if ((isset($_GET['error']) && ($_GET['error'] == "emptyField"))): ?>
                 <div class="error">
@@ -79,9 +79,10 @@ include_once "helper/getErrorMessages.php";
                 </div>
             <?php endif; ?>
         </div>
+        <input id="Begintijd" type="time" value="08:30">
     </div>
     <div class="label-input flex">
-        <label for="location">Eindtijd: </label>
+        <label for="Eindtijd">Eindtijd: </label>
         <div>
             <?php if ((isset($_GET['error']) && ($_GET['error'] == "emptyField"))): ?>
                 <div class="error">
@@ -89,9 +90,10 @@ include_once "helper/getErrorMessages.php";
                 </div>
             <?php endif; ?>
         </div>
+        <input id="Eindtijd" type="time" value="09:00">
     </div>
     <div class="label-input flex">
-        <label for="location">Datum: </label>
+        <label for="Datum">Datum: </label>
         <div>
             <?php if ((isset($_GET['error']) && ($_GET['error'] == "emptyField"))): ?>
                 <div class="error">
@@ -99,6 +101,7 @@ include_once "helper/getErrorMessages.php";
                 </div>
             <?php endif; ?>
         </div>
+        <input id="Datum" type="date">
     </div>
     <input type="submit" name="submit" value="submit">
 </form>
