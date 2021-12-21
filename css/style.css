@@ -351,3 +351,17 @@ header {
   display: flex;
   margin: auto 5rem auto;
 }
+
+/* userView.php */
+.userContainer{
+  border-radius: 25px;
+  width: 35%;
+  float: left;
+  margin: 25px 5%;
+  padding: 5px 10px;
+  background-color: white;
+}
+
+#userViewForm{
+  margin-left: 5%;
+}
