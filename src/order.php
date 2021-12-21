@@ -50,11 +50,12 @@
         //     header("location: ../orderForm.php?error=diffEmail");
         //     exit();
         // }
-
-        if (validateFile($file, "orderForm.php") == 1) 
-        {
-            $target = "../img/ticketassets/" . $file['name'];
-            move_uploaded_file($file["tmp_name"], $target);
+        if (isset($_POST['file'])) {
+            if (validateFile($file, "orderForm.php") == 1) 
+            {
+                $target = "../img/ticketassets/" . $file['name'];
+                move_uploaded_file($file["tmp_name"], $target);
+            }
         }
         $location = $_POST['location'];
         $price = $_POST['price'];
