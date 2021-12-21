@@ -208,3 +208,137 @@ textarea {
 .answer {
   margin: 2rem 0;
 }
+
+.top {
+  display: flex;
+  height: 100%;
+  justify-content: end;
+  margin: auto 5rem 0;
+}
+
+.gkleur {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: blue;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.dot {
+  background-color: #aeaeae;
+  border: #646262;
+  border-width: 1px;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
+
+.Sidebar {
+  position: fixed;
+  margin: 6px;
+  width: 11.5vw;
+  height: 98vh;
+  background-image: url("../img/S.Bg.PNG");
+  background-size: contain;
+  border-radius: 20px;
+  border: #005aaa;
+  border-width: 2px;
+}
+
+.S-1 {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 0px;
+  flex-direction: column;
+  height: 300px;
+  width: 23.25vh;
+}
+
+.S-2 {
+  margin: 75px auto 0;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  height: 50px;
+  width: 23.25vh;
+  text-align-last: center;
+}
+
+.S-3 {
+  margin: 120px auto 0;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  height: 50px;
+  width: 23.25vh;
+  text-align-last: center;
+}
+
+.S-Item {
+  margin: 10px auto 0;
+  vertical-align: auto;
+  display: flex;
+  flex-direction: row;
+  height: 38px;
+  width: 80%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #28a1a3;
+  border-radius: 8px;
+  color: white;
+}
+
+.S-Item:hover {
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.Sidebar h4 {
+  color: white;
+  width: 100%;
+  margin: 12px auto 12px;
+  font-size: 12px;
+}
+
+.Sidebar a {
+  text-decoration: none;
+  width: 100%;
+}
+
+.S-3 a {
+  margin: auto auto;
+  color: white;
+}
+
+.S-3 h5 {
+  width: 100%;
+  font-size: 20px;
+  margin: 12px auto 12px;
+}
+
+header {
+  height: 118px;
+  width: 88vw;
+  margin: 10px 10px 10px 11.5vw;
+  background-color: gray;
+}
+
+.page {
+  display: flex;
+  /* flex-direction: row-reverse; */
+}
+
+.groep {
+  display: flex;
+  margin: auto 5rem auto;
+}
