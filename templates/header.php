@@ -8,6 +8,6 @@
                 <?php //echo $groep; ?>                    
             </div>
         </div> -->
-        <img src="img/mannelijk-silhouet-avatar-profielfoto.png" alt=avatar width="85px" height="85px" style="margin-top: 6px;">  
+        <img src="../img/mannelijk-silhouet-avatar-profielfoto.png" alt=avatar width="85px" height="85px" style="margin-top: 6px;">  
     </div>
 </header>

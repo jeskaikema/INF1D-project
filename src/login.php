@@ -5,13 +5,13 @@
     {
         if (empty($_POST['email'])) 
         {
-            header("location: ../index.php?error=emptyError");
+            header("location: ../pages/index.php?error=emptyError");
             exit();
         }
         $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
         if (!$email) 
         {
-            header("location: ../index.php?error=invalidEmail");
+            header("location: ../pages/index.php?error=invalidEmail");
             exit();
         }
         $name = getName($email);
@@ -26,7 +26,7 @@
             mysqli_stmt_store_result($statement);
             if (mysqli_stmt_num_rows($statement) == 0) 
             {
-                header("location: ../index.php?error=nonexistantUser");
+                header("location: ../pages/index.php?error=nonexistantUser");
                 exit();
             }
             include "../helper/session.php";
@@ -36,7 +36,7 @@
             $_SESSION['role'] = getUserInfo($conn, $email, "Role");
             $_SESSION['location'] = lcfirst(getUserInfo($conn, $email, "Location"));
             $_SESSION['department'] = getUserInfo($conn, $email, "Department");
-            header("location: ../pages/ticketoverzicht.php");
+            header("location: ../pages/userOverView.php");
         }
         else
         {

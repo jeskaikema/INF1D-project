@@ -1,63 +1,64 @@
-<?php 
-    include_once "helper/session.php";
-    include_once "helper/getErrorMessages.php"; 
+<?php
+    include_once "../helper/session.php";
+    include_once "../helper/getErrorMessages.php";
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php include "templates/head.php"; ?>
+    <?php include "../templates/head.php"; ?>
 </head>
 <body>
     <div id="container">
-        <?php include "templates/sidebar.php"; ?>
+        <?php include "../templates/sidebar.php"; ?>
         <div id="sub-container">
-            <?php include "templates/header.php"; ?>
+            <?php include "../templates/header.php"; ?>
             <div class="users-title">
-                <h1>Nieuwe Gebruiker</h1>
+                <h1>Bestelling Plaatsen</h1>
             </div>
-            <form action="src/insertUser.php" method="post" class="form flex">
+            <form action="../src/order.php" method="POST" enctype="multipart/form-data" class="form flex">
                 <div class="label-input flex">
                     <label for="email">Email: </label>
                     <div>
-                        <?php if ((isset($_GET['error']) && ($_GET['error'] == "emptyField" || $_GET['error'] == "invalidEmail" || $_GET['error'] == "matchError"))): ?>
-                            <div class="error">
-                                <?php echo getErrorMessages($_GET['error']); ?>
-                            </div>
-                        <?php endif; ?>
-                        <input type="text" name="email" id="email">
+                        <?php //if ((isset($_GET['error']) && ($_GET['error'] == "emptyField" || $_GET['error'] == "invalidEmail" || $_GET['error'] == "matchError"))): ?>
+                            <!-- <div class="error"> -->
+                                <?php //echo getErrorMessages($_GET['error']); ?>
+                            <!-- </div> -->
+                        <?php //endif; ?>
+                        <input type="text" name="email" id="email" value=<?php echo $_SESSION['email']; ?> readonly>
                     </div>
                 </div>
                 <div class="label-input flex">
-                    <label for="fName">Voornaam: </label>
+                    <label for="fName">Telefoonnummer: </label>
                     <div>
-                        <?php if ((isset($_GET['error']) && ($_GET['error'] == "emptyField" || $_GET['error'] == "matchError"))): ?>
+                        <?php if ((isset($_GET['error']) && ($_GET['error'] == "invalidPhoneNumber"))): ?>
                             <div class="error">
                                 <?php echo getErrorMessages($_GET['error']); ?>
                             </div>
                         <?php endif; ?>
-                        <input type="text" name="fName" id="fName">
+                        <input type="text" name="phonenumber" id="phonenumber">
                     </div>
                 </div>
                 <div class="label-input flex">
-                    <label for="lName">Achternaam: </label>
-                    <div>
-                        <?php if ((isset($_GET['error']) && ($_GET['error'] == "emptyField" || $_GET['error'] == "matchError"))): ?>
-                            <div class="error">
-                                <?php echo getErrorMessages($_GET['error']); ?>
-                            </div>
-                        <?php endif; ?>
-                        <input type="text" name="lName" id="lName">
-                    </div>
-                </div>
-                <div class="label-input flex">
-                    <label for="department">Afdeling: </label>
+                    <label for="lName">Beschrijving: </label>
                     <div>
                         <?php if ((isset($_GET['error']) && ($_GET['error'] == "emptyField"))): ?>
                             <div class="error">
                                 <?php echo getErrorMessages($_GET['error']); ?>
                             </div>
                         <?php endif; ?>
-                        <input type="text" name="department" id="department">
+                        <textarea name="description" id="description" cols="55" rows="10"></textarea>
+                    </div>
+                </div>
+                <div class="label-input flex">
+                    <label for="department">bestand: </label>
+                    <div>
+                        <?php if ((isset($_GET['error']) && ($_GET['error'] == "uploadError" || $_GET['error'] == "fileExists" || $_GET['error'] == "typeError" || $_GET['error'] == "sizeError"))): ?>
+                            <div class="error">
+                                <?php echo getErrorMessages($_GET['error']); ?>
+                            </div>
+                        <?php endif; ?>
+                        <input type="file" name="file" id="file">
                     </div>
                 </div>
                 <div class="label-input flex">
@@ -81,14 +82,14 @@
                     </div>
                 </div>
                 <div class="label-input flex">
-                    <label for="role">Rol: </label>
+                    <label for="role">Prijs (in euro's): </label>
                     <div>
-                        <?php if ((isset($_GET['error']) && ($_GET['error'] == "emptyField"))): ?>
-                            <div class="error">
-                                <?php echo getErrorMessages($_GET['error']); ?>
-                            </div>
-                        <?php endif; ?>
-                        <input type="text" name="role" id="role">
+                        <?php //if ((isset($_GET['error']) && ($_GET['error'] == "emptyField"))): ?>
+                            <!-- <div class="error">
+                                <?//php echo getErrorMessages($_GET['error']); ?>
+                            </div> -->
+                        <?php //endif; ?>
+                        <input type="text" name="price" id="price">
                     </div>
                 </div>
                     <input type="submit" name="submit" value="submit">

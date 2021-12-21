@@ -1,6 +1,6 @@
 <?php
-include_once "helper/session.php";
-include_once "helper/getErrorMessages.php";
+include_once "../helper/session.php";
+include_once "../helper/getErrorMessages.php";
 ?>
 
 <!DOCTYPE html>

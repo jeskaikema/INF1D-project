@@ -1,25 +1,25 @@
 <?php
-include_once "helper/session.php";
-include_once "helper/getErrorMessages.php";
+include_once "../helper/session.php";
+include_once "../helper/getErrorMessages.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <title>Gebruikers</title>
-    <link rel="stylesheet" href="css/style.css">
+    <?php include "../templates/head.php"; ?>
 </head>
 
 <body>
     <div id="container">
-        <?php include "templates/sidebar.php"; ?>
+        <?php include "../templates/sidebar.php"; ?>
         <div id="sub-container">
             <?php
-            include "templates/header.php";
-            include "helper/session.php";
-            include "helper/loggedin.php";
+            include "../templates/header.php";
+            include "../helper/session.php";
+            include "../helper/loggedin.php";
 
-            include "config/config.php";
+            include "../config/config.php";
             $location = $_SESSION['location'];
             $department = $_SESSION['department'];
 
