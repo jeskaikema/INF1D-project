@@ -2,7 +2,7 @@
     function closeTicket($conn, $id) 
     {
         $query = "UPDATE `ticket` 
-                  SET `Status` = 'closed' 
+                  SET `Status` = 'gesloten' 
                   WHERE `ID` = ?";   
         // $closeticket = true;   
 
