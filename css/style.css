@@ -1,11 +1,212 @@
 * {
   padding: 0;
   margin: 0;
-  font-style: normal;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
 }
 
-.login-wrapper form {
-  margin: auto auto;
+body {
+  background-color: #e8e8e8;
+}
+
+#login-wrapper {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../img/login-background.png");
+}
+
+#login-wrapper .login-container {
+  background-color: white;
+  width: 17%;
+  padding: 1rem 2rem;
+  margin: auto;
+}
+
+#login-wrapper .img-container {
+  display: flex;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+#login-wrapper img {
+  width: 100%;
+}
+
+#login-wrapper form input[type="text"] {
+  width: 100%;
+  padding: 5px 10px;
+  margin: 5px 0 20px;
+  display: inline-block;
+  border: 1px solid #009696;
+  box-sizing: border-box;
+}
+
+#login-wrapper form input[type="submit"] {
+  display: flex;
+  color: white;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: #008080;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/*ticketoverzicht*/
+.box {
+  width: 100%;
+  height: 340px;
+  display: flex;
+  flex-wrap: nowrap;
+  padding-left: 108px;
+  padding-top: 267px;
+}
+
+.container {
+  padding: 5px;
+  width: 220px;
+}
+
+.ticket {
+  border: solid 2px;
+  border-radius: 10%;
+  width: 219px;
+  height: 219px;
+}
+
+.Priority1 {
+  border-color: #e62328;
+  background-color: #e62328;
+}
+
+.Priority2 {
+  border-color: #009baa;
+  background-color: #009baa;
+}
+
+.Priority3 {
+  border-color: #005aaa;
+  background-color: #005aaa;
+}
+
+.tickettype {
+  height: 33px;
+  width: 100%;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.TicketUpper {
+  height: 33px;
+  background-color: white;
+  margin-bottom: 2px;
+}
+
+.TicketBottom {
+  height: 112px;
+  background-color: white;
+}
+
+.StatusPriority {
+  height: 33px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.users-title {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.form {
+  width: 80%;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+.form input[type="submit"] {
+  width: 100%;
+  background-color: #005aaa;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.label-input {
+  margin: 1rem 0;
+  justify-content: space-between;
+}
+
+.label-input div {
+  width: 45%;
+}
+
+.label-input input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  padding: 8px 20px;
+}
+
+.label-input select {
+  border-radius: 4px;
+  width: 100%;
+  padding: 8px 20px;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+.label-input textarea {
+  border-radius: 4px;
+  width: 100%;
+  padding: 8px 20px;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+.error {
+  color: red;
+}
+
+textarea {
+  resize: none;
+}
+
+.faq-page {
+  width: 80%;
+  margin: 1rem auto 0;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.faq:last-child {
+  border: none;
+}
+
+.faq {
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+.question {
+  margin: 2rem 0;
+}
+
+.answer {
+  margin: 2rem 0;
 }
 
 .top {

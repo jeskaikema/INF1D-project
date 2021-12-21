@@ -6,18 +6,18 @@
         return $name[0];
     }
 
-    function getRole($email) 
+    function getUserInfo($conn, $email, $info) 
     {
-        include "../config/config.php";
-        $query = "SELECT `Role` FROM `users` WHERE `email` = ?";
-        if ($statement = mysqli_prepare($conn, $query)) {
+        $query = "SELECT " . $info . " FROM `user` WHERE `Email` = ?";
+        if ($statement = mysqli_prepare($conn, $query)) 
+        {
             mysqli_stmt_bind_param($statement, 's', $email);
             if (mysqli_stmt_execute($statement))
             {
-                mysqli_stmt_bind_result($statement, $role);
+                mysqli_stmt_bind_result($statement, $info);
                 if (mysqli_stmt_fetch($statement)) 
                 {
-                    return $role;    
+                    return $info;    
                 }
             }
             else 
