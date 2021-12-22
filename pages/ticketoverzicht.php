@@ -36,13 +36,18 @@ include_once "../helper/getOmschrijving.php";
 <body>
 <div class="box">
     <?php 
-        $statement = getTicketInfo($conn); 
-        if (mysqli_stmt_execute($statement)) {
-            mysqli_stmt_bind_result($statement, $ID, $location, $email, $omschrijving);
-            var_dump($email);
+        $query = "SELECT `ID`, `User_Email`, `Description`, `Location` FROM `ticket`";
+        if ($statement = mysqli_prepare($conn, $query)) {
+            if (mysqli_stmt_execute($statement)) {
+                mysqli_stmt_bind_result($statement, $ID, $email, $description, $location);
+            } else {
+                die("EXECUTE ERROR");
+            }
+        } else {
+            die(mysqli_error($conn));
         }
-        while (mysqli_stmt_fetch($statement)):
     ?>
+    <?php while(mysqli_stmt_fetch($statement)): ?>
         <div class="container">
             <div class="ticket Priority<?php echo getPriority($conn, $ID) ?>">
                 <div class="tickettype">
