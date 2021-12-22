@@ -10,10 +10,22 @@ $dbName = "bottomdesk";
 
 
 $ticket = getTicketInformation($conn, $_GET['id']);
-echo $_SESSION['email'];
 
-if(!($_SESSION['role'] === "manager" || $_SESSION['role'] === "helpdesk" || $_SESSION['email'] === $ticket['email'])){
+if (!($_SESSION['role'] === "manager" || $_SESSION['role'] === "helpdesk" || $_SESSION['email'] === $ticket['email'])) {
     header("Location: ticketoverzicht.php");
+}
+
+if(isset($_POST['submit'])){
+    $email = $_SESSION['email'];
+    $ticketID = $_GET['id'];
+    $message = $_POST['responseArea'];
+
+    if(empty($message)){
+        $errorMessage = "Reactie mag niet leeg zijn!";
+    }else {
+        include_once "../src/createResponse.php";
+        createResponse($conn, $email, $ticketID, $message);
+    }
 }
 
 ?>
@@ -37,59 +49,99 @@ if(!($_SESSION['role'] === "manager" || $_SESSION['role'] === "helpdesk" || $_SE
 
         <div id="ticketContainer">
             <div id="ticketEmailContainer">
-                <h3><?=$ticket['email']?></h3>
+                <h3><?= $ticket['email'] ?></h3>
             </div>
 
             <div id="ticketContentContainer">
-                <div class="ticketItem">
-                    <?php
-                    if($ticket['roomId'] != null){
-                        echo $ticket['roomId'];
-                    }
+                <?php
+                if ($ticket['roomId'] != null) {
+                    echo "<div class='ticketItem'>";
+                    echo "<p>Werkruimte:</p>";
+                    echo "<p>" . getRoomNumber($conn, $ticket['roomId']) . "</p>";
+                    echo "</div>";
+                }
 
-                    if($ticket['orderId'] != null){
-                        echo $ticket['roomId'];
-                    }
-                    ?>
+                if ($ticket['orderId'] != null) {
+                    echo "<div class='ticketItem'>";
+                    echo "<p>Prijs:</p>";
+                    echo "<p>" . getOrderPrice($conn, $ticket['orderId']) . "</p>";
+                    echo "</div>";
+                }
+                ?>
+
+                <div class="ticketItem">
+                    <?= "<p>Telefoonnummer:</p>" ?>
+                    <?= "<p>" . $ticket['phone'] . "</p>" ?>
                 </div>
 
                 <div class="ticketItem">
-                    <?=$ticket['phone']?>
+                    <?= "<p>Status:</p>" ?>
+                    <?= "<p>" . $ticket['status'] . "</p>" ?>
                 </div>
 
                 <div class="ticketItem">
-                    <?=$ticket['status']?>
+                    <?= "<p>Prioriteit:</p>" ?>
+                    <?= "<p>" . $ticket['prio'] . "</p>" ?>
                 </div>
 
                 <div class="ticketItem">
-                    <?=$ticket['prio']?>
+                    <?= "<p>Locatie:</p>" ?>
+                    <?= "<p>" . $ticket['location'] . "</p>" ?>
                 </div>
 
                 <div class="ticketItem">
-                    <?=$ticket['location']?>
+                    <?= "<p>Aangemaakt op:</p>" ?>
+                    <?= "<p>" . $ticket['date'] . "</p>" ?>
                 </div>
 
-                <div class="ticketItem">
-                    <?=$ticket['date']?>
-                </div>
+                <?php
+                if ($ticket['file'] != null) {
+                    echo '<div id="ticketFile">';
+                    echo "<p>File:</p>";
+                    echo "<p>" . $ticket['file'] . "</p>";
+                    echo "</div>";
+                }
+                ?>
 
-                <div id="ticketFile">
-                    <?=$ticket['file']?>
+                <div id="ticketDescrLabel">
+                    <?= "<p>Beschrijving:</p>" ?>
                 </div>
 
                 <div id="ticketDescr">
-                    <?=$ticket['desc']?>
+                    <?= "<p>" . $ticket['desc'] . "</p>" ?>
                 </div>
             </div>
         </div>
 
         <div id="responseContainer">
+            <h2>Reageer:</h2>
             <form method="post" action="" id="responseForm">
 
             </form>
-            <textarea name="response" form="responseForm">yo</textarea>
+            <textarea id="responseArea" name="responseArea" form="responseForm"></textarea>
             <input type="submit" name="submit" value="Submit" id="submit" form="responseForm">
         </div>
+        <?php
+        echo $errorMessage;
+
+        $responses = getResponses($conn, $_GET['id']);
+
+        echo"<dev id='responsesWrapper'>";
+        echo"<h2>Reacties:</h2>";
+        foreach($responses as $response){
+            echo"<div class='existingResponseContainer'>";
+            echo"<div class='responseEmail'>";
+            echo"<h3>" . $response['email'] . "</h3>";
+            echo"</div>";
+            echo"<div class='responseMessage'>";
+            echo"<p>" . $response['message'] . "</p>";
+            echo"</div>";
+            echo"</div>";
+        }
+
+        echo"</dev>";
+        ?>
+
     </div>
 </div>
 </body>
