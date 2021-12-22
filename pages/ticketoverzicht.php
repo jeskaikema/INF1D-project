@@ -13,11 +13,12 @@
 <?php
 include_once "../helper/session.php";
 include_once "../helper/loggedin.php";
-include_once "../helper/getPriority.php";
-include_once "../helper/getType.php";
-include_once "../helper/getStatus.php";
+//include_once "../helper/getPriority.php";
+//include_once "../helper/getType.php";
+//include_once "../helper/getStatus.php";
 include_once "../helper/userInfo.php";
 include_once "../config/config.php";
+include_once "../helper/getTicketInfo.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +47,7 @@ include_once "../config/config.php";
                 <?php
                 if (getTypeOfTicket($conn, $ID) === 1) {
                     echo "Vestiging: ".getVestiging($conn, $ID)
-                        ."<br>Datum: ".getDate($conn, $ID)
+                        ."<br>Datum: ".getDatum($conn, $ID)
                         ."<br>Tijd: ".getBeginTijd($conn, $ID)." - ".getEindTijd($conn, $ID)
                         ."<br>Kamernummer: ".getRoom($conn, $ID);
                 } elseif (getTypeOfTicket($conn, $ID) === 2) {
