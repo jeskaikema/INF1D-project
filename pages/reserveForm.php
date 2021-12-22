@@ -14,7 +14,7 @@ include_once "../helper/getErrorMessages.php";
 </head>
 <body>
 <div class="users-title">
-    <h1>Bestelling Plaatsen</h1>
+    <h1>Lokaal Reserveren</h1>
 </div>
 <form action="src/order.php" method="POST" enctype="multipart/form-data" class="form flex">
     <div class="label-input flex">
