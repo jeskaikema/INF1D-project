@@ -1,10 +1,18 @@
+<?php
+include "../helper/session.php"
+?>
 <div class="Sidebar">      
     <img src="../img/logo-nhl-stenden-2018 wit2.png" alt= witLogo width="133px" height="128px" style="margin-left:25px;margin-top:15px">
     <div class="S-1">
-        <div class="S-Item">
+
+    <?php
+    if($_SESSION['role'] === "helpdesk" || $_SESSION['role'] === "management"){
+        echo '<div class="S-Item">
             <img src="../img/dashboard.png" alt=Dashboard width="24.8px" height="25.6px" style="margin:auto; margin-left: 8px; margin-right: 20px;">
             <a href="../pages/userOverView.php"><h4>Dashboard</h4></a>
-        </div>
+        </div>';
+    }
+    ?>
         <div class="S-Item">
             <img src="../img/mijn tickets.png" alt=Mijn tickets width="26px" height="28px" style="margin:auto; margin-left: 8px; margin-right: 18px;"> 
             <a href="../pages/ticketoverzicht.php"><h4>Mijn Tickets</h4></a>

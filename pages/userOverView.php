@@ -18,6 +18,10 @@ include_once "../helper/getErrorMessages.php";
             include "../templates/header.php";
             include "../helper/session.php";
             include "../helper/loggedin.php";
+            //todo
+            if(!($_SESSION['role'] === "management"|| $_SESSION['role'] === "helpdesk")){
+                header("Location: index.php");
+            }
 
             include "../config/config.php";
             $location = $_SESSION['location'];
