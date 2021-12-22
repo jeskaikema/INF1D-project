@@ -37,7 +37,10 @@ include_once "../helper/getOmschrijving.php";
 <div class="box">
     <?php 
         $statement = getTicketInfo($conn); 
-        mysqli_stmt_bind_result($statement, $ID, $location, $email, $omschrijving);
+        if (mysqli_stmt_execute($statement)) {
+            mysqli_stmt_bind_result($statement, $ID, $location, $email, $omschrijving);
+            var_dump($email);
+        }
         while (mysqli_stmt_fetch($statement)):
     ?>
         <div class="container">
