@@ -367,3 +367,28 @@ header {
 #userViewForm{
   margin-left: 5%;
 }
+
+/* ticket.php */
+#ticketContainer{
+  width: 50%;
+  float: left;
+  padding-left: 20px;
+
+}
+
+#ticketEmailContainer{
+  width: 100%;
+  background-color: #28a1a3;
+  text-align: center;
+}
+
+#ticketContentContainer{
+  width: 100%;
+  border-style: solid;
+  border-color: #28a1a3;
+}
+
+.ticketItem{
+  width: 50%;
+  float: left;
+}
