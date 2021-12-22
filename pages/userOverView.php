@@ -43,7 +43,7 @@ include_once "../helper/getErrorMessages.php";
 
             echo "<div id='userViewForm'>";
 
-            if ($_SESSION['role'] === "student") {
+            if ($_SESSION['role'] === "helpdesk") {
                 switch ($paramIndex) {
                     case 0:
                         echo "<h1>Alle Gebruikers</h1>";
@@ -77,7 +77,7 @@ include_once "../helper/getErrorMessages.php";
 
                 <input type="submit" name="submit" id="submit" value="Submit">
             </form>';
-            }else if($_SESSION['role'] === "student"){
+            }else if($_SESSION['role'] === "management"){
                 $location = $_SESSION['location'];
                 $department = $_SESSION['department'];
                 echo $location;
@@ -106,10 +106,10 @@ include_once "../helper/getErrorMessages.php";
                 if (!mysqli_stmt_execute($statement)) {
                     die("EXECUTE ERROR " . mysqli_stmt_error($statement));
                 }
-                mysqli_stmt_bind_result($statement, $email, $departmentResult, $locationResult, $role);
+                mysqli_stmt_bind_result($statement, $email, $departmentResult, $locationResult, $role, $firstName, $lastName);
                 while (mysqli_stmt_fetch($statement)) {
                     echo "<div class='userContainer'>";
-                    echo "<div class='userNameContainer'><p>" . $email . "</p></div>";
+                    echo "<div class='userNameContainer'><p>" . $firstName . " " . $lastName ."</p></div>";
                     echo "<div class='userEmailContainer'><p>" . $email . "</p></div>";
                     echo "</div>";
                 }

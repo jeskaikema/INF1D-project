@@ -360,6 +360,8 @@ header {
   margin: 25px 5%;
   padding: 5px 10px;
   background-color: white;
+  border-width: 1px;
+  border-color: gray;
 }
 
 #userViewForm{
