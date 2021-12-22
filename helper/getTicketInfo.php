@@ -1,16 +1,16 @@
 <?php
-function getTicketInfo($conn, $ID)
+function getTicketInfo($conn)
 {
-    $query = "SELECT `Location`, `User_Email`, `Description` FROM `ticket` WHERE `ID` = ?";
+    $query = "SELECT `ID`, `User_Email`, `Description`, `Location` FROM `ticket`";
     if ($statement = mysqli_prepare($conn, $query)) {
-        mysqli_stmt_bind_param($statement, 's', $ID);
         if (mysqli_stmt_execute($statement)) {
-            mysqli_stmt_bind_result($statement, $location, $email, $omschrijving);
-            if (mysqli_stmt_fetch($statement)) {
-                return $location;
-                return $email;
-                return $omschrijving;
-            }
+            return $statement;
+            // mysqli_stmt_bind_result($statement, $ID, $location, $email, $omschrijving);
+            // if (mysqli_stmt_fetch($statement)) {
+            //     return $location;
+            //     return $email;
+            //     return $omschrijving;
+            // }
         } else {
             die("EXECUTE ERROR");
         }
