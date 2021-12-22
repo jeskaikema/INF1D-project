@@ -48,6 +48,8 @@ include_once "../helper/getErrorMessages.php";
             echo "<div id='userViewForm'>";
 
             if ($_SESSION['role'] === "helpdesk") {
+                $location = $_SESSION['location'];
+                $department = $_SESSION['department'];
                 switch ($paramIndex) {
                     case 0:
                         echo "<h1>Alle Gebruikers</h1>";

@@ -8,7 +8,7 @@ include_once("../helper/session.php");
     <title>TicketGuru</title>
 </head>
 <body>
-<form action="src/create_ticket.php" method="POST">
+<form action="../src/create_ticket.php" method="POST">
     <p>
         <label for="name">Naam:</label>
         <input type="text" name="name" id="name">

@@ -371,3 +371,73 @@ header {
 #userViewForm{
   margin-left: 5%;
 }
+
+/* ticket.php */
+#ticketContainer{
+  width: 50%;
+  float: left;
+  padding-left: 20px;
+
+}
+
+#ticketEmailContainer{
+  width: 100%;
+  background-color: #28a1a3;
+  text-align: center;
+}
+
+#ticketContentContainer{
+  width: 100%;
+  border-style: solid;
+  border-color: #28a1a3;
+  overflow: hidden;
+}
+
+.ticketItem{
+  width: 50%;
+  float: left;
+  margin-bottom: 20px;
+}
+
+#ticketDescrLabel{
+  width: 90%;
+  float: left;
+}
+
+#ticketDescr{
+  width: 90%;
+  background-color: white;
+  float: left;
+  min-height: 10vw;
+}
+
+#responseContainer{
+  padding-left: 20px;
+  width: 50%;
+  float: left;
+}
+
+#responseArea{
+  min-height: 20vw;
+  min-width: 25vw;
+}
+
+#responsesWrapper{
+  float: left;
+  padding-left: 20px;
+}
+
+.existingResponseContainer{
+  width: 60%;
+  padding-top: 20px;
+  float: left;
+}
+
+.responseEmail{
+  background-color: #28a1a3;
+}
+
+.responseMessage{
+  background-color: white;
+  min-height: 10vw;
+}
