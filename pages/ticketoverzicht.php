@@ -13,12 +13,18 @@
 <?php
 include_once "../helper/session.php";
 include_once "../helper/loggedin.php";
-//include_once "../helper/getPriority.php";
-//include_once "../helper/getType.php";
-//include_once "../helper/getStatus.php";
+include_once "../helper/getPriority.php";
+include_once "../helper/getType.php";
+include_once "../helper/getStatus.php";
 include_once "../helper/userInfo.php";
 include_once "../config/config.php";
-include_once "../helper/getTicketInfo.php";
+//include_once "../helper/getTicketInfo.php";
+include_once "../helper/getBeginTime.php";
+include_once "../helper/getEndTime.php";
+include_once "../helper/getRoomDate.php";
+include_once "../helper/getRoomNumber.php";
+include_once "../helper/getPrice.php";
+include_once "../helper/getOmschrijving.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,15 +53,15 @@ include_once "../helper/getTicketInfo.php";
                 <?php
                 if (getTypeOfTicket($conn, $ID) === 1) {
                     echo "Vestiging: ".getVestiging($conn, $ID)
-                        ."<br>Datum: ".getDatum($conn, $ID)
-                        ."<br>Tijd: ".getBeginTijd($conn, $ID)." - ".getEindTijd($conn, $ID)
-                        ."<br>Kamernummer: ".getRoom($conn, $ID);
+                        ."<br>Datum: ".getRoomDate($conn, $ID)
+                        ."<br>Tijd: ".getBeginTime($conn, $ID)." - ".getEndTime($conn, $ID)
+                        ."<br>Kamernummer: ".getRoomNumber($conn, $ID);
                 } elseif (getTypeOfTicket($conn, $ID) === 2) {
                     echo "Vestiging: ".getVestiging($conn, $ID)
-                        ."<br>Prijs: ".getPrijs($conn, $ID)
-                        ."<br>Korte omschrijving: ".getKorteOmschrijving($conn, $ID);
+                        ."<br>Prijs: ".getPrice($conn, $ID)
+                        ."<br>Korte omschrijving: ".getOmschrijving($conn, $ID);
                 } elseif (getTypeOfTicket($conn, $ID) === 3) {
-                    echo "Korte omschrijving: ".getKorteOmschrijving($conn, $ID);
+                    echo "Korte omschrijving: ".getOmschrijving($conn, $ID);
                 }
                 ?>
             </div>
