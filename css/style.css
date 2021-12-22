@@ -120,12 +120,16 @@ body {
 }
 
 .StatusPriority {
-  height: 33px;
+  height: 37px;
   color: white;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
+}
+
+.priosta {
+  padding-left: 10px;
+  padding-right: 12px;
 }
 
 .users-title {

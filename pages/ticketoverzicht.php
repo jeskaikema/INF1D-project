@@ -73,7 +73,7 @@ if ($statement = mysqli_prepare($conn, $query)) {
                                 ."<br>Kamernummer: ".getRoomNumber($conn, $roomId);
                         } elseif (getTypeOfTicket($conn, $ID) === 1) {
                             echo "Vestiging: ".$location
-                                ."<br>Prijs: ". getPrice($conn, $orderId)
+                                ."<br>Prijs: &euro; ". getPrice($conn, $orderId)
                                 ."<br>Korte omschrijving: ".$description;
                         } elseif (getTypeOfTicket($conn, $ID) === 3) {
                             echo "Korte omschrijving: ".$description;
@@ -81,30 +81,28 @@ if ($statement = mysqli_prepare($conn, $query)) {
                         ?>
                     </div>
                     <div class="StatusPriority">
-                        <span>
-                            <div>
-                                <p>
-                                    Prioriteit:
-                                    <br>
-                                    Status:
-                                </p>
-                            </div>
-                            <div>
-                                <p>
-                                    <?php
-                                    if (getPriority($conn, $ID) === 1) {
-                                        echo "Hoog";
-                                    } elseif (getPriority($conn, $ID) === 2) {
-                                        echo "Midden";
-                                    } elseif (getPriority($conn, $ID) === 3) {
-                                        echo "Laag";
-                                    }
-                                    ?>
-                                    <br>
-                                    <?php echo getStatus($conn, $ID) ?>
-                                </p>
-                            </div>
-                        </span>
+                        <div class="test">
+                            <p class="priosta">
+                                Prioriteit:
+                                <br>
+                                Status:
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                <?php
+                                if (getPriority($conn, $ID) === 1) {
+                                    echo "Hoog";
+                                } elseif (getPriority($conn, $ID) === 2) {
+                                    echo "Midden";
+                                } elseif (getPriority($conn, $ID) === 3) {
+                                    echo "Laag";
+                                }
+                                ?>
+                                <br>
+                                <?php echo getStatus($conn, $ID) ?>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
