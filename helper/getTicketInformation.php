@@ -80,6 +80,32 @@ function getOrderPrice($conn, $ID)
 
 }
 
+function rightToViewTicket($conn, $ticket){
+    session_status();
+    if($_SESSION['email'] === $ticket['email']){
+        return true;
+    }
+    if($_SESSION['role'] === "helpdesk"){
+        return true;
+    }
+
+    $query = "SELECT Department, Location FROM `user` WHERE Email = ?";
+    if ($statement = mysqli_prepare($conn, $query)) {
+        mysqli_stmt_bind_param($statement, 's', $ticket['email']);
+        if (mysqli_stmt_execute($statement)) {
+            mysqli_stmt_bind_result($statement, $department, $location);
+            if (mysqli_stmt_fetch($statement)) {
+                if(($_SESSION['department'] === $department && $_SESSION['location'] === $location) && $_SESSION['role'] === "manager"){
+                    mysqli_stmt_close($statement);
+                    return true;
+                }
+            }
+        }
+    }
+    mysqli_stmt_close($statement);
+    return false;
+}
+
 function getResponses($conn, $ticketId) {
     $query = "SELECT User_Email, Message FROM `ticket_response` WHERE Ticket_ID=?";
     if ($statement = mysqli_prepare($conn, $query)) {

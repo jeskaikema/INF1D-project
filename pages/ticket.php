@@ -11,7 +11,7 @@ $dbName = "bottomdesk";
 
 $ticket = getTicketInformation($conn, $_GET['id']);
 
-if (!($_SESSION['role'] === "manager" || $_SESSION['role'] === "helpdesk" || $_SESSION['email'] === $ticket['email'])) {
+if (!rightToViewTicket($conn, $ticket)){
     header("Location: ticketoverzicht.php");
 }
 
