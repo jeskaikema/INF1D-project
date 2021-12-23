@@ -72,6 +72,11 @@ body {
   padding-top: 267px;
 }
 
+.ticket-link {
+  text-decoration: none;
+  color: black;
+}
+
 .container {
   padding: 5px;
   width: 220px;

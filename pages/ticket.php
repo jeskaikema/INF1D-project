@@ -3,11 +3,6 @@ include "../helper/session.php";
 include "../helper/loggedin.php";
 include "../config/config.php";
 include "../helper/getTicketInformation.php";
-$dbConn = "localhost";
-$dbUser = "root";
-$dbPassword = "";
-$dbName = "bottomdesk";
-
 
 $ticket = getTicketInformation($conn, $_GET['id']);
 
