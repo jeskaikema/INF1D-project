@@ -99,6 +99,15 @@ body {
   background-color: #005aaa;
 }
 
+.price {
+  border-color: purple;
+  background-color: purple;
+}
+
+.price-text {
+  color: red;
+}
+
 .tickettype {
   height: 33px;
   width: 100%;
@@ -357,7 +366,7 @@ header {
 }
 
 /* userView.php */
-.userContainer{
+.userContainer {
   border-radius: 25px;
   width: 35%;
   float: left;
@@ -368,76 +377,75 @@ header {
   border-color: gray;
 }
 
-#userViewForm{
+#userViewForm {
   margin-left: 5%;
 }
 
 /* ticket.php */
-#ticketContainer{
+#ticketContainer {
   width: 50%;
   float: left;
   padding-left: 20px;
-
 }
 
-#ticketEmailContainer{
+#ticketEmailContainer {
   width: 100%;
   background-color: #28a1a3;
   text-align: center;
 }
 
-#ticketContentContainer{
+#ticketContentContainer {
   width: 100%;
   border-style: solid;
   border-color: #28a1a3;
   overflow: hidden;
 }
 
-.ticketItem{
+.ticketItem {
   width: 50%;
   float: left;
   margin-bottom: 20px;
 }
 
-#ticketDescrLabel{
+#ticketDescrLabel {
   width: 90%;
   float: left;
 }
 
-#ticketDescr{
+#ticketDescr {
   width: 90%;
   background-color: white;
   float: left;
   min-height: 10vw;
 }
 
-#responseContainer{
+#responseContainer {
   padding-left: 20px;
   width: 50%;
   float: left;
 }
 
-#responseArea{
+#responseArea {
   min-height: 20vw;
   min-width: 25vw;
 }
 
-#responsesWrapper{
+#responsesWrapper {
   float: left;
   padding-left: 20px;
 }
 
-.existingResponseContainer{
+.existingResponseContainer {
   width: 60%;
   padding-top: 20px;
   float: left;
 }
 
-.responseEmail{
+.responseEmail {
   background-color: #28a1a3;
 }
 
-.responseMessage{
+.responseMessage {
   background-color: white;
   min-height: 10vw;
 }

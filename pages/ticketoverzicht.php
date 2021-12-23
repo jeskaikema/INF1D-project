@@ -51,7 +51,7 @@ if ($statement = mysqli_prepare($conn, $query)) {
     <?php if (mysqli_stmt_num_rows($statement) > 0): ?>
         <?php while(mysqli_stmt_fetch($statement)): ?>
             <div class="container">
-                <div class="ticket Priority<?php echo getPriority($conn, $ID) ?>">
+                <div class="ticket Priority<?php echo getPriority($conn, $ID) ?> <?php echo (getPrice($conn, $orderId) >= 1500) ? 'price' : ''?>">
                     <div class="tickettype">
                         <?php
                         if (getTypeOfTicket($conn, $ID) === 1) {
@@ -72,9 +72,9 @@ if ($statement = mysqli_prepare($conn, $query)) {
                                 ."<br>Tijd: ".getBeginTime($conn, $roomId)." - ".getEndTime($conn, $roomId)
                                 ."<br>Kamernummer: ".getRoomNumber($conn, $roomId);
                         } elseif (getTypeOfTicket($conn, $ID) === 1) {
-                            echo "Vestiging: ".$location
-                                ."<br>Prijs: &euro; ". getPrice($conn, $orderId)
-                                ."<br>Korte omschrijving: ".$description;
+                            echo "<p>Vestiging: " . $location . "</p>";
+                            echo "<p class=" . "'" . ((getPrice($conn, $orderId) >= 1500) ? 'price-text' : '') . "'" . ">Prijs: &euro; ". getPrice($conn, $orderId) . "</p>";
+                            echo "<p>Korte omschrijving: " . $description . "</p>";
                         } elseif (getTypeOfTicket($conn, $ID) === 3) {
                             echo "Korte omschrijving: ".$description;
                         }
