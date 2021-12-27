@@ -8,28 +8,42 @@
   margin: auto auto;
 }
 
+.page {
+  display: flex;
+
+  width: 100%;
+  height: 10000px;
+  background-color: #CBCBCB;
+  /* flex-direction: row-reverse; */
+}
+
+
 .top {
   display: flex;
-  height: 100%;
+  height: 80%;
+  width: 98.5%;
   border-width: 1px;
   border-color: black;
+  border-style: solid;
   justify-content: end;
-  margin: 10px 10px 10px 11.5vw;
+  margin: 10px 7px 11.5vw;
 }
 
 header {
+  position: fixed;
   height: 118px;
   width: 88vw;
-  margin-left: auto;
+  margin-left: 220px;
   border-color: black;
   background-color: #CBCBCB;
 }
 
 .gkleur {
-  height: 20px;
-  width: 20px;
+  height: 30px;
+  width: 30px;
   border-radius: 50%;
   margin:2px;
+  padding: auto;
   background-color: #009BAA;
 }
 
@@ -47,9 +61,12 @@ header {
 
 .dot {
   background-color: #aeaeae;
+  margin: auto;
   border-color: #646262;
-  border-width: 1px;
+  border-style: solid;
+  border-width: 2px;
   border-radius: 50%;
+  align-content: center;
   width: 10px;
   height: 10px;
 }
@@ -57,7 +74,7 @@ header {
 .Sidebar {
   position: fixed;
   margin: 6px;
-  width: 11.5vw;
+  width: 11.32vw; /*217px*/
   height: 98vh;
   background-image: url("../img/S.Bg.PNG");
   background-size: contain;
@@ -76,7 +93,7 @@ header {
 }
 
 .S-2 {
-  margin: 75px auto 0;
+  margin: 75px 0 0;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
@@ -86,7 +103,7 @@ header {
 }
 
 .S-3 {
-  margin: 120px auto 0;
+  margin: 120px 0 0;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
@@ -136,12 +153,15 @@ header {
   margin: 12px auto 12px;
 }
 
-.page {
-  display: flex;
-  /* flex-direction: row-reverse; */
-}
-
 .groep {
   display: flex;
   margin: auto 5rem auto;
+
+.main {
+    background-color: white;
+  	margin-left: 220px;
+    width: 100%;
+    height: 100%;
+    margin: 7px;
+    z-index: 5;
 }

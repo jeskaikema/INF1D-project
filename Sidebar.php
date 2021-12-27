@@ -37,7 +37,7 @@
                         <?php echo $groep; ?>                    
                     </div>
                 </div>
-                <img src="img/mannelijk-silhouet-avatar-profielfoto.png" alt=avatar width="85px" height="85px" style="margin-top: 6px;">  
+                <img src="img/mannelijk-silhouet-avatar-profielfoto.png" alt=avatar width="85px" height="85px" style="margin-top: 6px; Margin-right: 25px;">  
             </div>
         </header>
 
@@ -88,7 +88,7 @@
         </div>
         
         <div class="main">
-
+            <p>"Hi"</p>
         </div>
     </div>
 
