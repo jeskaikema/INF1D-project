@@ -84,11 +84,11 @@
                 <div class="label-input flex">
                     <label for="role">Prijs (in euro's): </label>
                     <div>
-                        <?php //if ((isset($_GET['error']) && ($_GET['error'] == "emptyField"))): ?>
-                            <!-- <div class="error">
-                                <?//php echo getErrorMessages($_GET['error']); ?>
-                            </div> -->
-                        <?php //endif; ?>
+                        <?php if ((isset($_GET['error']) && ($_GET['error'] == "emptyField"))): ?>
+                            <div class="error">
+                                <?php echo getErrorMessages($_GET['error']); ?>
+                            </div>
+                        <?php endif; ?>
                         <input type="text" name="price" id="price">
                     </div>
                 </div>

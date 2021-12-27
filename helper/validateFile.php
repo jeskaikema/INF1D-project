@@ -3,7 +3,7 @@
     {
         if($file['error'] > 0)
         {
-            header("location: ../" . $page . "?error=uploadError");
+            header("location: ../pages/" . $page . "?error=uploadError");
             exit();
         }
 
@@ -16,20 +16,20 @@
             {
                 if (file_exists("../img/ticketassets/" . $file['name']))
                 {
-                    header("location: ../" . $page . "?error=fileExists");
+                    header("location: ../pages/" . $page . "?error=fileExists");
                     exit();
                 }
             }
             else
             {
-                header("location: ../" . $page . "?error=typeError");
+                header("location: ../pages/" . $page . "?error=typeError");
                 exit();
             }
             return 1;
         }
         else
         {
-            header("location: ../" . $page . "?error=sizeError");
+            header("location: ../pages/" . $page . "?error=sizeError");
             exit();
         }
     }
