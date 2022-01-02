@@ -26,7 +26,31 @@ include_once "../helper/getRoomNumber.php";
 include_once "../helper/getPrice.php";
 include_once "../helper/getOmschrijving.php";
 
-$query = "SELECT `ID`, `User_Email`, `Room_ID`, `Order_ID`, `Description`, `Location` FROM `ticket`";
+if (isset($_POST['submit']))
+{
+    $selection = $_POST['sort'];
+    switch ($selection) {
+        case 'all':
+            $query = "SELECT `ID`, `User_Email`, `Room_ID`, `Order_ID`, `Description`, `Location` FROM `ticket`";
+            break;
+        
+        case 'tickets':
+            $query = "SELECT `ID`, `User_Email`, `Room_ID`, `Order_ID`, `Description`, `Location` FROM `ticket` WHERE `Room_ID` IS NULL AND `Order_ID` IS NULL";
+            break;
+        
+        case 'orders':
+            $query = "SELECT ticket.`ID`, `User_Email`, `Room_ID`, `Order_ID`, `Description`, `Location` FROM ticket INNER JOIN `order` ON ticket.Order_ID = `order`.`ID`";
+            break;
+
+        default:
+            $query = "SELECT ticket.`ID`, `User_Email`, `Room_ID`, `Order_ID`, `Description`, ticket.`Location` FROM ticket INNER JOIN `room` ON ticket.Room_ID = `room`.`ID`";
+            break;
+    }
+} 
+else
+{
+    $query = "SELECT `ID`, `User_Email`, `Room_ID`, `Order_ID`, `Description`, `Location` FROM `ticket`";
+}
 if ($statement = mysqli_prepare($conn, $query)) {
     if (mysqli_stmt_execute($statement)) {
         mysqli_stmt_bind_result($statement, $ID, $email, $roomId, $orderId, $description, $location);
@@ -47,6 +71,16 @@ if ($statement = mysqli_prepare($conn, $query)) {
     <title>Ticketoverzicht</title>
 </head>
 <body>
+<form action="ticketoverzicht.php" method="POST">
+    <label for="sort">Sorteer tickets</label>
+    <select name="sort" id="sort">
+        <option value="all" selected>Alle tickets</option>
+        <option value="tickets">Alleen meldingen</option>
+        <option value="orders">Alleen bestellingen</option>
+        <option value="reservations">Alleen reserveringen</option>
+    </select>
+    <input type="submit" value="Verstuur" name="submit">
+</form>
 <div class="box">
     <?php if (mysqli_stmt_num_rows($statement) > 0): ?>
         <?php while(mysqli_stmt_fetch($statement)): ?>
