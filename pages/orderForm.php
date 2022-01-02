@@ -9,9 +9,9 @@
     <?php include "../templates/head.php"; ?>
 </head>
 <body>
-    <div id="container">
+    <div class="container">
         <?php include "../templates/sidebar.php"; ?>
-        <div id="sub-container">
+        <div class="sub-container">
             <?php include "../templates/header.php"; ?>
             <div class="users-title">
                 <h1>Bestelling Plaatsen</h1>
