@@ -3,6 +3,7 @@ include "../helper/session.php";
 include "../helper/loggedin.php";
 include "../config/config.php";
 include "../helper/getTicketInformation.php";
+include "../helper/getErrorMessages.php";
 
 $ticket = getTicketInformation($conn, $_GET['id']);
 
@@ -16,7 +17,8 @@ if(isset($_POST['submit'])){
     $message = $_POST['responseArea'];
 
     if(empty($message)){
-        $errorMessage = "Reactie mag niet leeg zijn!";
+        // $errorMessage = "Reactie mag niet leeg zijn!";
+        header("location: ticket.php?id=" . $ticketID . "&error=reactionError");
     }else {
         include_once "../src/createResponse.php";
         createResponse($conn, $email, $ticketID, $message);
@@ -116,9 +118,12 @@ if(isset($_POST['submit'])){
             <textarea id="responseArea" name="responseArea" form="responseForm"></textarea>
             <input type="submit" name="submit" value="Submit" id="submit" form="responseForm">
         </div>
+        <?php if ((isset($_GET['error']) && ($_GET['error'] == "reactionError"))): ?>
+            <div class="error">
+                <?php echo getErrorMessages($_GET['error']); ?>
+            </div>
+        <?php endif; ?>
         <?php
-        echo $errorMessage;
-
         $responses = getResponses($conn, $_GET['id']);
 
         echo"<dev id='responsesWrapper'>";
