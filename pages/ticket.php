@@ -34,9 +34,9 @@ if(isset($_POST['submit'])){
 </head>
 
 <body>
-<div id="container">
+<div class="container">
     <?php include "../templates/sidebar.php"; ?>
-    <div id="sub-container">
+    <div class="sub-container">
         <?php
         include "../templates/header.php";
         include "../helper/session.php";

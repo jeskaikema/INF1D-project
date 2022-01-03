@@ -66,9 +66,7 @@ if ($statement = mysqli_prepare($conn, $query)) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/style.css">
-    <title>Ticketoverzicht</title>
+    <?php include "../templates/head.php"; ?>
 </head>
 <body>
 <form action="<?php echo $_SERVER ['PHP_SELF']; ?>" method="POST">
@@ -81,71 +79,77 @@ if ($statement = mysqli_prepare($conn, $query)) {
     </select>
     <input type="submit" value="Verstuur" name="submit">
 </form>
-<div class="box">
-    <?php if (mysqli_stmt_num_rows($statement) > 0): ?>
-        <?php while(mysqli_stmt_fetch($statement)): ?>
-            <a href="ticket.php?id=<?php echo $ID ?>" class="ticket-link">
-                <div class="container">
-                    <div class="ticket Priority<?php echo getPriority($conn, $ID) ?> <?php echo (getPrice($conn, $orderId) >= 1500) ? 'price' : ''?>">
-                        <div class="tickettype">
-                            <?php
-                            if (getTypeOfTicket($conn, $ID) === 1) {
-                                echo "Bestelling";
-                            } elseif (getTypeOfTicket($conn, $ID) === 2) {
-                                echo "Reservering";
-                            } elseif (getTypeOfTicket($conn, $ID) === 3) {
-                                echo "Melding";
-                            }
-                            ?>
-                        </div>
-                        <div class="TicketUpper">test</div>
-                        <div class="TicketBottom">
-                            <?php
-                            if (getTypeOfTicket($conn, $ID) === 2) {
-                                echo "Vestiging: ".$location
-                                    ."<br>Datum: ".getRoomDate($conn, $roomId)
-                                    ."<br>Tijd: ".getBeginTime($conn, $roomId)." - ".getEndTime($conn, $roomId)
-                                    ."<br>Kamernummer: ".getRoomNumber($conn, $roomId);
-                            } elseif (getTypeOfTicket($conn, $ID) === 1) {
-                                echo "<p>Vestiging: " . $location . "</p>";
-                                echo "<p class=" . "'" . ((getPrice($conn, $orderId) >= 1500) ? 'price-text' : '') . "'" . ">Prijs: &euro; ". getPrice($conn, $orderId) . "</p>";
-                                echo "<p>Korte omschrijving: " . $description . "</p>";
-                            } elseif (getTypeOfTicket($conn, $ID) === 3) {
-                                echo "Korte omschrijving: ".$description;
-                            }
-                            ?>
-                        </div>
-                        <div class="StatusPriority">
-                            <div class="test">
-                                <p class="priosta">
-                                    Prioriteit:
-                                    <br>
-                                    Status:
-                                </p>
+    <div class="container">
+        <?php include "../templates/sidebar.php"; ?>
+        <div class="sub-container">
+            <?php include "../templates/header.php"; ?>
+            <div class="box">
+                <?php if (mysqli_stmt_num_rows($statement) > 0): ?>
+                    <?php while(mysqli_stmt_fetch($statement)): ?>
+                        <a href="ticket.php?id=<?php echo $ID ?>" class="ticket-link">
+                            <div class="container-overview">
+                                <div class="ticket Priority<?php echo getPriority($conn, $ID) ?> <?php echo (getPrice($conn, $orderId) >= 1500) ? 'price' : ''?>">
+                                    <div class="tickettype">
+                                        <?php
+                                        if (getTypeOfTicket($conn, $ID) === 1) {
+                                            echo "Bestelling";
+                                        } elseif (getTypeOfTicket($conn, $ID) === 2) {
+                                            echo "Reservering";
+                                        } elseif (getTypeOfTicket($conn, $ID) === 3) {
+                                            echo "Melding";
+                                        }
+                                        ?>
+                                    </div>
+                                    <div class="TicketUpper">test</div>
+                                    <div class="TicketBottom">
+                                        <?php
+                                        if (getTypeOfTicket($conn, $ID) === 2) {
+                                            echo "Vestiging: ".$location
+                                                ."<br>Datum: ".getRoomDate($conn, $roomId)
+                                                ."<br>Tijd: ".getBeginTime($conn, $roomId)." - ".getEndTime($conn, $roomId)
+                                                ."<br>Kamernummer: ".getRoomNumber($conn, $roomId);
+                                        } elseif (getTypeOfTicket($conn, $ID) === 1) {
+                                            echo "<p>Vestiging: " . $location . "</p>";
+                                            echo "<p class=" . "'" . ((getPrice($conn, $orderId) >= 1500) ? 'price-text' : '') . "'" . ">Prijs: &euro; ". getPrice($conn, $orderId) . "</p>";
+                                            echo "<p>Korte omschrijving: " . $description . "</p>";
+                                        } elseif (getTypeOfTicket($conn, $ID) === 3) {
+                                            echo "Korte omschrijving: ".$description;
+                                        }
+                                        ?>
+                                    </div>
+                                    <div class="StatusPriority">
+                                        <div class="test">
+                                            <p class="priosta">
+                                                Prioriteit:
+                                                <br>
+                                                Status:
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p>
+                                                <?php
+                                                if (getPriority($conn, $ID) === 1) {
+                                                    echo "Hoog";
+                                                } elseif (getPriority($conn, $ID) === 2) {
+                                                    echo "Midden";
+                                                } elseif (getPriority($conn, $ID) === 3) {
+                                                    echo "Laag";
+                                                }
+                                                ?>
+                                                <br>
+                                                <?php echo getStatus($conn, $ID) ?>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <p>
-                                    <?php
-                                    if (getPriority($conn, $ID) === 1) {
-                                        echo "Hoog";
-                                    } elseif (getPriority($conn, $ID) === 2) {
-                                        echo "Midden";
-                                    } elseif (getPriority($conn, $ID) === 3) {
-                                        echo "Laag";
-                                    }
-                                    ?>
-                                    <br>
-                                    <?php echo getStatus($conn, $ID) ?>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        <?php endwhile; ?>
-    <?php else: ?>
-        <?php echo "geen zooi"; ?>
-    <?php endif; ?>
-</div>
+                        </a>
+                    <?php endwhile; ?>
+                <?php else: ?>
+                    <?php echo "geen zooi"; ?>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
