@@ -71,13 +71,13 @@ if ($statement = mysqli_prepare($conn, $query)) {
     <title>Ticketoverzicht</title>
 </head>
 <body>
-<form action="ticketoverzicht.php" method="POST">
+<form action="<?php echo $_SERVER ['PHP_SELF']; ?>" method="POST">
     <label for="sort">Sorteer tickets</label>
     <select name="sort" id="sort">
-        <option value="all" selected>Alle tickets</option>
-        <option value="tickets">Alleen meldingen</option>
-        <option value="orders">Alleen bestellingen</option>
-        <option value="reservations">Alleen reserveringen</option>
+        <option value="all" <?php echo (!isset($_POST['submit']) || $_POST['sort'] == 'all') ? "selected" : ""; ?>>Alle tickets</option>
+        <option value="tickets" <?php echo (isset($_POST['submit']) && $_POST['sort'] == 'tickets') ? "selected" : ""; ?>>Alleen meldingen</option>
+        <option value="orders" <?php echo (isset($_POST['submit']) && $_POST['sort'] == 'orders') ? "selected" : ""; ?>>Alleen bestellingen</option>
+        <option value="reservations" <?php echo (isset($_POST['submit']) && $_POST['sort'] == 'reservations') ? "selected" : ""; ?>>Alleen reserveringen</option>
     </select>
     <input type="submit" value="Verstuur" name="submit">
 </form>
