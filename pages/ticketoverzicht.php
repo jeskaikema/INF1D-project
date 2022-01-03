@@ -69,20 +69,20 @@ if ($statement = mysqli_prepare($conn, $query)) {
     <?php include "../templates/head.php"; ?>
 </head>
 <body>
-<form action="<?php echo $_SERVER ['PHP_SELF']; ?>" method="POST">
-    <label for="sort">Sorteer tickets</label>
-    <select name="sort" id="sort">
-        <option value="all" <?php echo (!isset($_POST['submit']) || $_POST['sort'] == 'all') ? "selected" : ""; ?>>Alle tickets</option>
-        <option value="tickets" <?php echo (isset($_POST['submit']) && $_POST['sort'] == 'tickets') ? "selected" : ""; ?>>Alleen meldingen</option>
-        <option value="orders" <?php echo (isset($_POST['submit']) && $_POST['sort'] == 'orders') ? "selected" : ""; ?>>Alleen bestellingen</option>
-        <option value="reservations" <?php echo (isset($_POST['submit']) && $_POST['sort'] == 'reservations') ? "selected" : ""; ?>>Alleen reserveringen</option>
-    </select>
-    <input type="submit" value="Verstuur" name="submit">
-</form>
     <div class="container">
         <?php include "../templates/sidebar.php"; ?>
         <div class="sub-container">
             <?php include "../templates/header.php"; ?>
+            <form action="<?php echo $_SERVER ['PHP_SELF']; ?>" method="POST" class="ticket-sort">
+                <label for="sort">Sorteer tickets</label>
+                <select name="sort" id="sort">
+                    <option value="all" <?php echo (!isset($_POST['submit']) || $_POST['sort'] == 'all') ? "selected" : ""; ?>>Alle tickets</option>
+                    <option value="tickets" <?php echo (isset($_POST['submit']) && $_POST['sort'] == 'tickets') ? "selected" : ""; ?>>Alleen meldingen</option>
+                    <option value="orders" <?php echo (isset($_POST['submit']) && $_POST['sort'] == 'orders') ? "selected" : ""; ?>>Alleen bestellingen</option>
+                    <option value="reservations" <?php echo (isset($_POST['submit']) && $_POST['sort'] == 'reservations') ? "selected" : ""; ?>>Alleen reserveringen</option>
+                </select>
+                <input type="submit" value="Verstuur" name="submit">
+            </form>
             <div class="box">
                 <?php if (mysqli_stmt_num_rows($statement) > 0): ?>
                     <?php while(mysqli_stmt_fetch($statement)): ?>
@@ -100,16 +100,14 @@ if ($statement = mysqli_prepare($conn, $query)) {
                                         }
                                         ?>
                                     </div>
-                                    <div class="TicketUpper">test</div>
+                                    <div class="TicketUpper"><?php echo $location; ?></div>
                                     <div class="TicketBottom">
                                         <?php
                                         if (getTypeOfTicket($conn, $ID) === 2) {
-                                            echo "Vestiging: ".$location
-                                                ."<br>Datum: ".getRoomDate($conn, $roomId)
+                                            echo "<br>Datum: ".getRoomDate($conn, $roomId)
                                                 ."<br>Tijd: ".getBeginTime($conn, $roomId)." - ".getEndTime($conn, $roomId)
                                                 ."<br>Kamernummer: ".getRoomNumber($conn, $roomId);
                                         } elseif (getTypeOfTicket($conn, $ID) === 1) {
-                                            echo "<p>Vestiging: " . $location . "</p>";
                                             echo "<p class=" . "'" . ((getPrice($conn, $orderId) >= 1500) ? 'price-text' : '') . "'" . ">Prijs: &euro; ". getPrice($conn, $orderId) . "</p>";
                                             echo "<p>Korte omschrijving: " . $description . "</p>";
                                         } elseif (getTypeOfTicket($conn, $ID) === 3) {

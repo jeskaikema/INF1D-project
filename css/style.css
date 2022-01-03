@@ -66,11 +66,6 @@ body {
 .box {
   width: 80%;
   margin: 0 auto;
-  /* height: 340px;
-  display: flex;
-  flex-wrap: nowrap;
-  padding-left: 108px;
-  padding-top: 267px; */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
@@ -357,6 +352,7 @@ textarea {
 }
 
 header {
+  position: fixed;
   height: 118px;
   width: 88vw;
   margin: 10px 10px 10px 0;
@@ -456,4 +452,8 @@ header {
 .responseMessage {
   background-color: white;
   min-height: 10vw;
+}
+
+.ticket-sort {
+  margin-top: 128px;
 }
