@@ -390,6 +390,7 @@ header {
   width: 50%;
   float: left;
   padding-left: 20px;
+  margin-top: 128px;
 }
 
 #ticketEmailContainer {
@@ -424,6 +425,7 @@ header {
 }
 
 #responseContainer {
+  margin-top: 128px;
   padding-left: 20px;
   width: 50%;
   float: left;
