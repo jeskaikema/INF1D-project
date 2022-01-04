@@ -31,7 +31,6 @@ if(isset($_POST['submit'])){
 <html lang="en">
 
 <head>
-    <title>Gebruikers</title>
     <?php include "../templates/head.php"; ?>
 </head>
 
@@ -46,7 +45,7 @@ if(isset($_POST['submit'])){
 
         <div id="ticketContainer">
             <div id="ticketEmailContainer">
-                <h3><?= $ticket['email'] ?></h3>
+                <h3><?php echo $ticket['email']; ?></h3>
             </div>
 
             <div id="ticketContentContainer">

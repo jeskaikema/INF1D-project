@@ -1,6 +1,7 @@
 <?php
 include "../helper/session.php"
 ?>
+<div class="overlay"></div>
 <div class="Sidebar">      
     <img src="../img/logo-nhl-stenden-2018 wit2.png" alt= witLogo width="133px" height="128px" style="margin-left:25px;margin-top:15px">
     <div class="S-1">

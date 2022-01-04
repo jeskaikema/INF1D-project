@@ -9,6 +9,15 @@ body {
   background-color: #e8e8e8;
 }
 
+.overlay {
+  display: none;
+  position: fixed;
+  animation: fadeInAnimation ease 1s;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.77);
+}
+
 #login-wrapper {
   display: flex;
   width: 100vw;
@@ -55,11 +64,13 @@ body {
 
 .container {
   display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .sub-container {
-  width: 88.5vw;
-  margin-left: 11.5vw;
+  width: 86%;
+  margin-left: 14%;
 }
 
 /*ticketoverzicht*/
@@ -238,7 +249,7 @@ textarea {
   display: flex;
   height: 100%;
   justify-content: end;
-  margin: auto 5rem 0;
+  margin: auto 5rem auto 2rem;
 }
 
 .gkleur {
@@ -270,15 +281,18 @@ textarea {
 }
 
 .Sidebar {
+  display: block;
   position: fixed;
+  z-index: 100;
   margin: 6px;
-  width: 11.5vw;
+  width: 250px;
   height: 98vh;
   background-image: url("../img/S.Bg.PNG");
-  background-size: contain;
+  background-size: cover;
   border-radius: 20px;
   border: #005aaa;
   border-width: 2px;
+  transition: top 1s ease;
 }
 
 .S-1 {
@@ -348,13 +362,12 @@ textarea {
 .S-3 h5 {
   width: 100%;
   font-size: 20px;
-  margin: 12px auto 12px;
 }
 
 header {
   position: fixed;
   height: 118px;
-  width: 88vw;
+  width: 86.5%;
   margin: 10px 10px 10px 0;
   background-color: gray;
 }
@@ -458,4 +471,66 @@ header {
 
 .ticket-sort {
   margin-top: 128px;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+}
+
+.openMenu {
+  display: none;
+  align-items: center;
+  font-size: 2.25rem;
+}
+
+@media (max-width: 1320px) {
+  .top {
+    justify-content: space-between;
+  }
+
+  .box {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .sub-container {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  header {
+    width: 100%;
+  }
+
+  .openMenu {
+    display: flex;
+  }
+
+  .Sidebar {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .box {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutAnimation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
