@@ -1,4 +1,4 @@
-const mainMenu = document.querySelector(".Sidebar");
+const mainMenu = document.querySelector(".Sidebar-mobile");
 const openMenu = document.querySelector(".openMenu");
 const overlay = document.querySelector(".overlay");
 
@@ -17,6 +17,5 @@ function close() {
   overlay.style.animation = "fadeOutAnimation 1s ease";
   setTimeout(function () {
     overlay.style.display = "none";
-    // mainMenu.style.display = "none";
   }, 990);
 }
