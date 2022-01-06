@@ -70,8 +70,8 @@ include_once "../helper/getErrorMessages.php";
                 echo ' <form method="post" action="">
                 <select name="location" id="location">
                     <option value="-1">Alle Locaties</option>
-                    <option value="Emmen">Emmen</option>
-                    <option value="Leeuwarden">Leeuwarden</option>
+                    <option value="emmen">Emmen</option>
+                    <option value="leeuwarden">Leeuwarden</option>
                 </select>
 
                 <select name="department" id="department">
