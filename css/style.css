@@ -156,7 +156,7 @@ body {
 }
 
 .users-title {
-  margin-top: 1rem;
+  margin-top: 9rem;
   text-align: center;
 }
 
@@ -383,8 +383,8 @@ textarea {
 header {
   position: fixed;
   height: 118px;
-  width: 86.5%;
-  margin: 10px 10px 10px 0;
+  width: 85.5%;
+  margin: 6px 10px 10px 0;
   background-color: gray;
 }
 
@@ -530,6 +530,14 @@ header {
 @media (max-width: 768px) {
   .box {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .label-input {
+    flex-direction: column;
+  }
+
+  .label-input div {
+    width: 100%;
   }
 }
 
