@@ -73,7 +73,7 @@ if ($statement = mysqli_prepare($conn, $query)) {
         <?php include "../templates/sidebar.php"; ?>
         <div class="sub-container">
             <?php include "../templates/header.php"; ?>
-            <form action="<?php echo $_SERVER ['PHP_SELF']; ?>" method="POST" class="ticket-sort">
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" class="ticket-sort">
                 <label for="sort">Sorteer tickets</label>
                 <select name="sort" id="sort">
                     <option value="all" <?php echo (!isset($_POST['submit']) || $_POST['sort'] == 'all') ? "selected" : ""; ?>>Alle tickets</option>

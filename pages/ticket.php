@@ -125,7 +125,7 @@ if(isset($_POST['submit'])){
         <?php
         $responses = getResponses($conn, $_GET['id']);
 
-        echo"<dev id='responsesWrapper'>";
+        echo"<div id='responsesWrapper'>";
         echo"<h2>Reacties:</h2>";
         foreach($responses as $response){
             echo"<div class='existingResponseContainer'>";
@@ -138,7 +138,7 @@ if(isset($_POST['submit'])){
             echo"</div>";
         }
 
-        echo"</dev>";
+        echo"</div>";
         ?>
 
     </div>
