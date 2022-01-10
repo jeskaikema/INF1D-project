@@ -6,6 +6,7 @@ include "../helper/getTicketInformation.php";
 include "../helper/getErrorMessages.php";
 
 $ticket = getTicketInformation($conn, $_GET['id']);
+$ticketID = $_GET['id'];
 
 if (!rightToViewTicket($conn, $ticket)){
     header("Location: ticketoverzicht.php");
@@ -13,7 +14,6 @@ if (!rightToViewTicket($conn, $ticket)){
 
 if(isset($_POST['submit'])){
     $email = $_SESSION['email'];
-    $ticketID = $_GET['id'];
     $message = $_POST['responseArea'];
 
     if(empty($message)){
@@ -66,28 +66,28 @@ if(isset($_POST['submit'])){
                 ?>
 
                 <div class="ticketItem">
-                    <?= "<p>Telefoonnummer:</p>" ?>
-                    <?= "<p>" . $ticket['phone'] . "</p>" ?>
+                    <?php echo "<p>Telefoonnummer:</p>"; ?>
+                    <?php echo "<p>" . $ticket['phone'] . "</p>"; ?>
                 </div>
 
                 <div class="ticketItem">
-                    <?= "<p>Status:</p>" ?>
-                    <?= "<p>" . $ticket['status'] . "</p>" ?>
+                    <?php echo "<p>Status:</p>"; ?>
+                    <?php echo "<p>" . $ticket['status'] . "</p>"; ?>
                 </div>
 
                 <div class="ticketItem">
-                    <?= "<p>Prioriteit:</p>" ?>
-                    <?= "<p>" . $ticket['prio'] . "</p>" ?>
+                    <?php echo "<p>Prioriteit:</p>"; ?>
+                    <?php echo "<p>" . ($ticket['prio'] == 1 ? "Hoog" : ($ticket['prio'] == 2 ? "Middel" : "Laag")) . "</p>"; ?>
                 </div>
 
                 <div class="ticketItem">
-                    <?= "<p>Locatie:</p>" ?>
-                    <?= "<p>" . $ticket['location'] . "</p>" ?>
+                    <?php echo "<p>Locatie:</p>"; ?>
+                    <?php echo "<p>" . $ticket['location'] . "</p>"; ?>
                 </div>
 
                 <div class="ticketItem">
-                    <?= "<p>Aangemaakt op:</p>" ?>
-                    <?= "<p>" . $ticket['date'] . "</p>" ?>
+                    <?php echo "<p>Aangemaakt op:</p>"; ?>
+                    <?php echo "<p>" . $ticket['date'] . "</p>"; ?>
                 </div>
 
                 <?php
@@ -100,12 +100,33 @@ if(isset($_POST['submit'])){
                 ?>
 
                 <div id="ticketDescrLabel">
-                    <?= "<p>Beschrijving:</p>" ?>
+                    <?php echo "<p>Beschrijving:</p>"; ?>
                 </div>
 
                 <div id="ticketDescr">
-                    <?= "<p>" . $ticket['desc'] . "</p>" ?>
+                    <?php echo "<p>" . $ticket['desc'] . "</p>"; ?>
                 </div>
+            </div>
+            <div class="prioForm">
+                <form action="../helper/setPrio.php?id=<?php echo $ticketID; ?>" method="POST">
+                    <label for="prio">Wijzig de prioriteit van de ticket</label>
+                    <?php if ((isset($_GET['error']) && ($_GET['error'] == "invalidPrio"))): ?>
+                        <div class="error">
+                            <?php echo getErrorMessages($_GET['error']); ?>
+                        </div>
+                    <?php endif; ?>
+                    <select name="prio" id="prio">
+                        <option value="hoog" <?php echo ($ticket['prio'] == 1) ? "selected" : ""; ?>>Hoog</option>
+                        <option value="middel" <?php echo ($ticket['prio'] == 2) ? "selected" : ""; ?>>Middel</option>
+                        <option value="laag" <?php echo ($ticket['prio'] == 3) ? "selected" : ""; ?>>Laag</option>
+                    </select>
+                    <input type="submit" name="submit" value="Wijzig">
+                </form>
+            </div>
+            <div class="closeTicket">
+                <form action="../src/close_ticket.php?id=<?php echo $ticketID; ?>" method="POST">
+                    <input type="submit" name="submit" value="Sluit Ticket">
+                </form>
             </div>
         </div>
 

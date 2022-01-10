@@ -31,19 +31,19 @@ if (isset($_POST['submit']))
     $selection = $_POST['sort'];
     switch ($selection) {
         case 'all':
-            $query = "SELECT `ID`, `User_Email`, `Room_ID`, `Order_ID`, `Description`, `Location` FROM `ticket` ORDER BY `priority`, `Ticket_Date` DESC";
+            $query = "SELECT `ID`, `User_Email`, `Room_ID`, `Order_ID`, `Description`, `Location` FROM `ticket` WHERE `Status` <> 'gesloten' ORDER BY `priority`, `Ticket_Date` DESC";
             break;
         
         case 'tickets':
-            $query = "SELECT `ID`, `User_Email`, `Room_ID`, `Order_ID`, `Description`, `Location` FROM `ticket` WHERE `Room_ID` IS NULL AND `Order_ID` IS NULL ORDER BY `priority`, `Ticket_Date` DESC";
+            $query = "SELECT `ID`, `User_Email`, `Room_ID`, `Order_ID`, `Description`, `Location` FROM `ticket` WHERE `Room_ID` IS NULL AND `Order_ID` IS NULL AND `Status` <> 'gesloten' ORDER BY `priority`, `Ticket_Date` DESC";
             break;
         
         case 'orders':
-            $query = "SELECT ticket.`ID`, `User_Email`, `Room_ID`, `Order_ID`, `Description`, `Location` FROM ticket INNER JOIN `order` ON ticket.Order_ID = `order`.`ID` ORDER BY `priority`, `Ticket_Date` DESC";
+            $query = "SELECT ticket.`ID`, `User_Email`, `Room_ID`, `Order_ID`, `Description`, `Location` FROM ticket INNER JOIN `order` ON ticket.Order_ID = `order`.`ID` WHERE `Status` <> 'gesloten' ORDER BY `priority`, `Ticket_Date` DESC";
             break;
 
         default:
-            $query = "SELECT ticket.`ID`, `User_Email`, `Room_ID`, `Order_ID`, `Description`, ticket.`Location` FROM ticket INNER JOIN `room` ON ticket.Room_ID = `room`.`ID` ORDER BY `priority`, `Ticket_Date` DESC";
+            $query = "SELECT ticket.`ID`, `User_Email`, `Room_ID`, `Order_ID`, `Description`, ticket.`Location` FROM ticket WHERE `Status` IS NOT `gesloten` INNER JOIN `room` ON ticket.Room_ID = `room`.`ID` WHERE `Status` <> 'gesloten' ORDER BY `priority`, `Ticket_Date` DESC";
             break;
     }
 } 

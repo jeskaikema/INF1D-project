@@ -37,4 +37,8 @@
         {
             return "Het reactieveld mag niet leeg zijn";
         }
+        if ($error == "invalidPrio")
+        {
+            return "Ongeldige waarde voor prioriteit";
+        }
     }
