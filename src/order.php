@@ -19,14 +19,16 @@
 
         $order_id = mysqli_insert_id($conn);
 
-        $query2 = "INSERT INTO `ticket` (User_Email, Order_ID, Phone_Number, `Description`, `File`, Priority, `Location`, Ticket_Date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $query2 = "INSERT INTO `ticket` (User_Email, Order_ID, Phone_Number, `Description`, `File`, `Status`, Priority, `Location`, Ticket_Date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         if ($statement2 = mysqli_prepare($conn, $query2))
         {
             //bron: https://stackoverflow.com/questions/20159655/how-to-get-gmt-date-in-yyyy-mm-dd-hhmmss-in-php
+            $status = "nieuw";
+            
             $date = date('Y-m-d H:i:s \G\M\T', time());
 
-            mysqli_stmt_bind_param($statement2, 'siississ', $email, $order_id, $phoneNumber, $description, $file, $priority, $location, $date);
+            mysqli_stmt_bind_param($statement2, 'siisssiss', $email, $order_id, $phoneNumber, $description, $file, $status, $priority, $location, $date);
 
             if (!mysqli_stmt_execute($statement2))
             {
@@ -40,25 +42,40 @@
         $email = (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) ? $_POST['email'] : "invalid";
         $phoneNumber = $_POST['phonenumber'];
         $description = $_POST['description'];
+        $priority = 3;
         $file = $_FILES['file'];
+        $location = $_POST['location'];
+        $price = $_POST['price'];
 
-        if (validateFile($file, "orderForm.php") == 1) 
+        if (empty($description) || empty($location) || empty($price))
         {
-            $target = "../img/ticketassets/" . $file['name'];
-            move_uploaded_file($file["tmp_name"], $target);
+            header("location: ../pages/orderForm.php?error=emptyField");
         }
-
-        $priority = $_POST['priority'];
+ 
+        //bron: https://stackoverflow.com/questions/946418/how-to-check-whether-the-user-uploaded-a-file-in-php
+        if(file_exists($file['tmp_name']) || is_uploaded_file($file['tmp_name'])) 
+        {
+            if (validateFile($file, "orderForm.php") == 1) 
+            {
+                $target = "../img/ticketassets/" . $file['name'];
+                move_uploaded_file($file["tmp_name"], $target);
+            }
+        } 
+        else 
+        {
+            $file['name'] = NULL;
+        }
+        
         $location = $_POST['location'];
         $price = $_POST['price'];
 
         if (!checkPhoneNumber($phoneNumber))
         {
-            header("location: ../orderForm.php?error=invalidPhoneNumber");
+            header("location: ../pages/orderForm.php?error=invalidPhoneNumber");
             exit();
         }
 
 
 
-        placeOrder($conn, $price, $email, $phoneNumber, $description, $file['name'],  $priority, $location);
+        placeOrder($conn, $price, $email, $phoneNumber, $description, $file['name'], $priority, $location);
     }

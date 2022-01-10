@@ -9,6 +9,15 @@ body {
   background-color: #e8e8e8;
 }
 
+.overlay {
+  display: none;
+  position: fixed;
+  animation: fadeInAnimation ease 1s;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.77);
+}
+
 #login-wrapper {
   display: flex;
   width: 100vw;
@@ -53,17 +62,31 @@ body {
   margin-right: 0;
 }
 
-/*ticketoverzicht*/
-.box {
-  width: 100%;
-  height: 340px;
+.container {
   display: flex;
-  flex-wrap: nowrap;
-  padding-left: 108px;
-  padding-top: 267px;
+  justify-content: space-between;
+  width: 100%;
 }
 
-.container {
+.sub-container {
+  width: 86%;
+  margin-left: 14%;
+}
+
+/*ticketoverzicht*/
+.box {
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.ticket-link {
+  text-decoration: none;
+  color: black;
+}
+
+.container-overview {
   padding: 5px;
   width: 220px;
 }
@@ -90,6 +113,15 @@ body {
   background-color: #005aaa;
 }
 
+.price {
+  border-color: purple;
+  background-color: purple;
+}
+
+.price-text {
+  color: red;
+}
+
 .tickettype {
   height: 33px;
   width: 100%;
@@ -111,15 +143,20 @@ body {
 }
 
 .StatusPriority {
-  height: 33px;
+  height: 37px;
   color: white;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
 }
 
+.priosta {
+  padding-left: 10px;
+  padding-right: 12px;
+}
+
 .users-title {
+  margin-top: 1rem;
   text-align: center;
 }
 
@@ -178,10 +215,350 @@ body {
 
 .error {
   color: red;
-
 }
 
 textarea {
   resize: none;
 }
 
+.faq-page {
+  width: 80%;
+  margin: 1rem auto 0;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.faq:last-child {
+  border: none;
+}
+
+.faq {
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+.question {
+  margin: 2rem 0;
+}
+
+.answer {
+  margin: 2rem 0;
+}
+
+.top {
+  display: flex;
+  height: 100%;
+  justify-content: end;
+  margin: auto 5rem auto 2rem;
+}
+
+.gkleur {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: blue;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.dot {
+  background-color: #aeaeae;
+  border: #646262;
+  border-width: 1px;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
+
+.Sidebar-mobile {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  margin: 6px;
+  width: 250px;
+  height: 98vh;
+  background-image: url("../img/S.Bg.PNG");
+  background-size: cover;
+  border-radius: 20px;
+  border: #005aaa;
+  border-width: 2px;
+  transition: left 1s ease;
+}
+
+.Sidebar-desktop {
+  display: block;
+  position: fixed;
+  z-index: 100;
+  margin: 6px;
+  width: 250px;
+  height: 98vh;
+  background-image: url("../img/S.Bg.PNG");
+  background-size: cover;
+  border-radius: 20px;
+  border: #005aaa;
+  border-width: 2px;
+}
+
+.S-1 {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 0px;
+  flex-direction: column;
+  height: 300px;
+  width: 100%;
+}
+
+.S-2 {
+  margin: 75px auto 0;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  height: 50px;
+  width: 100%;
+  text-align-last: center;
+}
+
+.S-3 {
+  margin: 120px auto 0;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  height: 50px;
+  width: 100%;
+  text-align-last: center;
+}
+
+.S-Item {
+  margin: 10px auto 0;
+  vertical-align: auto;
+  display: flex;
+  flex-direction: row;
+  height: 38px;
+  width: 80%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #28a1a3;
+  border-radius: 8px;
+  color: white;
+}
+
+.S-Item:hover {
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.Sidebar-mobile h4,
+.Sidebar-desktop h4 {
+  color: white;
+  width: 100%;
+  margin: 12px auto 12px;
+  font-size: 12px;
+}
+
+.Sidebar-mobile a,
+.Sidebar-desktop a {
+  text-decoration: none;
+  width: 100%;
+}
+
+.S-3 a {
+  margin: auto auto;
+  color: white;
+}
+
+.S-3 h5 {
+  width: 100%;
+  font-size: 20px;
+}
+
+header {
+  position: fixed;
+  height: 118px;
+  width: 85.5%;
+  margin: 6px 10px 10px 0;
+  background-color: gray;
+}
+
+.page {
+  display: flex;
+  /* flex-direction: row-reverse; */
+}
+
+.groep {
+  display: flex;
+  margin: auto 5rem auto;
+}
+
+/* userView.php */
+.userContainer {
+  border-radius: 25px;
+  width: 35%;
+  float: left;
+  margin: 25px 5%;
+  padding: 5px 10px;
+  background-color: white;
+  border-width: 1px;
+  border-color: gray;
+}
+
+#userViewForm {
+  margin-left: 5%;
+}
+
+/* ticket.php */
+#ticketContainer {
+  width: 50%;
+  float: left;
+  padding-left: 20px;
+}
+
+#ticketEmailContainer {
+  width: 100%;
+  background-color: #28a1a3;
+  text-align: center;
+}
+
+#ticketContentContainer {
+  width: 100%;
+  border-style: solid;
+  border-color: #28a1a3;
+  overflow: hidden;
+}
+
+.ticketItem {
+  width: 50%;
+  float: left;
+  margin-bottom: 20px;
+}
+
+#ticketDescrLabel {
+  width: 90%;
+  float: left;
+}
+
+#ticketDescr {
+  width: 90%;
+  background-color: white;
+  float: left;
+  min-height: 10vw;
+}
+
+#responseContainer {
+  padding-left: 20px;
+  width: 50%;
+  float: left;
+}
+
+#responseArea {
+  min-height: 20vw;
+  min-width: 25vw;
+}
+
+#responsesWrapper {
+  float: left;
+  padding-left: 20px;
+}
+
+.existingResponseContainer {
+  width: 100%;
+  padding-top: 20px;
+  float: left;
+}
+
+.responseEmail {
+  background-color: #28a1a3;
+}
+
+.responseMessage {
+  background-color: white;
+  min-height: 10vw;
+}
+
+.ticket-sort {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+}
+
+.openMenu {
+  display: none;
+  align-items: center;
+  font-size: 2.25rem;
+}
+
+.space {
+  height: 128px;
+  width: 100%;
+}
+
+@media (max-width: 1320px) {
+  .top {
+    justify-content: space-between;
+  }
+
+  .box {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .sub-container {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  header {
+    width: 100%;
+  }
+
+  .openMenu {
+    display: flex;
+  }
+
+  .Sidebar-desktop {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .box {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .label-input {
+    flex-direction: column;
+  }
+
+  .label-input div {
+    width: 100%;
+  }
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutAnimation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

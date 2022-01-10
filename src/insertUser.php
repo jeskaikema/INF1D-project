@@ -30,13 +30,13 @@
 
         if (empty($email) || empty($fName) || empty($lName) || empty($department) || empty($location) || empty($role))
         {
-            header("location: ../users.php?error=emptyField");
+            header("location: ../pages/users.php?error=emptyField");
             exit();
         }
 
         if ($email == "invalid")
         {
-            header("location:  ../users.php?error=invalidEmail");
+            header("location:  ../pages/users.php?error=invalidEmail");
             exit();
         }
 
@@ -44,7 +44,7 @@
 
         if (!strpos($email, lcfirst($fName)) || !strpos($email, lcfirst($lName))) 
         {
-            header("location: ../users.php?error=matchError");
+            header("location: ../pages/users.php?error=matchError");
             exit();
         }
 

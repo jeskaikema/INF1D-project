@@ -1,3 +1,6 @@
+<?php
+include_once("../helper/session.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +8,7 @@
     <title>TicketGuru</title>
 </head>
 <body>
-<form action="src/create_ticket.php" method="POST">
+<form action="../src/create_ticket.php" method="POST">
     <p>
         <label for="name">Naam:</label>
         <input type="text" name="name" id="name">
@@ -26,14 +29,14 @@
         <label for="branch">Vestiging</label>
         <select name="branch" id="branch">
             <option value="blank" selected></option>
-            <option value="Leeuwarden">Leeuwarden</option>
-            <option value="Emmen">Emmen</option>
-            <option value="Groningen">Groningen</option>
-            <option value="Meppel">Meppel</option>
-            <option value="Zwolle">Zwolle</option>
-            <option value="Terschelling">Terschelling</option>
-            <option value="Assen">Assen</option>
-            <option value="Amsterdam">Amsterdam</option>
+            <option value="leeuwarden">Leeuwarden</option>
+            <option value="emmen">Emmen</option>
+            <option value="groningen">Groningen</option>
+            <option value="meppel">Meppel</option>
+            <option value="zwolle">Zwolle</option>
+            <option value="terschelling">Terschelling</option>
+            <option value="assen">Assen</option>
+            <option value="amsterdam">Amsterdam</option>
         </select>
     </p>
     <p>
