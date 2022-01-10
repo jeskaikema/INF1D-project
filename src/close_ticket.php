@@ -7,7 +7,7 @@
         // $closeticket = true;   
 
         if ($statement = mysqli_prepare($conn, $query)) {
-            mysqli_stmt_bind_param($statement, 'i', $id);
+            mysqli_stmt_bind_param($statement, 'i', $ID);
         }
 
         if (!mysqli_stmt_execute($statement)) {
