@@ -1,7 +1,7 @@
 <?php
 function getTypeOfTicket($conn, $ID)
 {
-    $query = "SELECT `Room_ID`, `Order_ID` SET status='gesloten' WHERE `ID` = 3";
+    $query = "SELECT `Room_ID`, `Order_ID` FROM `ticket` WHERE `ID` = ?";
     if ($statement = mysqli_prepare($conn, $query)) {
         mysqli_stmt_bind_param($statement, 'i', $ID);
         if (mysqli_stmt_execute($statement)) {
