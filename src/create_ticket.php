@@ -1,5 +1,5 @@
 <?php
-include_once "config/config.php";
+include_once "../config/config.php";
 include_once "../helper/validateFile.php";
 
 function placeTicket($conn, $phonenumber, $email, $roomnumber, $description, $attachment)
