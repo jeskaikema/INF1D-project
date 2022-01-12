@@ -13,7 +13,7 @@ include_once "../helper/getErrorMessages.php";
     <div class="sub-container">
         <?php include "../templates/header.php"; ?>
         <div class="users-title">
-            <h1>Bestelling Plaatsen</h1>
+            <h1>Melding Maken</h1>
         </div>
         <form action="../src/create_ticket.php" method="POST" enctype="multipart/form-data" class="form flex">
             <div class="label-input flex">
