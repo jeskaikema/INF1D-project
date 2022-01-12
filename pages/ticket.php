@@ -107,7 +107,9 @@ if(isset($_POST['submit'])){
                     <?php echo "<p>" . $ticket['desc'] . "</p>"; ?>
                 </div>
             </div>
-            <div class="prioForm">
+            <?php $hidden = "display: none;";
+            if ($_SESSION['role'] === 'helpdeskmedewerker'){$hidden = "";} ?>
+            <div class="prioForm" style="<?php echo $hidden ?>">
                 <form action="../helper/setPrio.php?id=<?php echo $ticketID; ?>" method="POST">
                     <label for="prio">Wijzig de prioriteit van de ticket</label>
                     <?php if ((isset($_GET['error']) && ($_GET['error'] == "invalidPrio"))): ?>
@@ -123,13 +125,12 @@ if(isset($_POST['submit'])){
                     <input type="submit" name="submit" value="Wijzig">
                 </form>
             </div>
-            <div class="closeTicket">
+            <div class="closeTicket" style="<?php echo $hidden ?>">
                 <form action="../src/close_ticket.php?id=<?php echo $ticketID; ?>" method="POST">
                     <input type="submit" name="submit" value="Sluit Ticket">
                 </form>
             </div>
         </div>
-
         <div id="responseContainer">
             <h2>Reageer:</h2>
             <form method="post" action="" id="responseForm">
