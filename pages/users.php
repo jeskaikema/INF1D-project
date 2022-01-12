@@ -52,22 +52,18 @@
                 <div class="label-input flex">
                     <label for="department">Afdeling: </label>
                     <div>
-                        <?php if ((isset($_GET['error']) && ($_GET['error'] == "emptyField"))): ?>
-                            <div class="error">
-                                <?php echo getErrorMessages($_GET['error']); ?>
-                            </div>
-                        <?php endif; ?>
-                        <input type="text" name="department" id="department">
+                        <select name="department" id="department">
+                            <option value="ICT">ICT</option>
+                            <option value="Staff">Staff</option>
+                            <option value="Hotel">Hotel</option>
+                            <option value="Economie">Economie</option>
+                            <option value="PABO">PABO</option>
+                        </select>
                     </div>
                 </div>
                 <div class="label-input flex">
                     <label for="location">Locatie: </label>
                     <div>
-                        <?php if ((isset($_GET['error']) && ($_GET['error'] == "emptyField"))): ?>
-                            <div class="error">
-                                <?php echo getErrorMessages($_GET['error']); ?>
-                            </div>
-                        <?php endif; ?>
                         <select name="location" id="location">
                             <option value="Emmen" <?php echo ($_SESSION['location'] ==  'emmen') ? "selected" : ""; ?>>Emmen</option>
                             <option value="Leeuwarden" <?php echo ($_SESSION['location'] ==  'leeuwarden') ? "selected" : ""; ?>>Leeuwarden</option>
@@ -83,12 +79,11 @@
                 <div class="label-input flex">
                     <label for="role">Rol: </label>
                     <div>
-                        <?php if ((isset($_GET['error']) && ($_GET['error'] == "emptyField"))): ?>
-                            <div class="error">
-                                <?php echo getErrorMessages($_GET['error']); ?>
-                            </div>
-                        <?php endif; ?>
-                        <input type="text" name="role" id="role">
+                        <select name="role" id="role">
+                            <option value="Student">Student</option>
+                            <option value="Docent">Docent</option>
+                            <option value="Helpdeskmedewerker">Helpdeskmedewerker</option>
+                        </select>
                     </div>
                 </div>
                     <input type="submit" name="submit" value="submit">

@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="label-input flex">
-                    <label for="fName">Telefoonnummer: </label>
+                    <label for="phonenumber">Telefoonnummer: </label>
                     <div>
                         <?php if ((isset($_GET['error']) && ($_GET['error'] == "invalidPhoneNumber"))): ?>
                             <div class="error">
@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="label-input flex">
-                    <label for="lName">Beschrijving: </label>
+                    <label for="description">Beschrijving: </label>
                     <div>
                         <?php if ((isset($_GET['error']) && ($_GET['error'] == "emptyField"))): ?>
                             <div class="error">
@@ -82,7 +82,7 @@
                     </div>
                 </div>
                 <div class="label-input flex">
-                    <label for="role">Prijs (in euro's): </label>
+                    <label for="price">Prijs (in euro's): </label>
                     <div>
                         <?php if ((isset($_GET['error']) && ($_GET['error'] == "emptyField"))): ?>
                             <div class="error">
