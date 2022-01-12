@@ -22,11 +22,11 @@
     if (isset($_POST['submit']))
     {
         $email = (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) ? $_POST['email'] : "invalid";
-        $fName = ctype_alpha($_POST['fName']);
-        $lName = ctype_alpha($_POST['lName']);
-        $department = ctype_alpha($_POST['department']);
-        $location = ctype_alpha($_POST['location']);
-        $role = ctype_alpha($_POST['role']);
+        $fName = ctype_alpha($_POST['fName']) ? $_POST['fName'] : 0;
+        $lName = ctype_alpha($_POST['lName']) ? $_POST['lName'] : 0;
+        $department = ctype_alpha($_POST['department']) ? $_POST['department'] : 0;
+        $location = ctype_alpha($_POST['location']) ? $_POST['location'] : 0;
+        $role = ctype_alpha($_POST['role']) ? $_POST['role'] : 0;
 
         if (empty($email) || empty($fName) || empty($lName) || empty($department) || empty($location) || empty($role))
         {
@@ -37,14 +37,6 @@
         if ($email == "invalid")
         {
             header("location:  ../pages/users.php?error=invalidEmail");
-            exit();
-        }
-
-        $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-
-        if (!strpos($email, lcfirst($fName)) || !strpos($email, lcfirst($lName))) 
-        {
-            header("location: ../pages/users.php?error=matchError");
             exit();
         }
 
