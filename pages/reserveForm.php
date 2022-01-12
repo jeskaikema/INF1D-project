@@ -11,7 +11,7 @@ include_once "../helper/getErrorMessages.php";
 <body>
 <div id="container">
     <?php include "../templates/sidebar.php"; ?>
-    <div id="sub-container">
+    <div class="sub-container">
         <?php include "../templates/header.php"; ?>
         <div class="users-title">
             <h1>Lokaal Reserveren</h1>
