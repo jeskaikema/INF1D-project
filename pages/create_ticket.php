@@ -15,7 +15,7 @@ include_once "../helper/getErrorMessages.php";
         <div class="users-title">
             <h1>Bestelling Plaatsen</h1>
         </div>
-        <form action="../src/create_ticket.php" method="POST">
+        <form action="../src/create_ticket.php" method="POST" enctype="multipart/form-data" class="form flex">
             <div class="label-input flex">
                 <label for="name">Naam:</label>
                 <input type="text" name="name" id="name">
@@ -51,19 +51,15 @@ include_once "../helper/getErrorMessages.php";
                 <input type="text" name="roomnumber" id="roomnumber">
             </div>
             <div class="label-input flex">
-                <label for="description">Kleine beschrijving</label>
-                <input type="text" name="description" id="description">
-            </div>
-            <div class="label-input flex">
                 <label for="report">Melding</label>
                 <input type="text" name="report" id="report">
             </div>
             <div class="label-input flex">
-                <label for="attachment">Bijlage</label>
-                <input type="file" name="attachment" id="attachment" multiple>
+                <label for="file">Bijlage</label>
+                <input type="file" name="file" id="file" multiple>
             </div>
 
-            <input type="submit" name="submit" value="inloggen">
+            <input type="submit" name="submit" value="Submit">
         </form>
     </div>
 </div>
