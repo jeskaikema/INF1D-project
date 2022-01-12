@@ -12,7 +12,8 @@
   display: flex;
 
   width: 100%;
-  height: 10000px;
+  min-height: 100vh;
+  height: fit-content;
   background-color: #CBCBCB;
   /* flex-direction: row-reverse; */
 }
@@ -36,6 +37,7 @@ header {
   margin-left: 220px;
   border-color: black;
   background-color: #CBCBCB;
+  z-index: 3;
 }
 
 .gkleur {
@@ -61,6 +63,7 @@ header {
 
 .dot {
   background-color: #aeaeae;
+  align-self: ;
   margin: auto;
   border-color: #646262;
   border-style: solid;
@@ -81,6 +84,7 @@ header {
   border-radius: 20px;
   border: #005aaa;
   border-width: 2px;
+  z-index: 2;
 }
 
 .S-1 {
@@ -158,13 +162,13 @@ header {
   margin: auto 5rem auto;
 }
 
-  .main {
-  background-color: green;
-  border: #005aaa;
-  color: red;
-  margin-left: 220px;
-  width: 100%;
-  height: 100%;
-  margin: 7px;
-  z-index: 5;
+.main {
+    background-color: white;
+    left: 220px;
+  	margin-left: 17vw;
+    margin-top: 300px;
+    width: 83vw;
+    height: 100%;
+    margin: 7px;
+    z-index: 0;
 }

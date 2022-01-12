@@ -82,13 +82,34 @@
 
             <div class="S-3">
                 <div class="S-Item">
-                    <a href="#"><h5>Uitloggen</h5></a>
+                    <a href="src/logout.php" ><h5>Uitloggen</h5></a>
                 </div>   
             </div>   
         </div>
-        
+    
         <div class="main">
             <p>"Hi"</p>
+            <br></br>
+            <p>"Hi"</p>
+            <br></br>
+            <p>"Hi"</p>
+            <br></br>
+            <p>"Hi"</p>
+            <br></br>
+            <p>"Hi"</p>
+            <br></br>
+            <p>"Hi"</p>
+            <br></br>
+            <p>"Hi"</p>
+            <br></br>
+            <p>"Hi"</p>
+            <br></br>
+            <p>"Hi"</p>
+            <br></br>
+            <p>"Hi"</p>
+            <br></br>
+            <p>"Hi"</p>
+            <br></br>
         </div>
     </div>
 
