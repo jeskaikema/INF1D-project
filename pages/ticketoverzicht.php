@@ -49,9 +49,36 @@ if (isset($_POST['submit']))
 } 
 else
 {
-    $query = "SELECT `ID`, `User_Email`, `Room_ID`, `Order_ID`, `Description`, `Location` FROM `ticket` ORDER BY `priority`, `Ticket_Date` DESC";
+    if ($_SESSION['role'] === "Helpdeskmedewerker") {
+        $query = "
+        SELECT `ID`,
+               `User_Email`,
+               `Room_ID`,
+               `Order_ID`,
+               `Description`,
+               `Location`
+        FROM    `ticket`
+        ORDER BY `priority`,
+                 `Ticket_Date` DESC";
+    } else {
+        $query = "
+        SELECT `ID`,
+               `User_Email`,
+               `Room_ID`,
+               `Order_ID`,
+               `Description`,
+               `Location`
+        FROM    `ticket`
+        WHERE User_Email = ?
+        ORDER BY `priority`,
+                 `Ticket_Date` DESC";
+    }
+
 }
 if ($statement = mysqli_prepare($conn, $query)) {
+    if ($_SESSION['role'] != "Helpdeskmedewerker") {
+        mysqli_stmt_bind_param($statement, 's', $_SESSION['email']);
+    }
     if (mysqli_stmt_execute($statement)) {
         mysqli_stmt_bind_result($statement, $ID, $email, $roomId, $orderId, $description, $location);
         mysqli_stmt_store_result($statement);

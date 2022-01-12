@@ -5,7 +5,7 @@ include "../config/config.php";
 include "../helper/getTicketInformation.php";
 include "../helper/getErrorMessages.php";
 
-$ticket = getTicketInformation($conn, $_GET['id']);
+$ticket = getTicketInformation($conn, $_GET['id'], $_SESSION['email'], $_SESSION['role']);
 $ticketID = $_GET['id'];
 
 if (!rightToViewTicket($conn, $ticket)){
@@ -107,9 +107,8 @@ if(isset($_POST['submit'])){
                     <?php echo "<p>" . $ticket['desc'] . "</p>"; ?>
                 </div>
             </div>
-            <?php $hidden = "display: none;";
-            if ($_SESSION['role'] === 'helpdeskmedewerker'){$hidden = "";} ?>
-            <div class="prioForm" style="<?php echo $hidden ?>">
+            <?php if ($_SESSION['role'] === 'Helpdeskmedewerker'){ ?>
+            <div class="prioForm"">
                 <form action="../helper/setPrio.php?id=<?php echo $ticketID; ?>" method="POST">
                     <label for="prio">Wijzig de prioriteit van de ticket</label>
                     <?php if ((isset($_GET['error']) && ($_GET['error'] == "invalidPrio"))): ?>
@@ -125,11 +124,14 @@ if(isset($_POST['submit'])){
                     <input type="submit" name="submit" value="Wijzig">
                 </form>
             </div>
-            <div class="closeTicket" style="<?php echo $hidden ?>">
+            <div class="closeTicket">
                 <form action="../src/close_ticket.php?id=<?php echo $ticketID; ?>" method="POST">
                     <input type="submit" name="submit" value="Sluit Ticket">
                 </form>
             </div>
+    <?php
+    }
+    ?>
         </div>
         <div id="responseContainer">
             <h2>Reageer:</h2>
