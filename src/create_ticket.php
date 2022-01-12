@@ -3,7 +3,7 @@ include_once "../config/config.php";
 include_once "../helper/validateFile.php";
 include_once "../helper/checkPhoneNumber.php";
 
-function placeTicket($conn, $phonenumber, $email, $roomnumber, $description, $file, $priority, $location)
+function placeTicket($conn, $phonenumber, $email, $roomnumber, $description, $file, $status, $priority, $location, $date)
 {
     $query = "INSERT INTO `ticket` (User_Email, Room_ID, Phone_Number, `Description`, `File`, `Status`, `Priority`, `Location`, Ticket_Date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -13,7 +13,8 @@ function placeTicket($conn, $phonenumber, $email, $roomnumber, $description, $fi
     }
 
     if (!mysqli_stmt_execute($stmt)) {
-        die("Execute error!");
+        var_dump($status);
+        die(mysqli_error($conn));
     }
 }
 
