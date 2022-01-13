@@ -8,28 +8,17 @@ function placeTicket($conn, $phonenumber, $email, $roomnumber, $description, $fi
     $status = "nieuw";
     $priority = 3;
 
-    $query = "INSERT INTO `ticket` (User_Email, Phone_Number, `Description`, `File`, `Status`, `Priority`, `Location`, Ticket_Date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $query = "INSERT INTO `ticket` (User_Email, Room_Number, Phone_Number, `Description`, `File`, `Status`, `Priority`, `Location`, Ticket_Date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     if ($stmt = mysqli_prepare($conn, $query)) {
 
-        mysqli_stmt_bind_param($stmt, 'sisssiss', $email, $phonenumber, $description, $file, $status, $priority, $location, $date);
+        mysqli_stmt_bind_param($stmt, 'ssisssiss', $email, $roomnumber, $phonenumber, $description, $file, $status, $priority, $location, $date);
     }
 
     if (!mysqli_stmt_execute($stmt)) {
         die(mysqli_error($conn));
     }
 
-    $query2 = "INSERT INTO `room` (Room_Number) VALUES (?)";
-
-    if ($stmt2 = mysqli_prepare($conn, $query2))
-    {
-        mysqli_stmt_bind_param($stmt2, 's', $roomnumber);
-
-        if (!mysqli_stmt_execute($stmt2))
-        {
-            DIE("EXECUTE ERROR stmt2");
-        }
-    }
 }
 
 if (isset($_POST['submit'])) {

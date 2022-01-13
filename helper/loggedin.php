@@ -1,5 +1,5 @@
 <?php
-    if(!$_SESSION['LoggedIn']) 
+    if(empty($_SESSION['LoggedIn'])) 
     {
         header("location: ../pages/index.php");
     }

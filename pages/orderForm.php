@@ -1,6 +1,8 @@
 <?php
     include_once "../helper/session.php";
+    include_once "../helper/loggedin.php";
     include_once "../helper/getErrorMessages.php";
+    var_dump($_SESSION);
 ?>
 
 <!DOCTYPE html>

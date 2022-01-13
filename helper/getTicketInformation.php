@@ -8,6 +8,7 @@ function getTicketInformation($conn, $ID)
             mysqli_stmt_bind_result($statement,
                 $id,
                 $email,
+                $roomnumber,
                 $roomId,
                 $orderId,
                 $phone,
@@ -21,6 +22,7 @@ function getTicketInformation($conn, $ID)
                 mysqli_stmt_close($statement);
                 return array(
                     "email" => $email,
+                    "roomnumber" => $roomnumber,
                     "roomId" => $roomId,
                     "orderId" => $orderId,
                     "phone" => $phone,

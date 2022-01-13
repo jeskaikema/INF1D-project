@@ -90,6 +90,11 @@ if(isset($_POST['submit'])){
                     <?php echo "<p>" . $ticket['date'] . "</p>"; ?>
                 </div>
 
+                <div class="ticketItem">
+                    <?php echo "<p>Kamernummer:</p>"; ?>
+                    <?php echo "<p>" . $ticket['roomnumber'] . "</p>"; ?>
+                </div>
+
                 <?php
                 if ($ticket['file'] != null) {
                     echo '<div id="ticketFile">';

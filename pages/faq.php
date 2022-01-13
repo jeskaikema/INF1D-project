@@ -1,4 +1,7 @@
-<?php include_once "../helper/session.php"; ?>
+<?php 
+include_once "../helper/session.php"; 
+include_once "../helper/loggedin.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
