@@ -6,7 +6,6 @@ include_once "../helper/getErrorMessages.php";
 <html lang="en">
 
 <head>
-    <title>Gebruikers</title>
     <?php include "../templates/head.php"; ?>
 </head>
 
@@ -18,10 +17,10 @@ include_once "../helper/getErrorMessages.php";
             include "../templates/header.php";
             include "../helper/session.php";
             include "../helper/loggedin.php";
-            //todo
-            if(!($_SESSION['role'] === "management"|| $_SESSION['role'] === "helpdesk")){
-                header("Location: index.php");
-            }
+//            //todo
+//            if(!($_SESSION['role'] === "management"|| $_SESSION['role'] === "helpdeskmedewerker")){
+//                header("Location: index.php");
+//            }
 
             include "../config/config.php";
             $location = $_SESSION['location'];
@@ -47,7 +46,7 @@ include_once "../helper/getErrorMessages.php";
 
             echo "<div id='userViewForm'>";
 
-            if ($_SESSION['role'] === "helpdesk") {
+            if ($_SESSION['role'] === "helpdeskmedewerker") {
                 $location = $_SESSION['location'];
                 $department = $_SESSION['department'];
                 switch ($paramIndex) {
