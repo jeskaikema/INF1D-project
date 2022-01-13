@@ -26,10 +26,22 @@ include_once "../helper/getRoomNumber.php";
 include_once "../helper/getPrice.php";
 include_once "../helper/getOmschrijving.php";
 
+$permission = "";
+if ($_SESSION['role'] == "management") 
+{
+    $permission = " AND User_Email IN (SELECT Email FROM user WHERE Department = " . "'" . $_SESSION['department'] . "'" . ")";
+} 
+else if ($_SESSION['role'] == "student" || $_SESSION['role'] == "docent") 
+{
+    $permission = " AND User_Email = " . "'" . $_SESSION['email'] . "'";
+} 
+else 
+{
+    $permission = "";
+}
 if (isset($_POST['submit']))
 {
     $selection = $_POST['sort'];
-    $permission = "";
     switch ($selection) {
         case 'all':
             $query = "SELECT `ID`, `User_Email`, `Room_ID`, `Order_ID`, `Description`, `Location` FROM `ticket` WHERE `Status` <> 'gesloten'" . $permission . " ORDER BY `priority`, `Ticket_Date` DESC";
@@ -54,36 +66,19 @@ if (isset($_POST['submit']))
 } 
 else
 {
-    if ($_SESSION['role'] === "Helpdeskmedewerker") {
-        $query = "
-        SELECT `ID`,
-               `User_Email`,
-               `Room_ID`,
-               `Order_ID`,
-               `Description`,
-               `Location`
-        FROM    `ticket`
-        ORDER BY `priority`,
-                 `Ticket_Date` DESC";
-    } else {
-        $query = "
-        SELECT `ID`,
-               `User_Email`,
-               `Room_ID`,
-               `Order_ID`,
-               `Description`,
-               `Location`
-        FROM    `ticket`
-        WHERE User_Email = ?
-        ORDER BY `priority`,
-                 `Ticket_Date` DESC";
-    }
-
+    $query = "
+    SELECT `ID`,
+            `User_Email`,
+            `Room_ID`,
+            `Order_ID`,
+            `Description`,
+            `Location`
+    FROM    `ticket`
+    WHERE `Status` <> 'gesloten'" . $permission .
+    " ORDER BY `priority`,
+                `Ticket_Date` DESC";
 }
 if ($statement = mysqli_prepare($conn, $query)) {
-    if ($_SESSION['role'] != "Helpdeskmedewerker") {
-        $permission = "'" . $_SESSION['email'] . "'";
-    }
     if (mysqli_stmt_execute($statement)) {
         mysqli_stmt_bind_result($statement, $ID, $email, $roomId, $orderId, $description, $location);
         mysqli_stmt_store_result($statement);
