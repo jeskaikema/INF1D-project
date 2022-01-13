@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Donut Chart</title>
+</head>
+<body>
+<script src="rpie.js"></script>
+<canvas id="myCanvas" width="300" height="300"></canvas>
+
+<script>
+    generatePieGraph('myCanvas', {
+        values: [15, 50, 20, 85, 30],
+        colors: ['#4CAF50', '#00BCD4', '#E91E63', '#FFC107', '#9E9E9E']
+    });
+</script>
+
+
+</body>
+</html>
