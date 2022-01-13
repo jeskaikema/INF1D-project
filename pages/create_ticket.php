@@ -18,47 +18,62 @@ include_once "../helper/getErrorMessages.php";
         <form action="../src/create_ticket.php" method="POST" enctype="multipart/form-data" class="form flex">
             <div class="label-input flex">
                 <label for="name">Naam:</label>
-                <input type="text" name="name" id="name">
+                <div>
+                    <input type="text" name="name" id="name">
+                </div>
             </div>
             <div class="label-input flex">
                 <label for="phonenumber">Telefoonnummer:</label>
-                <input type="tel" name="phonenumber" id="phonenumber">
+                <div>
+                    <input type="tel" name="phonenumber" id="phonenumber">
+                </div>
             </div>
             <div class="label-input flex">
                 <label for="email">E-mail:</label>
-                <input type="email" name="email" id="email">
+                <div>
+                    <input type="email" name="email" id="email">
+                </div>
             </div>
             <div class="label-input flex">
                 <label for="department">Afdeling</label>
-                <input type="text" name="department" id="department">
+                <div>
+                    <input type="text" name="department" id="department">
+                </div>
             </div>
             <div class="label-input flex">
                 <label for="branch">Vestiging</label>
-                <select name="branch" id="branch">
-                    <option value="blank" selected></option>
-                    <option value="leeuwarden">Leeuwarden</option>
-                    <option value="emmen">Emmen</option>
-                    <option value="groningen">Groningen</option>
-                    <option value="meppel">Meppel</option>
-                    <option value="zwolle">Zwolle</option>
-                    <option value="terschelling">Terschelling</option>
-                    <option value="assen">Assen</option>
-                    <option value="amsterdam">Amsterdam</option>
-                </select>
+                <div>
+                    <select name="branch" id="branch">
+                        <option value="blank" selected></option>
+                        <option value="leeuwarden">Leeuwarden</option>
+                        <option value="emmen">Emmen</option>
+                        <option value="groningen">Groningen</option>
+                        <option value="meppel">Meppel</option>
+                        <option value="zwolle">Zwolle</option>
+                        <option value="terschelling">Terschelling</option>
+                        <option value="assen">Assen</option>
+                        <option value="amsterdam">Amsterdam</option>
+                    </select>
+                </div>
             </div>
             <div class="label-input flex">
                 <label for="roomnumber">Kamernummer</label>
-                <input type="text" name="roomnumber" id="roomnumber">
+                <div>
+                    <input type="text" name="roomnumber" id="roomnumber">
+                </div>
             </div>
             <div class="label-input flex">
                 <label for="report">Melding</label>
-                <input type="text" name="report" id="report">
+                <div>
+                    <input type="text" name="report" id="report">
+                </div>
             </div>
             <div class="label-input flex">
                 <label for="file">Bijlage</label>
-                <input type="file" name="file" id="file" multiple>
+                <div>
+                    <input type="file" name="file" id="file" multiple>
+                </div>
             </div>
-
             <input type="submit" name="submit" value="Submit">
         </form>
     </div>
