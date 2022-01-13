@@ -90,7 +90,7 @@ include_once "../helper/getErrorMessages.php";
                             </div>
                         <?php endif; ?>
                     </div>
-                    <input id="Begintijd" type="time" value="08:30">
+                    <input id="Begintijd" name="Begintijd" type="time" value="08:30">
                 </div>
                 <div class="label-input flex">
                     <label for="Eindtijd">Eindtijd: </label>
@@ -101,7 +101,7 @@ include_once "../helper/getErrorMessages.php";
                             </div>
                         <?php endif; ?>
                     </div>
-                    <input id="Eindtijd" type="time" value="09:00">
+                    <input id="Eindtijd" name="Eindtijd" type="time" value="09:00">
                 </div>
                 <div class="label-input flex">
                     <label for="Datum">Datum: </label>
@@ -112,7 +112,7 @@ include_once "../helper/getErrorMessages.php";
                             </div>
                         <?php endif; ?>
                     </div>
-                    <input id="Datum" type="date">
+                    <input id="Datum" name="Datum" type="date">
                 </div>
                 <input type="submit" name="submit" value="submit">
             </form>
