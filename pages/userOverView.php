@@ -18,7 +18,7 @@ include_once "../helper/getErrorMessages.php";
             include "../helper/session.php";
             include "../helper/loggedin.php";
 //            //todo
-//            if(!($_SESSION['role'] === "management"|| $_SESSION['role'] === "helpdeskmedewerker")){
+//            if(!($_SESSION['role'] === "management"|| $_SESSION['role'] === "Helpdeskmedewerker")){
 //                header("Location: index.php");
 //            }
 
@@ -46,7 +46,7 @@ include_once "../helper/getErrorMessages.php";
 
             echo "<div id='userViewForm'>";
 
-            if ($_SESSION['role'] === "helpdeskmedewerker") {
+            if ($_SESSION['role'] === "Helpdeskmedewerker") {
                 $location = $_SESSION['location'];
                 $department = $_SESSION['department'];
                 switch ($paramIndex) {

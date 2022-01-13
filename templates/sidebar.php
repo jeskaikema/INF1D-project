@@ -7,7 +7,7 @@ include "../helper/session.php"
     <div class="S-1">
 
     <?php
-    if($_SESSION['role'] === "helpdeskmedewerker" || $_SESSION['role'] === "management"){
+    if($_SESSION['role'] === "Helpdeskmedewerker" || $_SESSION['role'] === "management"){
         echo '<div class="S-Item">
             <img src="../img/dashboard.png" alt=Dashboard width="24.8px" height="25.6px" style="margin:auto; margin-left: 8px; margin-right: 20px;">
             <a href="../pages/userOverView.php"><h4>Dashboard</h4></a>
@@ -58,7 +58,7 @@ include "../helper/session.php"
     <div class="S-1">
 
     <?php
-    if($_SESSION['role'] === "helpdeskmedewerker" || $_SESSION['role'] === "management"){
+    if($_SESSION['role'] === "Helpdeskmedewerker" || $_SESSION['role'] === "management"){
         echo '<div class="S-Item">
             <img src="../img/dashboard.png" alt=Dashboard width="24.8px" height="25.6px" style="margin:auto; margin-left: 8px; margin-right: 20px;">
             <a href="../pages/userOverView.php"><h4>Dashboard</h4></a>
