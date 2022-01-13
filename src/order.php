@@ -44,25 +44,34 @@
         $description = $_POST['description'];
         $priority = 3;
         $file = $_FILES['file'];
+        $location = $_POST['location'];
+        $price = $_POST['price'];
 
-        // if ($email != $_SESSION['email'])
-        // {
-        //     header("location: ../orderForm.php?error=diffEmail");
-        //     exit();
-        // }
-        if (isset($_POST['file'])) {
+        if (empty($description) || empty($location) || empty($price))
+        {
+            header("location: ../pages/orderForm.php?error=emptyField");
+        }
+ 
+        //bron: https://stackoverflow.com/questions/946418/how-to-check-whether-the-user-uploaded-a-file-in-php
+        if(file_exists($file['tmp_name']) || is_uploaded_file($file['tmp_name'])) 
+        {
             if (validateFile($file, "orderForm.php") == 1) 
             {
                 $target = "../img/ticketassets/" . $file['name'];
                 move_uploaded_file($file["tmp_name"], $target);
             }
+        } 
+        else 
+        {
+            $file['name'] = NULL;
         }
+        
         $location = $_POST['location'];
         $price = $_POST['price'];
 
         if (!checkPhoneNumber($phoneNumber))
         {
-            header("location: ../orderForm.php?error=invalidPhoneNumber");
+            header("location: ../pages/orderForm.php?error=invalidPhoneNumber");
             exit();
         }
 

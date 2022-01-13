@@ -9,9 +9,9 @@
     <?php include "../templates/head.php"; ?>
 </head>
 <body>
-    <div id="container">
+    <div class="container">
         <?php include "../templates/sidebar.php"; ?>
-        <div id="sub-container">
+        <div class="sub-container">
             <?php include "../templates/header.php"; ?>
             <div class="users-title">
                 <h1>Bestelling Plaatsen</h1>
@@ -20,16 +20,16 @@
                 <div class="label-input flex">
                     <label for="email">Email: </label>
                     <div>
-                        <?php //if ((isset($_GET['error']) && ($_GET['error'] == "emptyField" || $_GET['error'] == "invalidEmail" || $_GET['error'] == "matchError"))): ?>
-                            <!-- <div class="error"> -->
-                                <?php //echo getErrorMessages($_GET['error']); ?>
-                            <!-- </div> -->
-                        <?php //endif; ?>
+                        <?php if ((isset($_GET['error']) && ($_GET['error'] == "emptyField" || $_GET['error'] == "invalidEmail" || $_GET['error'] == "matchError"))): ?>
+                            <div class="error">
+                                <?php echo getErrorMessages($_GET['error']); ?>
+                            </div>
+                        <?php endif; ?>
                         <input type="text" name="email" id="email" value=<?php echo $_SESSION['email']; ?> readonly>
                     </div>
                 </div>
                 <div class="label-input flex">
-                    <label for="fName">Telefoonnummer: </label>
+                    <label for="phonenumber">Telefoonnummer: </label>
                     <div>
                         <?php if ((isset($_GET['error']) && ($_GET['error'] == "invalidPhoneNumber"))): ?>
                             <div class="error">
@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="label-input flex">
-                    <label for="lName">Beschrijving: </label>
+                    <label for="description">Beschrijving: </label>
                     <div>
                         <?php if ((isset($_GET['error']) && ($_GET['error'] == "emptyField"))): ?>
                             <div class="error">
@@ -82,13 +82,13 @@
                     </div>
                 </div>
                 <div class="label-input flex">
-                    <label for="role">Prijs (in euro's): </label>
+                    <label for="price">Prijs (in euro's): </label>
                     <div>
-                        <?php //if ((isset($_GET['error']) && ($_GET['error'] == "emptyField"))): ?>
-                            <!-- <div class="error">
-                                <?//php echo getErrorMessages($_GET['error']); ?>
-                            </div> -->
-                        <?php //endif; ?>
+                        <?php if ((isset($_GET['error']) && ($_GET['error'] == "emptyField"))): ?>
+                            <div class="error">
+                                <?php echo getErrorMessages($_GET['error']); ?>
+                            </div>
+                        <?php endif; ?>
                         <input type="text" name="price" id="price">
                     </div>
                 </div>

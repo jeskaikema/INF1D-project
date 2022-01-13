@@ -6,18 +6,18 @@ include_once "../helper/getErrorMessages.php";
 <html lang="en">
 
 <head>
-    <title>Gebruikers</title>
     <?php include "../templates/head.php"; ?>
 </head>
 
 <body>
-    <div id="container">
+    <div class="container">
         <?php include "../templates/sidebar.php"; ?>
-        <div id="sub-container">
+        <div class="sub-container">
             <?php
             include "../templates/header.php";
             include "../helper/session.php";
             include "../helper/loggedin.php";
+
             if(!($_SESSION['role'] === "management"|| $_SESSION['role'] === "helpdesk")){
                 header("Location: index.php");
             }
@@ -46,7 +46,7 @@ include_once "../helper/getErrorMessages.php";
 
             echo "<div id='userViewForm'>";
 
-            if ($_SESSION['role'] === "helpdesk") {
+            if ($_SESSION['role'] === "Helpdeskmedewerker") {
                 $location = $_SESSION['location'];
                 $department = $_SESSION['department'];
                 switch ($paramIndex) {
@@ -69,8 +69,8 @@ include_once "../helper/getErrorMessages.php";
                 echo ' <form method="post" action="">
                 <select name="location" id="location">
                     <option value="-1">Alle Locaties</option>
-                    <option value="Emmen">Emmen</option>
-                    <option value="Leeuwarden">Leeuwarden</option>
+                    <option value="emmen">Emmen</option>
+                    <option value="leeuwarden">Leeuwarden</option>
                 </select>
 
                 <select name="department" id="department">

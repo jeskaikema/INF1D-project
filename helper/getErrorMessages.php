@@ -33,4 +33,12 @@
         {
             return "Het ingevoerde bestand is groter dan 6.3 mb";
         }
+        if ($error == "reactionError")
+        {
+            return "Het reactieveld mag niet leeg zijn";
+        }
+        if ($error == "invalidPrio")
+        {
+            return "Ongeldige waarde voor prioriteit";
+        }
     }

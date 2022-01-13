@@ -82,10 +82,7 @@ function getOrderPrice($conn, $ID)
 
 function rightToViewTicket($conn, $ticket){
     session_status();
-    if($_SESSION['email'] === $ticket['email']){
-        return true;
-    }
-    if($_SESSION['role'] === "helpdesk"){
+    if($_SESSION['email'] === $ticket['email'] || $_SESSION['role'] === "Helpdeskmedewerker"){
         return true;
     }
 
