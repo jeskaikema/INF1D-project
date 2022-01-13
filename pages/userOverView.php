@@ -1,6 +1,12 @@
 <?php
-include_once "../helper/session.php";
+include "../helper/session.php";
 include_once "../helper/getErrorMessages.php";
+
+//the page is not to be accessed by anyone but management and helpdesk
+if(!($_SESSION['role'] === "management"|| $_SESSION['role'] === "helpdesk")){
+    header("Location: ticket.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,14 +21,10 @@ include_once "../helper/getErrorMessages.php";
         <div class="sub-container">
             <?php
             include "../templates/header.php";
-            include "../helper/session.php";
             include "../helper/loggedin.php";
-
-            if(!($_SESSION['role'] === "management"|| $_SESSION['role'] === "helpdesk")){
-                header("Location: index.php");
-            }
-
             include "../config/config.php";
+
+            //location and department are the user's by default
             $location = $_SESSION['location'];
             $department = $_SESSION['department'];
 
@@ -30,7 +32,11 @@ include_once "../helper/getErrorMessages.php";
                 $location = $_POST['location'];
                 $department = $_POST['department'];
             }
+
+            //paramIndex used to keep track of which variables are used in the query
             $paramIndex = 0;
+
+            //location or department -1 stands for all locations or departments
             if ($location != "-1" && $department != "-1") {
                 $query = "SELECT * FROM `user` WHERE `Location` = ? AND `Department` = ?";
                 $paramIndex = 1;
@@ -46,31 +52,29 @@ include_once "../helper/getErrorMessages.php";
 
             echo "<div id='userViewForm'>";
 
-            if ($_SESSION['role'] === "Helpdeskmedewerker") {
-                $location = $_SESSION['location'];
-                $department = $_SESSION['department'];
+            if (ucfirst($_SESSION['role']) === "Helpdeskmedewerker") {
                 switch ($paramIndex) {
                     case 0:
                         echo "<h1>Alle Gebruikers</h1>";
                         break;
 
                     case 1:
-                        echo "<h1>Gebruikers van Afdeling " . $department . " in " . $location . "</h1>";
+                        echo "<h1>Gebruikers van Afdeling " . ucfirst($department) . " in " . ucfirst($location) . "</h1>";
                         break;
 
                     case 2:
-                        echo "<h1>Gebruikers in " . $location . "</h1>";
+                        echo "<h1>Gebruikers in " . ucfirst($location) . "</h1>";
                         break;
 
                     case 3:
-                        echo "<h1>Gebruikers van Afdeling " . $department . "</h1>";
+                        echo "<h1>Gebruikers van Afdeling " . ucfirst($department) . "</h1>";
                         break;
                 }
                 echo ' <form method="post" action="">
                 <select name="location" id="location">
                     <option value="-1">Alle Locaties</option>
-                    <option value="emmen">Emmen</option>
-                    <option value="leeuwarden">Leeuwarden</option>
+                    <option value="Emmen">Emmen</option>
+                    <option value="Leeuwarden">Leeuwarden</option>
                 </select>
 
                 <select name="department" id="department">
@@ -85,8 +89,6 @@ include_once "../helper/getErrorMessages.php";
             }else if($_SESSION['role'] === "management"){
                 $location = $_SESSION['location'];
                 $department = $_SESSION['department'];
-                echo $location;
-                echo $department;
                 echo "<h1>Gebruikers van jouw Afdeling</h1>";
             }
             echo "</div>";
