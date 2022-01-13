@@ -29,21 +29,26 @@ include_once "../helper/getOmschrijving.php";
 if (isset($_POST['submit']))
 {
     $selection = $_POST['sort'];
+    $permission = "";
     switch ($selection) {
         case 'all':
-            $query = "SELECT `ID`, `User_Email`, `Room_ID`, `Order_ID`, `Description`, `Location` FROM `ticket` WHERE `Status` <> 'gesloten' ORDER BY `priority`, `Ticket_Date` DESC";
+            $query = "SELECT `ID`, `User_Email`, `Room_ID`, `Order_ID`, `Description`, `Location` FROM `ticket` WHERE `Status` <> 'gesloten'" . $permission . " ORDER BY `priority`, `Ticket_Date` DESC";
             break;
         
         case 'tickets':
-            $query = "SELECT `ID`, `User_Email`, `Room_ID`, `Order_ID`, `Description`, `Location` FROM `ticket` WHERE `Room_ID` IS NULL AND `Order_ID` IS NULL AND `Status` <> 'gesloten' ORDER BY `priority`, `Ticket_Date` DESC";
+            $query = "SELECT `ID`, `User_Email`, `Room_ID`, `Order_ID`, `Description`, `Location` FROM `ticket` WHERE `Room_ID` IS NULL AND `Order_ID` IS NULL AND `Status` <> 'gesloten' " . $permission . " ORDER BY `priority`, `Ticket_Date` DESC";
             break;
         
         case 'orders':
-            $query = "SELECT ticket.`ID`, `User_Email`, `Room_ID`, `Order_ID`, `Description`, `Location` FROM ticket INNER JOIN `order` ON ticket.Order_ID = `order`.`ID` WHERE `Status` <> 'gesloten' ORDER BY `priority`, `Ticket_Date` DESC";
+            $query = "SELECT ticket.`ID`, `User_Email`, `Room_ID`, `Order_ID`, `Description`, `Location` FROM ticket INNER JOIN `order` ON ticket.Order_ID = `order`.`ID` WHERE `Status` <> 'gesloten' " . $permission . " ORDER BY `priority`, `Ticket_Date` DESC";
+            break;
+
+        case 'reservations':
+            $query = "SELECT ticket.`ID`, `User_Email`, `Room_ID`, `Order_ID`, `Description`, ticket.`Location` FROM ticket INNER JOIN `room` ON ticket.Room_ID = `room`.`ID` WHERE `Status` <> 'gesloten' " . $permission . " ORDER BY `priority`, `Ticket_Date` DESC";
             break;
 
         default:
-            $query = "SELECT ticket.`ID`, `User_Email`, `Room_ID`, `Order_ID`, `Description`, ticket.`Location` FROM ticket WHERE `Status` IS NOT `gesloten` INNER JOIN `room` ON ticket.Room_ID = `room`.`ID` WHERE `Status` <> 'gesloten' ORDER BY `priority`, `Ticket_Date` DESC";
+            $query = "SELECT ticket.`ID`, `User_Email`, `Room_ID`, `Order_ID`, `Description`, ticket.`Location` FROM ticket WHERE `User_Email` = " . "'" . $_SESSION['email'] . "'" . " AND `Status` = 'gesloten' ORDER BY `priority`, `Ticket_Date` DESC";
             break;
     }
 } 
@@ -77,7 +82,7 @@ else
 }
 if ($statement = mysqli_prepare($conn, $query)) {
     if ($_SESSION['role'] != "Helpdeskmedewerker") {
-        mysqli_stmt_bind_param($statement, 's', $_SESSION['email']);
+        $permission = "'" . $_SESSION['email'] . "'";
     }
     if (mysqli_stmt_execute($statement)) {
         mysqli_stmt_bind_result($statement, $ID, $email, $roomId, $orderId, $description, $location);
@@ -107,6 +112,7 @@ if ($statement = mysqli_prepare($conn, $query)) {
                     <option value="tickets" <?php echo (isset($_POST['submit']) && $_POST['sort'] == 'tickets') ? "selected" : ""; ?>>Alleen meldingen</option>
                     <option value="orders" <?php echo (isset($_POST['submit']) && $_POST['sort'] == 'orders') ? "selected" : ""; ?>>Alleen bestellingen</option>
                     <option value="reservations" <?php echo (isset($_POST['submit']) && $_POST['sort'] == 'reservations') ? "selected" : ""; ?>>Alleen reserveringen</option>
+                    <option value="closed" <?php echo (isset($_POST['submit']) && $_POST['sort'] == 'closed') ? "selected" : ""; ?>>Alleen gesloten tickets</option>
                 </select>
                 <input type="submit" value="Verstuur" name="submit">
             </form>
