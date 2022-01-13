@@ -3,7 +3,7 @@ include_once "../config/config.php";
 include_once "../helper/validateFile.php";
 include_once "../helper/checkPhoneNumber.php";
 
-function placeTicket($conn, $phonenumber, $email, $description, $file, $status, $priority, $location, $date, $roomnumber)
+function placeTicket($conn, $phonenumber, $email, $roomnumber, $description, $file, $status, $priority, $location, $date )
 {
     $status = "nieuw";
     $priority = 3;
@@ -16,7 +16,6 @@ function placeTicket($conn, $phonenumber, $email, $description, $file, $status, 
     }
 
     if (!mysqli_stmt_execute($stmt)) {
-        var_dump($status);
         die(mysqli_error($conn));
     }
 
@@ -24,7 +23,7 @@ function placeTicket($conn, $phonenumber, $email, $description, $file, $status, 
 
     if ($stmt2 = mysqli_prepare($conn, $query2))
     {
-        mysqli_stmt_bind_param($stmt2, 'i', $roomnumber);
+        mysqli_stmt_bind_param($stmt2, 's', $roomnumber);
 
         if (!mysqli_stmt_execute($stmt2))
         {
@@ -35,13 +34,13 @@ function placeTicket($conn, $phonenumber, $email, $description, $file, $status, 
 
 if (isset($_POST['submit'])) {
     $phonenumber = $_POST['phonenumber'];
-    $description = $_POST['report'];
+    $description = $_POST['description'];
     $email = (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) ? $_POST['email'] : "invalid";
     $roomnumber = $_POST['roomnumber'];
     $file = $_FILES['file'];
     $status = "nieuw";
     $priority = 3;
-    $location = $_POST['branch'];
+    $location = $_POST['location'];
     $date = date('Y-m-d H:i:s \G\M\T', time());
 }
 
