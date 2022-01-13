@@ -6,12 +6,12 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
     <body>
-    <?php $groep = "Docent";
+    <?php $groep = "Student";
 
     function getColor($groupcolor){
     
         // Is goup Student
-        if($groupcolor== "Student") return "green";
+        if($groupcolor== "Student") return "#56B579";
     
         // Is group Docent
         if($groupcolor== "Docent") return "blue";
@@ -88,28 +88,7 @@
         </div>
     
         <div class="main">
-            <p>"Hi"</p>
-            <br></br>
-            <p>"Hi"</p>
-            <br></br>
-            <p>"Hi"</p>
-            <br></br>
-            <p>"Hi"</p>
-            <br></br>
-            <p>"Hi"</p>
-            <br></br>
-            <p>"Hi"</p>
-            <br></br>
-            <p>"Hi"</p>
-            <br></br>
-            <p>"Hi"</p>
-            <br></br>
-            <p>"Hi"</p>
-            <br></br>
-            <p>"Hi"</p>
-            <br></br>
-            <p>"Hi"</p>
-            <br></br>
+            <?php echo "Content"; ?>
         </div>
     </div>
 
