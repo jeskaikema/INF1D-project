@@ -4,7 +4,7 @@
     include_once "../helper/getErrorMessages.php";
 
 //the page is not to be accessed by anyone but management, helpdesk or teachers
-if(!($_SESSION['role'] === "management"|| $_SESSION['role'] === "helpdesk" || $_SESSION['docent'])){
+if(!($_SESSION['role'] === "management"|| $_SESSION['role'] === "Helpdeskmedewerker" || $_SESSION['docent'])){
     header("Location: ticketoverzicht.php");
     exit();
 }
