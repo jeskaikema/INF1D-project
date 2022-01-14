@@ -168,6 +168,7 @@ if(isset($_POST['submit'])){
         }
 
         echo"</div>";
+        mysqli_close($conn);
         ?>
 
     </div>

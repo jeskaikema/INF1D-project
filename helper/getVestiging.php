@@ -2,7 +2,7 @@
 function getVestiging($conn, $ID)
 {
     $query = "SELECT `Location` FROM `ticket` WHERE `ID` = ?";
-    if ($statement = myslqi_prerare($conn, $query)) {
+    if ($statement = mysqli_prepare($conn, $query)) {
         mysqli_stmt_bind_param($statement, 's', $ID);
         if (mysqli_stmt_execute($statement)) {
             mysqli_stmt_bind_result($statement, $vestiging);

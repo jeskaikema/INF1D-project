@@ -81,10 +81,14 @@ include "../helper/session.php"
             <img src="../img/privacy.png" alt=Privacy width="15px" height="26px" style="margin:auto; margin-left: 12px; margin-right: 26px;">
             <a href="#"><h4>Data privacy</h4></a>
         </div>
-        <div class="S-Item">
-            <img src="../img/bestelling.png" alt=bestelling width="25px" height="27px" style="margin:auto; margin-left: 8px; margin-right: 22px;">
-            <a href="../pages/orderForm.php"><h4>Bestellingen</h4></a>   
-        </div>
+        <?php
+        if($_SESSION['role'] === "Helpdeskmedewerker" || $_SESSION['role'] === "management" || $_SESSION['role'] === "docent"){
+            echo '<div class="S-Item">
+                <img src="../img/bestelling.png" alt=Dashboard width="24.8px" height="25.6px" style="margin:auto; margin-left: 8px; margin-right: 20px;">
+                <a href="../pages/orderForm.php"><h4>Bestellingen</h4></a>
+            </div>';
+        }
+        ?>
     </div>
     
 

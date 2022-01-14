@@ -9,6 +9,7 @@ function createResponse($conn, $email, $ticketID, $message) {
         }
         mysqli_stmt_close($statement);
     }
+    mysqli_close($conn);
 }
 
 ?>

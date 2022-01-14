@@ -16,7 +16,9 @@
             {
                 DIE("EXECUTE ERROR");
             }
+            mysqli_stmt_close($statement);
         }
+        mysqli_close($conn);
     }
 
     if (isset($_POST['submit']))

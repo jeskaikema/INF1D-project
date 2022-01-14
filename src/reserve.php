@@ -20,6 +20,7 @@ function reserveRoom($conn, $room, $email, $phoneNumber, $description, $priority
     {
         DIE("EXECUTE ERROR");
     }
+    mysqli_stmt_close($statement);
 
 
     $room_id = mysqli_insert_id($conn);
@@ -37,7 +38,9 @@ function reserveRoom($conn, $room, $email, $phoneNumber, $description, $priority
         {
             DIE("EXECUTE ERROR");
         }
+        mysqli_stmt_close($statement2);
     }
+    mysqli_close($conn);
 }
 
 if (isset($_POST['submit']))

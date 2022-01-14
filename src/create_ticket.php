@@ -18,7 +18,8 @@ function placeTicket($conn, $phonenumber, $email, $roomnumber, $description, $fi
     if (!mysqli_stmt_execute($stmt)) {
         die(mysqli_error($conn));
     }
-
+    mysqli_stmt_close($stmt);
+    mysqli_close($conn);
 }
 
 if (isset($_POST['submit'])) {

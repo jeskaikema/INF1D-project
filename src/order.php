@@ -16,6 +16,7 @@
         {
             DIE("EXECUTE ERROR");
         }
+        mysqli_stmt_close($statement);
 
         $order_id = mysqli_insert_id($conn);
 
@@ -34,6 +35,7 @@
             {
                 DIE("EXECUTE ERROR");
             }
+            mysqli_stmt_close($statement2);
         }
     }
 

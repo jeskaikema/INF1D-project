@@ -174,6 +174,10 @@ if ($statement = mysqli_prepare($conn, $query)) {
                 <?php else: ?>
                     <?php echo "geen zooi"; ?>
                 <?php endif; ?>
+                <?php 
+                mysqli_stmt_close($statement); 
+                mysqli_close($conn);
+                ?>
             </div>
         </div>
     </div>

@@ -10,6 +10,8 @@
         if (!mysqli_stmt_execute($statement)) {
             DIE("EXECUTE ERROR");
         }
+        mysqli_stmt_close($statement);
+        mysqli_close($conn);
         header("location: ../pages/ticketoverzicht.php");
     }
 

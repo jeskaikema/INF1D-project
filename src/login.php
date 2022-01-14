@@ -29,6 +29,7 @@
                 header("location: ../pages/index.php?error=nonexistantUser");
                 exit();
             }
+            mysqli_stmt_close($statement);
             include "../helper/session.php";
             $_SESSION['LoggedIn'] = true;
             $_SESSION['name'] = ucfirst($name);
@@ -36,6 +37,7 @@
             $_SESSION['role'] = getUserInfo($conn, $email, "Role");
             $_SESSION['location'] = lcfirst(getUserInfo($conn, $email, "Location"));
             $_SESSION['department'] = getUserInfo($conn, $email, "Department");
+            mysqli_close($conn);
             header("location: ../pages/ticketoverzicht.php");
         }
         else
