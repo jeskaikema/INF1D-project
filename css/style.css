@@ -460,7 +460,6 @@ header {
 
 .dot {
   background-color: #aeaeae;
-  align-self: ;
   margin: auto;
   padding: 0px;
   border-color: #646262;
@@ -567,7 +566,7 @@ header {
     padding-top: 0.11vh;
     margin-left: 11.97vw;  
     width: 87.5vw;
-    z-index: 5;
+    z-index: 0;
 }
 
 /* userView.php */
