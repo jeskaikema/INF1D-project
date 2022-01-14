@@ -244,7 +244,7 @@ textarea {
 .answer {
   margin: 2rem 0;
 }
-
+/* SIDEBAR */
 .top {
   display: flex;
   height: 100%;
@@ -385,7 +385,7 @@ header {
   height: 118px;
   width: 85.5%;
   margin: 6px 10px 10px 0;
-  background-color: gray;
+  background-color: #CBCBCB;
 }
 
 .page {
@@ -396,6 +396,178 @@ header {
 .groep {
   display: flex;
   margin: auto 5rem auto;
+}
+* {
+  padding: 0;
+  margin: 0;
+  font-style: normal;
+}
+
+.login-wrapper form {
+  margin: auto auto;
+}
+
+.page {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  height: fit-content;
+  background-color: #CBCBCB;
+}
+
+
+.top {
+  display: flex;
+  height: 80%;
+  width: 98.5%;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  justify-content: end;
+  margin: 10px 7px 11.5vw;
+}
+
+header {
+  position: fixed;
+  height: 118px;
+  width: 88vw;
+  margin-left: 11.65vw;
+  border-color: black;
+  background-color: #CBCBCB;
+  z-index: 3;
+}
+
+.gkleur {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  margin:2px;
+  padding: auto;
+  background-color: #009BAA;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: #009BAA;
+}
+
+.dot {
+  background-color: #aeaeae;
+  align-self: ;
+  margin: auto;
+  padding: 0px;
+  border-color: #646262;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
+
+.Sidebar {
+  position: fixed;
+  margin: 6px;
+  width: 11.32vw; /*217px*/
+  height: 98vh;
+  background-image: url("../img/S.Bg.PNG");
+  background-size: contain;
+  border-radius: 20px;
+  border: #005aaa;
+  border-width: 2px;
+  z-index: 2;
+}
+
+.S-1 {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 0px;
+  flex-direction: column;
+  height: 300px;
+  width: 23.25vh;
+}
+
+.S-2 {
+  margin: 75px 0 0;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  height: 50px;
+  width: 23.25vh;
+  text-align-last: center;
+}
+
+.S-3 {
+  margin: 120px 0 0;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  height: 50px;
+  width: 23.25vh;
+  text-align-last: center;
+}
+
+.S-Item {
+  margin: 10px auto 0;
+  vertical-align: auto;
+  display: flex;
+  flex-direction: row;
+  height: 38px;
+  width: 80%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #28a1a3;
+  border-radius: 8px;
+  color: white;
+}
+
+.S-Item:hover {
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.Sidebar h4 {
+  color: white;
+  width: 100%;
+  margin: 12px auto 12px;
+  font-size: 12px;
+}
+
+.Sidebar a {
+  text-decoration: none;
+  width: 100%;
+}
+
+.S-3 a {
+  margin: auto auto;
+  color: white;
+}
+
+.S-3 h5 {
+  width: 100%;
+  font-size: 20px;
+  margin: 12px auto 12px;
+}
+
+.groep {
+  display: flex;
+  margin: auto 5rem auto;
+}
+
+.main {
+    display: flex;
+    background-color: #E8E8E8;
+    top: 10%;
+    margin-top: 6%;
+    padding-top: 0.11vh;
+    margin-left: 11.97vw;  
+    width: 87.5vw;
+    z-index: 5;
 }
 
 /* userView.php */
