@@ -11,7 +11,7 @@
     function getColor($groupcolor){
     
         // Is goup Student
-        if($groupcolor== "Student") return "#56B579";
+        if($groupcolor== "Student") return "green";
     
         // Is group Docent
         if($groupcolor== "Docent") return "blue";
