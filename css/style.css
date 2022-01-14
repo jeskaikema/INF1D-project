@@ -312,7 +312,7 @@ textarea {
 .S-1 {
   display: flex;
   flex-wrap: nowrap;
-  margin: 0px;
+  margin: 0;
   flex-direction: column;
   height: 300px;
   width: 100%;
@@ -418,6 +418,7 @@ header {
 #ticketPageWrapper{
   width: 80%;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 #ticketContainer {
@@ -506,6 +507,15 @@ header {
 .space {
   height: 128px;
   width: 100%;
+}
+
+@media (max-width: 1568px) {
+  .ticketscontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 100px;
+  }
 }
 
 @media (max-width: 1320px) {
