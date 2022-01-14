@@ -37,7 +37,6 @@
             }
             mysqli_stmt_close($statement2);
         }
-        mysqli_close($conn);
     }
 
     if (isset($_POST['submit']))
