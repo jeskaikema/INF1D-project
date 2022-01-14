@@ -415,6 +415,7 @@ header {
 }
 
 /* ticket.php */
+
 #ticketContainer {
   width: 50%;
   float: left;
@@ -502,6 +503,15 @@ header {
 .space {
   height: 128px;
   width: 100%;
+}
+
+@media (max-width: 1568px) {
+  .ticketscontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 100px;
+  }
 }
 
 @media (max-width: 1320px) {
