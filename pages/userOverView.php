@@ -3,7 +3,7 @@ include "../helper/session.php";
 include_once "../helper/getErrorMessages.php";
 
 //the page is not to be accessed by anyone but management and helpdesk
-if(!($_SESSION['role'] === "management"|| $_SESSION['role'] === "helpdesk")){
+if(!($_SESSION['role'] === "management"|| $_SESSION['role'] === "Helpdeskmedewerker")){
     header("Location: ticketoverzicht.php");
     exit();
 }
