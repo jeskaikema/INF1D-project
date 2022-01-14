@@ -4,7 +4,7 @@ include_once "../helper/getErrorMessages.php";
 
 //the page is not to be accessed by anyone but management and helpdesk
 if(!($_SESSION['role'] === "management"|| $_SESSION['role'] === "helpdesk")){
-    header("Location: ticket.php");
+    header("Location: ticketoverzicht.php");
     exit();
 }
 ?>
@@ -75,6 +75,12 @@ if(!($_SESSION['role'] === "management"|| $_SESSION['role'] === "helpdesk")){
                     <option value="-1">Alle Locaties</option>
                     <option value="Emmen">Emmen</option>
                     <option value="Leeuwarden">Leeuwarden</option>
+                    <option value="Groningen">Leeuwarden</option>
+                    <option value="Meppel">Leeuwarden</option>
+                    <option value="Zwolle">Leeuwarden</option>
+                    <option value="Terschelling">Leeuwarden</option>
+                    <option value="Assen">Leeuwarden</option>
+                    <option value="Amsterdam">Leeuwarden</option>
                 </select>
 
                 <select name="department" id="department">
@@ -86,7 +92,7 @@ if(!($_SESSION['role'] === "management"|| $_SESSION['role'] === "helpdesk")){
 
                 <input type="submit" name="submit" id="submit" value="Submit">
             </form>';
-            }else if($_SESSION['role'] === "management"){
+            }else if(lcfirst($_SESSION['role']) === "management"){
                 $location = $_SESSION['location'];
                 $department = $_SESSION['department'];
                 echo "<h1>Gebruikers van jouw Afdeling</h1>";

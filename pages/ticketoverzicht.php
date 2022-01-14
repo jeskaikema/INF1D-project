@@ -172,7 +172,7 @@ if ($statement = mysqli_prepare($conn, $query)) {
                         </a>
                     <?php endwhile; ?>
                 <?php else: ?>
-                    <?php echo "geen zooi"; ?>
+                    <?php echo "Nog geen openstaande tickets."; ?>
                 <?php endif; ?>
                 <?php 
                 mysqli_stmt_close($statement); 

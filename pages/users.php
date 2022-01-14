@@ -1,6 +1,12 @@
 <?php 
     include_once "../helper/session.php";
-    include_once "../helper/getErrorMessages.php"; 
+    include_once "../helper/getErrorMessages.php";
+
+//the page is not to be accessed by anyone but management and helpdesk
+if(!($_SESSION['role'] === "management"|| $_SESSION['role'] === "helpdesk")){
+    header("Location: ticketoverzicht.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,14 +71,14 @@
                     <label for="location">Locatie: </label>
                     <div>
                         <select name="location" id="location">
-                            <option value="Emmen" <?php echo ($_SESSION['location'] ==  'emmen') ? "selected" : ""; ?>>Emmen</option>
-                            <option value="Leeuwarden" <?php echo ($_SESSION['location'] ==  'leeuwarden') ? "selected" : ""; ?>>Leeuwarden</option>
-                            <option value="Groningen" <?php echo ($_SESSION['location'] ==  'groningen') ? "selected" : ""; ?>>Groningen</option>
-                            <option value="Meppel" <?php echo ($_SESSION['location'] ==  'meppel') ? "selected" : ""; ?>>Meppel</option>
-                            <option value="Zwolle" <?php echo ($_SESSION['location'] ==  'zwolle') ? "selected" : ""; ?>>Zwolle</option>
-                            <option value="Terschelling" <?php echo ($_SESSION['location'] ==  'terschelling') ? "selected" : ""; ?>>Terschelling</option>
-                            <option value="Assen" <?php echo ($_SESSION['location'] ==  'assen') ? "selected" : ""; ?>>Assen</option>
-                            <option value="Amsterdam" <?php echo ($_SESSION['location'] ==  'amsterdam') ? "selected" : ""; ?>>Amsterdam</option>
+                            <option value="Emmen" <?php echo ($_SESSION['location'] ==  'Emmen') ? "selected" : ""; ?>>Emmen</option>
+                            <option value="Leeuwarden" <?php echo ($_SESSION['location'] ==  'Leeuwarden') ? "selected" : ""; ?>>Leeuwarden</option>
+                            <option value="Groningen" <?php echo ($_SESSION['location'] ==  'Groningen') ? "selected" : ""; ?>>Groningen</option>
+                            <option value="Meppel" <?php echo ($_SESSION['location'] ==  'Meppel') ? "selected" : ""; ?>>Meppel</option>
+                            <option value="Zwolle" <?php echo ($_SESSION['location'] ==  'Zwolle') ? "selected" : ""; ?>>Zwolle</option>
+                            <option value="Terschelling" <?php echo ($_SESSION['location'] ==  'Terschelling') ? "selected" : ""; ?>>Terschelling</option>
+                            <option value="Assen" <?php echo ($_SESSION['location'] ==  'Assen') ? "selected" : ""; ?>>Assen</option>
+                            <option value="Amsterdam" <?php echo ($_SESSION['location'] ==  'Amsterdam') ? "selected" : ""; ?>>Amsterdam</option>
                         </select>
                     </div>
                 </div>
@@ -80,8 +86,8 @@
                     <label for="role">Rol: </label>
                     <div>
                         <select name="role" id="role">
-                            <option value="Student">Student</option>
-                            <option value="Docent">Docent</option>
+                            <option value="student">Student</option>
+                            <option value="docent">Docent</option>
                             <option value="Helpdeskmedewerker">Helpdeskmedewerker</option>
                         </select>
                     </div>

@@ -415,10 +415,14 @@ header {
 }
 
 /* ticket.php */
+#ticketPageWrapper{
+  width: 80%;
+  margin: 0 auto;
+}
+
 #ticketContainer {
   width: 50%;
   float: left;
-  padding-left: 20px;
 }
 
 #ticketEmailContainer {

@@ -6,6 +6,7 @@ include "../helper/getTicketInformation.php";
 include "../helper/getErrorMessages.php";
 
 $ticket = getTicketInformation($conn, $_GET['id'], $_SESSION['email'], $_SESSION['role']);
+$responses = getResponses($conn, $_GET['id']);
 $ticketID = $_GET['id'];
 
 if (!rightToViewTicket($conn, $ticket)){
@@ -43,6 +44,8 @@ if(isset($_POST['submit'])){
         include "../helper/session.php";
         ?>
 
+
+        <div id="ticketPageWrapper">
         <div id="ticketContainer">
             <div id="ticketEmailContainer">
                 <h3><?php echo $ticket['email']; ?></h3>
@@ -152,7 +155,6 @@ if(isset($_POST['submit'])){
             </div>
         <?php endif; ?>
         <?php
-        $responses = getResponses($conn, $_GET['id']);
 
         echo"<div id='responsesWrapper'>";
         echo"<h2>Reacties:</h2>";
@@ -172,6 +174,7 @@ if(isset($_POST['submit'])){
         ?>
 
     </div>
+</div>
 </div>
 </body>
 

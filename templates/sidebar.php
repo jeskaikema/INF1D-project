@@ -10,7 +10,7 @@ include "../helper/session.php"
     if($_SESSION['role'] === "Helpdeskmedewerker" || $_SESSION['role'] === "management"){
         echo '<div class="S-Item">
             <img src="../img/dashboard.png" alt=Dashboard width="24.8px" height="25.6px" style="margin:auto; margin-left: 8px; margin-right: 20px;">
-            <a href="../pages/userOverView.php"><h4>Dashboard</h4></a>
+            <a href="../pages/userOverView.php"><h4>Gebruikers</h4></a>
         </div>';
     }
     ?>
@@ -61,7 +61,7 @@ include "../helper/session.php"
     if($_SESSION['role'] === "Helpdeskmedewerker" || $_SESSION['role'] === "management"){
         echo '<div class="S-Item">
             <img src="../img/dashboard.png" alt=Dashboard width="24.8px" height="25.6px" style="margin:auto; margin-left: 8px; margin-right: 20px;">
-            <a href="../pages/userOverView.php"><h4>Dashboard</h4></a>
+            <a href="../pages/userOverView.php"><h4>Gebruikers</h4></a>
         </div>';
     }
     ?>
