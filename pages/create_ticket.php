@@ -18,17 +18,6 @@ include_once "../helper/getErrorMessages.php";
         </div>
         <form action="../src/create_ticket.php" method="POST" enctype="multipart/form-data" class="form flex">
             <div class="label-input flex">
-                <label for="name">Naam:</label>
-                <div>
-                    <?php if ((isset($_GET['error']) && ($_GET['error'] == "emptyField"))): ?>
-                        <div class="error">
-                            <?php echo getErrorMessages($_GET['error']); ?>
-                        </div>
-                    <?php endif; ?>
-                    <input type="text" name="name" id="name" placeholder="Naam">
-                </div>
-            </div>
-            <div class="label-input flex">
                 <label for="phonenumber">Telefoonnummer: </label>
                 <div>
                     <?php if ((isset($_GET['error']) && ($_GET['error'] == "invalidPhoneNumber"))): ?>
@@ -58,7 +47,7 @@ include_once "../helper/getErrorMessages.php";
                             <?php echo getErrorMessages($_GET['error']); ?>
                         </div>
                     <?php endif; ?>
-                    <input type="text" name="department" id="department" value=<?php echo $_SESSION['department']; ?> readonly>
+                    <input type="text" name="department" id="department" value="<?php echo $_SESSION['department']; ?>" readonly>
                 </div>
             </div>
             <div class="label-input flex">
