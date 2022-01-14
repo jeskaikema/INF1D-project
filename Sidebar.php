@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
     <body>
-    <?php $groep = "Student";
+    <?php $groep = "Docent";
 
     function getColor($groupcolor){
     
@@ -88,7 +88,28 @@
         </div>
     
         <div class="main">
-            <?php echo "Content"; ?>
+            <p>"Hi"</p>
+            <br></br>
+            <p>"Hi"</p>
+            <br></br>
+            <p>"Hi"</p>
+            <br></br>
+            <p>"Hi"</p>
+            <br></br>
+            <p>"Hi"</p>
+            <br></br>
+            <p>"Hi"</p>
+            <br></br>
+            <p>"Hi"</p>
+            <br></br>
+            <p>"Hi"</p>
+            <br></br>
+            <p>"Hi"</p>
+            <br></br>
+            <p>"Hi"</p>
+            <br></br>
+            <p>"Hi"</p>
+            <br></br>
         </div>
     </div>
 
