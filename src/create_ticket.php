@@ -20,6 +20,7 @@ function placeTicket($conn, $phonenumber, $email, $roomnumber, $description, $fi
     }
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
+    header("location: ../pages/ticketoverzicht.php");
 }
 
 if (isset($_POST['submit'])) {

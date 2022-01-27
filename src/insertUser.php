@@ -19,6 +19,7 @@
             mysqli_stmt_close($statement);
         }
         mysqli_close($conn);
+        header("location: ../pages/userOverview.php");
     }
 
     if (isset($_POST['submit']))
